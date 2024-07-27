@@ -1,0 +1,23 @@
+{% extends "cqur_master.html" %} 
+{% block titleentry %}
+    Root Letter Index
+{% endblock %}
+{% block articleentry %}
+{% endblock %}
+{% block rootlist %}
+<ul class="alpha">
+    {% for a in ArAlphabets %}                   
+    <li> {{ a.alphabet_text }}           
+        <ul class="root">
+        <div>                        
+            {% for r in RoLtr %}                               
+                {% if a.arabic_alphabet_id == r.arabic_alphabet_id %}
+                    <li class="ltr"> <a href="/cquradbr/{{r.root_letter_id}}/">{{ r.root_letter_text }}</a></li>
+                {% endif %}                              
+            {% endfor %}                        
+        </div>
+        </ul>    
+    </li>        
+    {% endfor %}
+</ul>
+{% endblock %}        

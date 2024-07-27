@@ -1,0 +1,10 @@
+{% extends "cqur_master.html" %}
+
+{% block title %} Root Letter Index {% endblock %}
+{% block pageheading %}Root Letter Index {% endblock %}
+{% block ulcontent %}
+    {% for x in RoLtr %}
+        <li>{{x.root_letter_text}}</li>
+    {% endfor %}
+    <p>Back to <a href="/cqArAl">Alphabetical Index</a></p>
+{% endblock %}

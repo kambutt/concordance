@@ -1,0 +1,24 @@
+{% extends "cqur_master.html" %}
+{% block titleentry %}
+    Ayaat
+{% endblock %}
+{% block ayatdet %}
+            {% for k in Kalim %}
+                {% ifchanged k.kalimah_text %}           
+                    <div class="kalimah">
+                         {{k.kalimah_text}}                 
+                    </div>
+                {% endifchanged %}   
+                <table>                        
+                    <tr>
+                        <td class="numtd">{{ k.ayat_seq_no }}:{{ k.soorah_seq_no }} </td>                                
+                        <td class="soorahtd">{{ k.soorah_name }}</td>
+                        <td class="ayattd">{{ k.ayat_text }}</td>
+                        <td class="trantd">{{ k.translation_urdu }}</td>  
+                    </tr>                      
+                </table>
+            {% empty %}
+                <div class="emptydiv"> انتظار فرماىٔيں۔
+                </div>
+            {% endfor %}
+{% endblock%}
