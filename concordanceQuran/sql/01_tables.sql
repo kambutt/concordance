@@ -90,7 +90,7 @@ CREATE TABLE kalimaat
     ,CONSTRAINT pk_kalimaat PRIMARY KEY (kalimaat_id)
     ,CONSTRAINT fk_kalimaat_root_letter FOREIGN KEY (root_letter_id) REFERENCES root_letter (root_letter_id)
     );
-
+DROP TABLE kalimaat_ayat_xref;
 CREATE TABLE kalimaat_ayat_xref (
     kalimaat_ayat_xref_id  NUMBER NOT NULL,
     kalimaat_id NUMBER NOT NULL,
@@ -150,7 +150,6 @@ CREATE TABLE nhw_kalimah_subtype
     );
 
 DROP VIEW ayat_details_by_root;
-
 CREATE VIEW ayat_details_by_root AS
 SELECT '' id,
        k.kalimah_seq_no,

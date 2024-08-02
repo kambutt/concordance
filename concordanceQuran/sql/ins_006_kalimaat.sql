@@ -378,4 +378,45 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 28, 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 29, 'الآخِرِين', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ ر';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 30, 'الاخِرَة', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ ر';
 COMMIT;
+--'ا خ و'
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'أَخ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'أَخَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'أَخانَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'أَخَاهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'أَخَاهُم', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'أَخُوكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'أَخُوهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'أَخُوهُمْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'أَخِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'أَخِيكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'أَخِيهِ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'أَخَوَيْكُم', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'إِخْوَان', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 'إِخْوَاناً', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 'إِخْوَانكم', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'إِخْوَانِنَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'إِخْوَانِهم', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'إِخْوَانهن', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'إِخْوَة', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 'إِخْوَتِك', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 21, 'إِخْوَتِه', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 'إِخْوَتِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 23, 'أُخْت', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 24, 'أُخْتُكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 25, 'أُخْتِهِ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 26, 'أُخْتِهَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 27, 'أُخْتَين', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 28, 'أَخَوَاتكم', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 29, 'أَخَوَاتهن', root_letter_id FROM root_letter WHERE root_letter_text = 'ا خ و';
+COMMIT;
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'إِدًّا', root_letter_id FROM root_letter WHERE root_letter_text = 'ا د د';
+--
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'آدَم', root_letter_id FROM root_letter WHERE root_letter_text = 'ا د م';
+--
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'تُؤَدُّوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ا د ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'فَلْيُؤَدّ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا د ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'يُؤَدِّهِ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا د ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'أَدَّوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ا د ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'أَدَاءٌ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا د ى';
 */
+COMMIT;

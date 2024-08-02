@@ -1340,6 +1340,7 @@ and (
     (s.soorah_seq_no = 12 and a.ayat_seq_no IN (37))
     );
 COMMIT;
+*/
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s,
@@ -1583,4 +1584,3 @@ and (
 OR (s.soorah_seq_no = 41 and a.ayat_seq_no IN (11))
     );
 COMMIT;
-*/ --117:126
