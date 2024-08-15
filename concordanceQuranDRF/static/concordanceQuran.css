@@ -84,6 +84,7 @@ div.divUr {
   font-family: "Noto Nastaliq Urdu";
   text-align: center;
   font-size: smaller;
+  display: inline-block;
 }                 
 ul.alpha {
   font-family: "Amiri Quran", serif;
@@ -119,20 +120,20 @@ a {
 td, tr {       
   border-bottom: 1px solid gray;                 
   border-left: 1px solid gray;    
-  border-collapse: collapse;
-  padding-bottom: 7px;
+  border-collapse: collapse; 
+  padding-top: 5px;
 }
 
 table {
   table-layout: fixed;
-  width: 100%;
+  width: 100%;  
 }
 .numtd{
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: medium;
   direction: ltr;
   text-align: center;
-  width: 5%;
+  width: 5%;  
 }
 .soorahtd {             
   font-family: "Lateef", serif;
@@ -140,7 +141,7 @@ table {
   font-size: large;
   font-style: normal;
   width: 11%;
-  padding-right: 10px;
+  padding-right: 10px;  
 } 
 .ayattd {             
   font-family: "Lateef", serif;
