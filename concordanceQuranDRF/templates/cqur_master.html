@@ -4,6 +4,8 @@
     <head>
         <!--Title, style, script, meta, link, base-->
         <!--meta-->
+        <meta lang="en">
+        <meta charset="utf8">
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
         <meta http-equiv="Pragma" content="no-cache"/>
         <meta http-equiv="Expires" content="0"/>
@@ -12,46 +14,61 @@
         {% endblock %}
         <!--title-->        
         <title>
-            {% block titleentry %}
-            'مرحبا'
+            {% block titleentry %}           
             {% endblock %}
         </title>        
         <!--styles-->
     </head>
     <body>
-        
-        <div class="mainpageheading">
-            هَذَا بَيَانٌ لِّلنَّاسِ وَ هُدًى وَ مُوْعِظَةٌ لِّلْمُتَّقِيْنَ          
-        </div>       
-        
-        <div style="text-align: center; ">
-            <a href="/" style="font-size: large; direction: rtl; text-decoration: underline; padding: 20px;">                
-                ابتداء             
-            </a>
-            <a href="/cqAlRo" style="font-size: large; direction: rtl; text-decoration: underline;">
-                حروف اصليہ         
-            </a>
-        </div>  
-         
-        <div class="divUr">
-            <article>                
-                <p>
-                    {% block articleentry %}
+        <div class="flex-container borderimg">            
+            <div class="allpageheading">                
+                هَذَا بَيَانٌ لِّلنَّاسِ وَ هُدًى وَ مُوْعِظَةٌ لِّلْمُتَّقِيْنَ
+            </div>
+            <div class="navlink">
+                <nav>
+                    <a href="/" style="padding: 10px;">ابتداء</a>
+                    <a href="/cqAlRo" style="padding: 10px;">حروف اصليہ </a>                
+                </nav>
+            </div>     
+            <!--For Main page-->              
+            <div class="divUr">
+                <p style="border: 0px; margin: 0px;">
+                    {% block opstmnttitle %}
+                    {% endblock %}
+                    {% block opstmnt %}
                     {% endblock %}
                 </p>
-            </article>
-        </div>   
-        <div>
-        {% block rootlist %}        
-        {% endblock %}
-        </div>     
-        <div class="w3-responsive">
-            {% block ayatdet %}
-            {% endblock %}
+                {% block useinstitle %}
+                {% endblock %}
+                <p style="border: 0px; margin: 0px;">
+                    {% block useins %}
+                    {% endblock %}
+                </p>              
+                {% block warntitle %}
+                {% endblock %}
+                <p style="border: 0px; margin: 0px;">
+                    {% block warn %}
+                    {% endblock %}
+                </p>                   
+                {% block reftitle %}
+                {% endblock %}   
+                <ul class="ulUr">
+                    {% block reflist %}
+                    {% endblock %}
+                </ul>        
+            </div>
+            <div>
+                {% block rootlist %}        
+                {% endblock %}
+            </div>     
+            <div class="w3-responsive">
+                {% block ayatdet %}
+                {% endblock %}
+            </div>        
         </div>        
     </body>
     <footer>
          <hr/>
-        <p style="direction: ltr; text-align: center;">Kamran Butt</p>
+        <p style="direction: rtl; text-align: center;">و ما توفيقى الا باالله</p>
     </footer>
 </html>

@@ -1,9 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-    <title>Test page</title>
+    <head>
+        <title>Test page</title>
+        <style>
+            .borderimg {
+                border: 50px solid transparent;
+                border-image: url("{%static 'border.png' %}") 40 round;
+                height: 530px;
+            }
+        </style>
+    </head>
+    
     <body>
-        {% for x in Fruits %}
-            <p> {{x}}</p>
-        {% endfor %}
+        <div class="borderimg">
+            <p>The image</p>
+            <p><img src="{%static 'border.png' %}" alt="The image"></p>
+            
+        </div>
+        <div style="border: 0px solid black; text-align: center;"> quick brown fox jumped </div>   
+        <div style="border: 0px solid black;"></div>  
+        <div style="border: 0px solid black;"></div>      
     </body>
 </html>

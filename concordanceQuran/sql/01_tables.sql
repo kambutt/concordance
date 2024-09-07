@@ -36,8 +36,8 @@ CREATE TABLE ayat
      soorah_id NUMBER,
      ayat_seq_no NUMBER NOT NULL,
      ayat_text VARCHAR2(2500) NOT NULL,
-     translation_urdu VARCHAR2(2500),
-     translation_english VARCHAR2(2500),
+     translation_urdu VARCHAR2(2900),
+     translation_english VARCHAR2(2900),
      create_date DATE NOT NULL,
      create_user VARCHAR2(40) NOT NULL,
      update_date DATE,
@@ -89,6 +89,7 @@ CREATE TABLE kalimaat
     ,update_user VARCHAR2(40)
     ,CONSTRAINT pk_kalimaat PRIMARY KEY (kalimaat_id)
     ,CONSTRAINT fk_kalimaat_root_letter FOREIGN KEY (root_letter_id) REFERENCES root_letter (root_letter_id)
+    ,CONSTRAINT uk_kalimaat_kalimah_text UNIQUE (kalimah_text)
     );
 DROP TABLE kalimaat_ayat_xref;
 CREATE TABLE kalimaat_ayat_xref (

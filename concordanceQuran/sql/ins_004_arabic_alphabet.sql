@@ -25,5 +25,5 @@ INSERT INTO arabic_alphabet (alphabet_text) VALUES ('م');
 INSERT INTO arabic_alphabet (alphabet_text) VALUES ('ن');
 INSERT INTO arabic_alphabet (alphabet_text) VALUES ('و');
 INSERT INTO arabic_alphabet (alphabet_text) VALUES ('ه');
-INSERT INTO arabic_alphabet (alphabet_text) VALUES ('ي');
+INSERT INTO arabic_alphabet (alphabet_text) VALUES ('ى');
 COMMIT;

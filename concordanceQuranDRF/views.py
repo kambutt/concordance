@@ -45,13 +45,14 @@ def cQurIndex (request):
 
 def cQurTesting (request):
     template = loader.get_template("cqur_testing.html")
-    template = loader.get_template('cqur_sadet.html')
-    Kalim = Kalimaat.objects.filter(root_letter_id=id).values()
-    context = {
-        'Kalim': Kalim,
-    }
-    context = {
-        "Fruits": ["Apple","Cherry","Banana"],
-        "Kalim": Kalim,
-    }
-    return HttpResponse(template.render(context, request))
+    #template = loader.get_template('cqur_sadet.html')
+    #Kalim = Kalimaat.objects.filter(root_letter_id=id).values()
+    #context = {
+    #    'Kalim': Kalim,
+    #}
+    #context = {
+    #    "Fruits": ["Apple","Cherry","Banana"],
+    #    "Kalim": Kalim,
+    #}
+    return HttpResponse(template.render())
+    #return HttpResponse(template.render(context, request))
