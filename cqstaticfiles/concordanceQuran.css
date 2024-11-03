@@ -1,20 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Alkalami&family=Reem+Kufi:wght@400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Alkalami&family=Amiri+Quran&family=Reem+Kufi:wght@400..700&display=swap");
-
-@media print{
-  body{ background-color:#FFFFFF; background-image:none; color:#000000}
-  ad{ display:none;}
-  leftbar{ display:none;}
-  contentarea{ width:100%;}  
-  img {display: none; border: none;}
-}
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 * {
   box-sizing: border-box;
   direction: rtl;
   unicode-bidi: bidi-override;
 }
+
+body ,html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.amiri-regular {
+  font-family: "Amiri", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.amiri-bold {
+  font-family: "Amiri", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.amiri-regular-italic {
+  font-family: "Amiri", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.amiri-bold-italic {
+  font-family: "Amiri", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
 .lateef-extralight {
   font-family: "Lateef", serif;
   font-weight: 200;
@@ -59,15 +83,26 @@ font-style: normal;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-}   
-.borderimg {
-  border: 50px solid transparent;
-  border-image: url('border.png') 40 round;  
-  padding: 20px;
 }
-.allpageheading {          
+/*
+.fcbackgroundimg{
+  background-image: url("01_8_alif.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+*/
+.borderimg {  
+  border: 50px solid transparent;
+  border-image: url('border.png') 40 round;    
+  height: auto;
+}
+.mainpageheading {          
   text-align: center;                
-  font-size: 60px;
+  font-size: 40px;
   font-family: "Alkalami", serif;
   background-color: rgb(180, 221, 99);
   color: rgb(111, 105, 18);
@@ -77,20 +112,34 @@ font-style: normal;
   text-align: center;
   font-size: large;
   direction: rtl;
-  text-decoration: underline;  
-  background: aqua;
+  text-decoration: underline; 
 }
 .divUr {
   unicode-bidi: bidi-override;
   font-family: "Noto Nastaliq Urdu";
   text-align: center;
   font-size: smaller;  
+  overflow-wrap: normal;
 }
-.ulUr {
+.ifccontent {
+  padding-top: 200px;
+  text-align: center;  
+}
+.ifchead {
+  text-align: center;
+}
+.ifcul {
+  page-break-after: avoid;  
+  list-style: none;
+  text-align: center;
+}
+.ifclangu {
   font-family: "Noto Nastaliq Urdu";
   font-size: smaller;
-  list-style: none;
-  padding-bottom: 10px;
+} 
+.ifclange {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: smaller;
 } 
 .alpha {
   font-family: "Amiri Quran", serif;
@@ -118,12 +167,15 @@ font-style: normal;
   font-family: "Lateef", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: larger;
+  font-size: large;
   text-underline-offset: 2px; /* This won't work with IE*/
-  padding-top: 15px;
-  padding-bottom: 10px;  
+  margin-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 2px;  
   border-bottom-width: 1px;
   border-bottom-style: solid;
+  border-bottom-color: black;
+  page-break-after: avoid;
 }
 
 a {
@@ -151,35 +203,179 @@ td, tr {
   padding-top: 5px;
 }
 
-table {
-  table-layout: fixed;
+.tableayat {
+  table-layout: fixed;  
   width: 100%;
 }
-.numtd{
+.tdsseq{
   font-family:Georgia, 'Times New Roman', Times, serif;
-  font-size: medium;
+  border-right: 1px solid gray;
+  color: black;
+  font-size: large;
+  font-weight: bold;
   direction: ltr;
   text-align: center;
-  width: 5%;  
+  width: 3%; 
 }
-.soorahtd {             
+.tdaseq{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: black;
+  font-size: large;
+  font-weight: bold;
+  direction: ltr;
+  text-align: center;
+  width: 3%;  
+}
+.tdsoorah {          
   font-family: "Lateef", serif;
-  font-size: larger;
+  font-size: large;
   font-style: normal;
-  width: 11%;
-  padding-right: 10px;  
+  width: 8%;
+  padding-right: 10px; 
 } 
-.ayattd {             
+.tdayat {             
   font-family: "Lateef", serif;  
-  font-size: larger;
+  font-size: large ;
   font-style: normal;  
-  width: 42%;
+  width: 45%;
   padding-right: 10px;
+  page-break-after: avoid;
 } 
-.trantd {
+.tdurdu {
   font-family: "Noto Nastaliq Urdu";    
   color: black;              
-  font-size: 12px;
-  width: 42%;
+  font-size: smaller;
+  width: 45%;
   padding-right: 10px;
 } 
+.tdeng {
+  font-family: Georgia, 'Times New Roman', Times, serif;    
+  color: black;              
+  font-size: small;
+  width: 42%;
+  padding-right: 10px;
+  direction: ltr;
+} 
+/* For printing in book format*/
+@page {
+  size: 8.27in 11.69in;
+  @top-center {
+    content: counter(page);
+  }
+}
+
+body.first-page {
+  background-image: url("front_cover_ba.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+ /*  
+
+div.frontcover {
+  page: cover; 
+  background-image: url("front_cover_ba.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+ 
+  content: url("01_9_16_alif.png");
+  content: url("01_9_16_alif.png");  
+  
+  
+  */
+  
+}
+@page:first {
+  size: 8.27in 11.69in;     
+  margin: 0;
+  @top-center {
+    content: normal;
+    margin: 0;
+  }
+  @top-right {
+    content: normal;
+    margin: 0;
+  }
+}
+
+@page :blank {
+  @top-center {
+    content: 'Blank top center margin box';
+  }  
+}
+
+@page :right { 
+  margin-top: 1in;
+  @top-right {
+    direction: ltr;
+    margin: 10pt 0 30pt 0;
+    content: "فہرست کلمات قرآن";
+    font-size: 8pt;
+    color: black;
+  }
+  
+}
+/*    border-top: .25pt solid #666;*/
+@page :left {
+  margin-top: 1in;
+  @top-center {
+    content: counter(page);
+  }
+}
+
+h2 {
+  page-break-before: always;
+}
+
+h3, h4, h5 {
+  page-break-after: avoid;
+}
+
+
+@media print{
+  body{ background-color:#FFFFFF; color:#000000} /* background-image:none; */
+  ad{ display:none;}
+  leftbar{ display:none;}
+  contentarea{ width:100%;}    
+  nav {display: none;}
+  #pagebutton {display: none;}
+  div {break-inside: avoid;}
+  td {break-inside: avoid;}
+}
+/*img {display: none; border: none;}*/
+/*root letter table double*/
+.rootmeanrow {
+  direction: rtl;
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+.rootmeancolumn {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+.rootmeantable {
+  border-collapse: collapse;
+  border-spacing: 0;  
+  border: 1px solid #ddd;
+}
+/*End root letter double table*/
+
+/* Clearfix (clear floats) */
+.rootmeanrow::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/*Root letter single table*/
+.singletablecenter {
+  direction: rtl;
+  width: 70%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}

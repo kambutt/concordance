@@ -9,66 +9,175 @@
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
         <meta http-equiv="Pragma" content="no-cache"/>
         <meta http-equiv="Expires" content="0"/>
-        <link rel="stylesheet" href="{% static 'concordanceQuran.css' %}">                
+        <link rel="stylesheet" href="{% static 'concordanceQuran.css' %}">   
+        <link href="/path/to/print.css" media="print" rel="stylesheet" />             
         {% block linkentry %}
         {% endblock %}
         <!--title-->        
-        <title>
+        <title id="alltitle"> 
             {% block titleentry %}           
             {% endblock %}
         </title>        
         <!--styles-->
     </head>
-    <body>
-        <div class="flex-container borderimg">            
-            <div class="allpageheading">                
-                هَذَا بَيَانٌ لِّلنَّاسِ وَ هُدًى وَ مُوْعِظَةٌ لِّلْمُتَّقِيْنَ
+    <body>        
+        <div class="frontcover">
+            <div style="width: 25%; margin: auto; bottom: 55%; right: 33.3%; position: fixed;">
+                <h2 style="color: rgb(125, 89, 56); text-align: center; unicode-bidi: bidi-override; font-family: Noto Nastaliq Urdu;"> شمارہ&nbsp;&nbsp;٨&nbsp;&nbsp; (حصہ اول)</h2>
+                <h2 style="color: rgb(125, 89, 56); text-align: center; unicode-bidi: bidi-override; font-family: Noto Nastaliq Urdu;"><span>&nbsp;&nbsp;&nbsp;&nbsp;ا م ن&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>                          
             </div>
-            <div class="navlink">
-                <nav>
-                    <a href="/" style="padding: 10px;">ابتداء</a>
-                    <a href="/cqAlRo" style="padding: 10px;">حروف اصليہ </a>                
-                </nav>
-            </div>     
-            <!--For Main page-->              
+        </div>
+        <div class="ifccontent"></div>
+            <h3 id="refhead" class="ifchead">حوالہ جات</h3>
+            <ul id="ifcul" class="ifcul">                
+                <li id="idxsrc"">ماخذ فہرست: المُعْجَمُ امُفَهْرَس لِالفاظ الْقُرآنِ الْكَرِيم (وضعه: محمد فواد عبدالباقی)</li>
+                <li id="ayatsrc">متن آیات قرآن: ten.liznat</li>          
+                <li id="transrc">ترجمہ آیات قرآن:  مولانا فتح محمد جالندھری (ten.liznat) </li>              
+                <li id="rootsrc">ماخذات حروف اصلیہ:  المُعْجَمُ المفہرس ، moc.naruq.suproc</li>                                  
+            </ul>
+        </div>        
+        <div class="flex-container">              
+            <h2></h2>
+            <div class="mainpageheading">                
+                هَذَا بَيَانٌ لِّلنَّاسِ وَ هُدًى وَ مُوْعِظَةٌ لِّلْمُتَّقِيْنَ
+            </div>           
             <div class="divUr">
                 <p style="border: 0px; margin: 0px;">
-                    {% block opstmnttitle %}
-                    {% endblock %}
-                    {% block opstmnt %}
-                    {% endblock %}
+                    <h3>بسم الله الرحمن الرحيم</h3>
                 </p>
-                {% block useinstitle %}
-                {% endblock %}
-                <p style="border: 0px; margin: 0px;">
-                    {% block useins %}
-                    {% endblock %}
-                </p>              
-                {% block warntitle %}
-                {% endblock %}
-                <p style="border: 0px; margin: 0px;">
-                    {% block warn %}
-                    {% endblock %}
-                </p>                   
-                {% block reftitle %}
-                {% endblock %}   
-                <ul class="ulUr">
-                    {% block reflist %}
-                    {% endblock %}
-                </ul>        
+                <p>
+                    <span>سب سے بہلے خداۓ وحدہ لا شریک کا لاکھ لاکھ شکر ادا کرتے ہيں جس نے اس کام کی توفیق دی۔ </span><br>            
+                    <span>مطالعہ قرآن کے دوران ایک تحریک پیدا ہوئی کہ یہ معلوم کیا جاۓ کہ قرآن کے الفاظ خود قرآن میں کس طرز پر استعمال ہوۓ ہیں تاکہ ایک سیاق و سباق ان الفاظ کا واضح مزید ہو۔</span><br>
+                    <span>اس ارادہ کے تحت مصر کے مايہ ناز محقق حضرت استاز محمد فواد عبدالباقی رحمتہ اللہ علیہ کی "المعچم المفہرس لالفاظ القران" نظر سے گزری۔</span><br>
+                    <span>اس میں قران کريم کے تمام الفاظ (وہ افعال ہوں یا اسماء پھر ان کی مختلف شکلیں) سے متعلق آيات یکجہ کر دی گئ ہیں-</span><br>
+        '           <span>اس کاوش کا مقصد "المعچم المفہرس" کی طرز پر آيات کا مکمل متن مع ترجمہ مرتب کرنا ہے</span><br>
+                </p>
+                <p>
+                    <span>یہاں جو معلومات فراہم کی گئ ہیں اس کے حصول کے دیگر اچھے ماخذات دستیاب  ہیں۔</span><br>
+                    <span>فرق محض معلومات کے پیش کرنے کے طریقے میں ہے۔ ان ماخذات کے حوالہ جات درج کر دیۓ گۓ ہیں۔ </span><br>
+                    <span>قارئین ان حوالہ جات سے رجوع کر سکتے ہیں اور قرآن فہمی میں مزید بہتری پیدا کر سکتے ہیں۔ </span>            
+                </p>                
             </div>
             <div>
-                {% block rootlist %}        
-                {% endblock %}
-            </div>     
-            <div class="w3-responsive">
-                {% block ayatdet %}
-                {% endblock %}
-            </div>        
+                <h4><p style="direction: rtl; text-align: center;">و ما توفيقى الا باالله</p></h4>
+            </div>            
+        </div>
+        <div class="flex-container"> 
+            <h2></h2>             
+            <div class="mainpageheading">                
+                وَ عَلَّمَكَ مَا لَمْ تَكُن تَعْلَمُ وَ كَانَ فَضْلُ ٱللَّهِ عَلَيْكَ عَظِيمًا
+            </div>           
+            <div class="divUr">
+                <p style="border: 0px; margin: 0px;">
+                    <h3>کچھ اس اشاعت کے بارے میں۔۔۔</h3>
+                </p>                
+                <p>                    
+                    <span>اس اشاعت میں حرف "ا" سے شروع ہونے والے کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ مع مرکزی مفہوم درج ذیل ہیں</span><br>            
+                    <span>حصہ اول میں کلمہ "اللہ" پر مبنی سورۃ لقمان كی آیت ٨٢ سے لے کر آخیر تک اور بقیہ کلمہ شامل کۓ گۓ ہیں۔ </span><br>            
+                    <span>ا ل ه</span><br>
+                    <span style="font-size: smaller;">ان پر مبنی الفاظ کا مطلب اکثر و بیشتر مرکزی مفہوم سے مشابہت رکھتا ہے۔    کلمات کے ترجمہ کے لیۓ کسی معیاری لغت کا استعمال کریں۔</span>                    
+                </p>
+            </div>
+            {% block rootmean %}
+            {% endblock %}
+        </div>
+        <div class="navlink">
+            <nav>
+                <a href="/" style="padding: 10px;">ابتداء</a>
+                <a href="/cqalphabet" style="padding: 10px;">حروف تہجی </a>                
+                <a href="/cqrootletter" style="padding: 10px;">حروف اصليہ </a>                
+                <a href="/cqkalimaat" style="padding: 10px;">کلمات قرآن </a>          
+                <a href="/cqfrontcoverur" style="padding: 10px;">سرورق-اردو</a>                          
+            </nav>
+            <br>
+            <!--
+            <div style="width: 20%; margin: auto;">
+                <button id="buttone" type="button" onclick="toggleLanguage('english')" style="direction: ltr;">English</button>
+                <button id="buttonu" type="button" onclick="toggleLanguage('urdu')" style="direction: ltr;">Urdu</button>        
+                <button id="buttonp" type="button" onclick=printpage() style="direction: ltr;">Print</button>     
+            </div>
+            -->
+        </div>  
+        {% block main %}
+        {% endblock %}
+        {% block alphabet %}
+        {% endblock %}
+        {% block rootlist %}        
+        {% endblock %}                
+        <div class="w3-responsive">
+            {% block ayatdet %}
+            {% endblock %}
         </div>        
     </body>
     <footer>
-         <hr/>
-        <p style="direction: rtl; text-align: center;">و ما توفيقى الا باالله</p>
+        <hr/>
+        {% block footer %}
+        {% endblock %}
     </footer>
+    <script>
+        function toggleLanguage(language) {           
+            console.log(language);
+            let ptitle = document.getElementById("alltitle").innerHTML; 
+            let ptext = '';
+            ptitle = ptitle.trim();
+            console.log(ptitle);
+            if (language == 'english') {
+                if (ptitle == 'Concordance Main') {
+                    popenstmnt = document.getElementById("openstmnt");
+                    puseins = document.getElementById("useins");
+                    ptext = 'All thanks to Allah for bestowing the capability for this task. <br>';
+                    ptext = ptext + ' Hazrat Muhammad Fawad Abdul Baqi, may God bless him and grant him peace, did a wonderful';
+                    ptext = ptext + ' job of compiling words of the Holy Quran, there variations and made it simple to find';
+                    ptext = ptext + ' soorahs and ayaats containing them by collecting them all together using root letters.';
+                    ptext = ptext + ' The information provided here is largely based on his work.';
+                    popenstmnt.innerHTML = ptext;
+                    popenstmnt.style.direction = 'ltr';
+                    ptext = '';
+                    ptext = 'There are a lot of good sources for the information presented here <br>';
+                    ptext = ptext + 'The difference is in style of presentation.  References are provided.<br>';
+                    ptext = ptext + 'Quranic text and translation are also available for download on tanzil.net.<br>';
+                    ptext = ptext + 'Root letter search along with list of words and related Aayat is also available on corpus.quran.com.<br>';
+                    ptext = ptext + 'corpus.quran.com also carries more information about the grammar as well.<br>';
+                    ptext = ptext + 'Readers are encouraged to consult these websites for a richer experience.<br>';
+                    ptext = ptext + '<br><br><br><br><br>';
+                    puseins.innerHTML = ptext;
+                    puseins.style.direction = 'ltr';
+                }                
+            }            
+        }
+        function printpage(){
+            let pbuttone = document.getElementById("buttone");
+            let pbuttonu = document.getElementById("buttonu");
+            let pbuttonp = document.getElementById("buttonp");
+
+            pbuttone.style.visibility = "hidden";
+            pbuttonu.style.visibility = "hidden";
+            pbuttonp.style.visibility = "hidden";
+            window.print();
+            pbuttone.style.visibility = "visible";
+            pbuttonu.style.visibility = "visible";
+            pbuttonp.style.visibility = "visible";            
+        }
+    </script>
 </html>
+<!--
+                    <span> ا ب ب ، ا ب د ، ا ب ق ، ا ب ل ، ا ب و ، ا ب ى </span><br>    
+                    <span>ا ت ى</span><br>
+                    <span>ا ث ث، ا ث ر، ا ث ل، ا ث م، ا ج ج، ا ج ر، ا ج ل، ا ح د</span><br>
+                    <span>ا خ ذ ، ا خ ر</span><br>
+                    <span>ا خ و ، ا د د ، ا د ى ، ا ذ ن ، ا ذ ى ، ا ر ب</span><br>
+                    <span>ا ر ض</span><br>
+                    <span>ا ر ك ، ا ز ر ، ا ز ز ، ا ز ف ، ا س ر ، ا س س ، ا س ف ، ا س ن ، ا س و ، ا ش ر ، ا ص ر ، ا ص ل ، ا ف ف ، ا ف ق ، ا ف ك ، ا ف ل ، ا ك ل ، ا ل ت ، ا ل ف ، ا ل م</span><br>                    
+                    <span>ا ل ه</span><br>
+                    <span>ا ل و ، ا م ت ، ا م د ، ا م ر ، ا م ل ، ا م م</span><br>
+                    <span>ا م ن</span><br>
+                    <span>ا م و ، ا ن ث ، ا ن س ، ا ن ف ، ا ن م ، ا ن ى ، ا ه ل ، ا و ب ، ا و د</span><br>                    
+                    <span>ا و ل</span><br>                                 
+                    <span>ا و ه ، ا و ى ، ا ى د ، ا ى م ، ا ى ى</span><br>                           
+                    <span>اس اشاعت میں حرف "ا" سے شروع ہونے والے کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ مع مرکزی مفہوم درج ذیل ہیں</span><br>            
+                    <span style="font-size: smaller;">ان پر مبنی الفاظ کا مطلب اکثر و بیشتر مرکزی مفہوم سے مشابہت رکھتا ہے۔    کلمات کے ترجمہ کے لیۓ کسی معیاری لغت کا استعمال کریں۔</span>
+                    
+                    <span style="font-size: smaller;">٭ حروف اصليہ کا ترجمہ نہیں ہوتا کیونکہ یہ کلمہ یا لفظ کے ضمرے میں نہیں آتے۔</span>                    
+                    
+                    
+-->

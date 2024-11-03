@@ -13,6 +13,7 @@ DROP TABLE soorah;
 CREATE TABLE soorah (
     soorah_id NUMBER,
     soorah_seq_no NUMBER NOT NULL,
+    soorah_seq_no_ar NVARCHAR2(10),
     soorah_name VARCHAR2(80) NOT NULL,
     revelation_location_id NOT NULL,
     create_date DATE NOT NULL,
@@ -67,6 +68,7 @@ CREATE TABLE root_letter
      root_letter_text VARCHAR2(15 CHAR) NOT NULL,
      confirmation_flag  NUMBER DEFAULT 0 NOT NULL,
      root_letter_notes  VARCHAR2(500),
+     core_meaning VARCHAR2(100),
      create_date DATE NOT NULL,
      create_user VARCHAR2(40) NOT NULL,
      update_date DATE,
@@ -80,9 +82,11 @@ CREATE TABLE root_letter
 DROP TABLE kalimaat;
 CREATE TABLE kalimaat
     (kalimaat_id NUMBER NOT NULL    
+    ,root_letter_id NUMBER
     ,kalimah_seq_no  NUMBER
     ,kalimah_text VARCHAR2(100) NOT NULL    
-    ,root_letter_id NUMBER    
+    ,translation_urdu VARCHAR2(40)
+    ,translation_english VARCHAR2(40)        
     ,create_date DATE NOT NULL
     ,create_user VARCHAR2(40) NOT NULL
     ,update_date DATE
@@ -150,25 +154,55 @@ CREATE TABLE nhw_kalimah_subtype
     ,CONSTRAINT u_nhw_kalimah_subtype_text UNIQUE (nhw_kalimah_subtype_text)
     );
 
-DROP VIEW ayat_details_by_root;
-CREATE VIEW ayat_details_by_root AS
+DROP VIEW vw_root_by_alpha;
+CREATE VIEW vw_root_by_alpha AS
+SELECT  '' id,
+        a.arabic_alphabet_id,        
+        a.alphabet_text,
+        r.root_letter_id,
+        r.root_letter_seq_no,
+        r.root_letter_text
+FROM arabic_alphabet a,
+     root_letter r
+WHERE a.arabic_alphabet_id = r.arabic_alphabet_id
+ORDER BY a.alphabet_text, r.root_letter_seq_no;
+
+DROP VIEW vw_ayat_details;
+CREATE VIEW vw_ayat_details AS
 SELECT '' id,
-       k.kalimah_seq_no,
-       k.kalimah_text,
-       k.root_letter_id,       
-       s.soorah_seq_no,
-       s.soorah_name,       
-       a.ayat_seq_no,
-       a.ayat_text,
-       a.translation_urdu,
-       r.revelation_location_name
-FROM kalimaat k,
-    kalimaat_ayat_xref ka,
-    ayat a,
-    soorah s,
-    revelation_location r
-WHERE k.kalimaat_id = ka.kalimaat_id
-AND ka.ayat_id = a.ayat_id
-AND s.soorah_id = a.soorah_id
-AND s.revelation_location_id = r.revelation_location_id
-ORDER BY k.kalimah_seq_no, s.soorah_seq_no, a.ayat_seq_no;
+        aral.arabic_alphabet_id,
+        rolet.root_letter_id,
+        kali.kalimaat_id,
+        ayat.ayat_id,
+        soor.soorah_id,
+        aral.alphabet_text,
+        rolet.root_letter_seq_no,        
+        rolet.root_letter_text,
+        rolet.core_meaning,
+        kali.kalimah_seq_no,
+        kali.kalimah_text, 
+        kali.translation_urdu ktranslation_urdu,
+        kali.translation_english ktranslation_english,
+        ayat.ayat_seq_no,
+        ayat.ayat_seq_no_ar,
+        ayat.ayat_text,
+        ayat.translation_urdu,
+        ayat.translation_english,   
+        soor.soorah_seq_no,
+        soor.soorah_seq_no_ar,
+        soor.soorah_name,              
+        relo.revelation_location_name
+FROM arabic_alphabet aral,
+     root_letter rolet,
+     kalimaat kali,
+     kalimaat_ayat_xref kaax,
+     ayat ayat,     
+     soorah soor,
+     revelation_location relo
+WHERE rolet.arabic_alphabet_id = aral.arabic_alphabet_id
+AND rolet.root_letter_id = kali.root_letter_id
+AND kaax.kalimaat_id = kali.kalimaat_id
+AND kaax.ayat_id = ayat.ayat_id
+AND soor.soorah_id = ayat.soorah_id
+AND soor.revelation_location_id = relo.revelation_location_id
+ORDER BY kali.kalimah_seq_no, soor.soorah_seq_no, ayat.ayat_seq_no;

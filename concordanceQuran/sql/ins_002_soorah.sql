@@ -113,5 +113,10 @@ INSERT INTO soorah (soorah_seq_no, soorah_name, revelation_location_id) VALUES (
 INSERT INTO soorah (soorah_seq_no, soorah_name, revelation_location_id) VALUES (112, 'ألْإِخْلَاس', 1);
 INSERT INTO soorah (soorah_seq_no, soorah_name, revelation_location_id) VALUES (113, 'ألْفَلَق', 1);
 INSERT INTO soorah (soorah_seq_no, soorah_name, revelation_location_id) VALUES (114, 'ألنَّاس', 1);
-
+COMMIT;
+--Add arabic numerals as soorah sequence
+UPDATE soorah
+SET soorah_seq_no_ar = translate( TO_CHAR(soorah_seq_no),
+                                 '0123456789',
+                                 utl_i18n.raw_to_char( '0660066106620663066406650666066706680669', 'AL16UTF16' ));
 COMMIT;

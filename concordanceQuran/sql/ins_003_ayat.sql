@@ -6235,3 +6235,9 @@ INSERT INTO ayat (soorah_id, ayat_seq_no, ayat_text) VALUES ((SELECT soorah_id F
 INSERT INTO ayat (soorah_id, ayat_seq_no, ayat_text) VALUES ((SELECT soorah_id FROM soorah WHERE soorah_seq_no = 114),5,'ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ');
 INSERT INTO ayat (soorah_id, ayat_seq_no, ayat_text) VALUES ((SELECT soorah_id FROM soorah WHERE soorah_seq_no = 114),6,'مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ');
 COMMIT;
+--Add arabic numberals
+UPDATE ayat
+SET ayat_seq_no_ar = translate( TO_CHAR(ayat_seq_no),
+                                '0123456789',
+                                 utl_i18n.raw_to_char( '0660066106620663066406650666066706680669', 'AL16UTF16' ));
+COMMIT;

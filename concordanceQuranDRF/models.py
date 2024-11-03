@@ -198,6 +198,7 @@ class RootLetter(models.Model):
     arabic_alphabet = models.ForeignKey(ArabicAlphabet, models.DO_NOTHING, blank=True, null=True)
     root_letter_seq_no = models.FloatField()
     root_letter_text = models.CharField(unique=True, max_length=15)
+    core_meaning = models.CharField(max_length=100, blank=True, null=True)
     confirmation_flag = models.FloatField()
     root_letter_notes = models.CharField(max_length=500, blank=True, null=True)
     create_date = models.DateField()
@@ -247,6 +248,39 @@ class KalimaatAyatXref(models.Model):
         db_table = 'kalimaat_ayat_xref'
         unique_together = (('kalimaat', 'ayat'),)
 
+class VwAyatDetails(models.Model):
+    id = models.FloatField(primary_key=True)
+    arabic_alphabet_id = models.FloatField()
+    root_letter_id = models.FloatField()
+    kalimaat_id = models.FloatField()
+    ayat_id = models.FloatField()
+    soorah_id = models.FloatField()
+    alphabet_text = models.CharField(max_length=5)
+    root_letter_seq_no = models.FloatField()
+    root_letter_text = models.CharField(max_length=15)
+    core_meaning = models.CharField(max_length=100, blank=True, null=True)
+    kalimah_seq_no = models.FloatField(blank=True, null=True)
+    kalimah_text = models.CharField(max_length=100)
+    ktranslation_urdu = models.CharField(max_length=40, blank=True, null=True)
+    ktranslation_english = models.CharField(max_length=40, blank=True, null=True)
+    ayat_seq_no = models.FloatField()
+    ayat_seq_no_ar = models.CharField(max_length=10, blank=True, null=True)
+    ayat_text = models.CharField(max_length=2500)
+    translation_urdu = models.CharField(max_length=2900, blank=True, null=True)
+    translation_english = models.CharField(max_length=2900, blank=True, null=True)
+    soorah_seq_no = models.FloatField()
+    soorah_seq_no_ar = models.CharField(max_length=10, blank=True, null=True)
+    soorah_name = models.CharField(max_length=80)
+    revelation_location_name = models.CharField(max_length=20)
+
+    class Meta:
+        managed = False
+        db_table = 'vw_ayat_details'
+        ordering = ['root_letter_seq_no','kalimah_seq_no', 'soorah_seq_no', 'ayat_seq_no']
+    
+    def __str__(self) -> str:
+        return f"{self.kalimah_text}"
+
 
 class NhwKalimah(models.Model):
     nhw_kalimah_id = models.FloatField(primary_key=True)
@@ -288,22 +322,16 @@ class NhwKalimahType(models.Model):
         managed = False
         db_table = 'nhw_kalimah_type'
 
-class AyatDetailsByRoot(models.Model):
+
+
+class VwRootByAlpha(models.Model):
     id = models.FloatField(primary_key=True)
-    kalimah_seq_no = models.FloatField(blank=True, null=True)
-    kalimah_text = models.CharField(max_length=100)
-    root_letter_id = models.FloatField(blank=True, null=True)
-    soorah_seq_no = models.FloatField()
-    soorah_name = models.CharField(max_length=80)
-    ayat_seq_no = models.FloatField()
-    ayat_text = models.CharField(max_length=2500)
-    translation_urdu = models.CharField(max_length=2500, blank=True, null=True)
-    revelation_location_name = models.CharField(max_length=20)
+    arabic_alphabet_id = models.FloatField()
+    alphabet_text = models.CharField(max_length=5)
+    root_letter_id = models.FloatField()
+    root_letter_seq_no = models.FloatField()
+    root_letter_text = models.CharField(max_length=15)
 
     class Meta:
         managed = False
-        db_table = 'ayat_details_by_root'
-        ordering = ['kalimah_seq_no', 'kalimah_text', 'soorah_seq_no', 'ayat_seq_no']
-    
-    def __str__(self) -> str:
-        return f"{self.kalimah_text}"
+        db_table = 'vw_root_by_alpha'

@@ -1,19 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Alkalami&family=Reem+Kufi:wght@400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Alkalami&family=Amiri+Quran&family=Reem+Kufi:wght@400..700&display=swap");
-
-@media print{
-  body{ background-color:#FFFFFF; background-image:none; color:#000000 }
-  #ad{ display:none;}
-  #leftbar{ display:none;}
-  #contentarea{ width:100%;}
-}
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 * {
   box-sizing: border-box;
   direction: rtl;
   unicode-bidi: bidi-override;
 }
+
+body ,html {
+  height: 100%;
+}
+
+.amiri-regular {
+  font-family: "Amiri", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.amiri-bold {
+  font-family: "Amiri", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.amiri-regular-italic {
+  font-family: "Amiri", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.amiri-bold-italic {
+  font-family: "Amiri", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
 .lateef-extralight {
   font-family: "Lateef", serif;
   font-weight: 200;
@@ -58,14 +81,85 @@ font-style: normal;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-}   
-.mainpageheading {                
+}
+.fcbackgroundimg{
+  background-image: url("front_cover_yay.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+.borderimg {  
+  border: 50px solid transparent;
+  /*border-top: none;
+  border-bottom: none;*/
+  border-image: url('border.png') 40 round;    
+  height: auto;
+}
+.allpageheading {          
   text-align: center;                
-  font-size: 60px;
+  font-size: 40px;
   font-family: "Alkalami", serif;
   background-color: rgb(180, 221, 99);
   color: rgb(111, 105, 18);
   padding-bottom: 10px;             
+}
+.navlink {
+  text-align: center;
+  font-size: large;
+  direction: rtl;
+  text-decoration: underline; 
+}
+.divUr {
+  unicode-bidi: bidi-override;
+  font-family: "Noto Nastaliq Urdu";
+  text-align: center;
+  font-size: smaller;  
+}
+.ifccontent {
+  padding-top: 200px;
+  text-align: center;  
+}
+.ifchead {
+  text-align: center;
+}
+.ifcul {
+  page-break-after: avoid;  
+  list-style: none;
+  text-align: center;
+}
+.ifclangu {
+  font-family: "Noto Nastaliq Urdu";
+  font-size: smaller;
+} 
+.ifclange {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: smaller;
+} 
+.alpha {
+  font-family: "Amiri Quran", serif;
+  font-size: larger;  
+  font-weight: bold;
+  color: black;
+  list-style: none;
+  padding-bottom: 10px;
+}
+.root {
+  font-family: "Amiri Quran", serif;
+  font-size: large;
+  color: black;
+  list-style: none;     
+  display: inline;           
+}
+.ltr {
+  padding-right: 15px;
+  margin-right: 20px;
+  white-space: nowrap;
+  text-indent: 0;  
+  display: inline-block;
 }
 .kalimah {
   font-family: "Lateef", serif;
@@ -74,37 +168,11 @@ font-style: normal;
   font-size: larger;
   text-underline-offset: 2px; /* This won't work with IE*/
   padding-top: 15px;
-  padding-bottom: 10px;                
+  padding-bottom: 10px;  
   border-bottom-width: 1px;
   border-bottom-style: solid;
 }
 
-div.divUr {
-  unicode-bidi: bidi-override;
-  font-family: "Noto Nastaliq Urdu";
-  text-align: center;
-  font-size: smaller;
-  display: inline-block;
-}                 
-ul.alpha {
-  font-family: "Amiri Quran", serif;
-  font-size: larger;
-  list-style: none;
-  padding-bottom: 10px;
-}
-ul.root {
-  font-family: "Amiri Quran", serif;
-  font-size: small;
-  list-style: none;
-  display: inline;                
-}
-li.ltr {
-  display: inline-block;
-  padding-right: 15px;
-  margin-right: 20px;
-  white-space: nowrap;
-  text-indent: 0;
-}
 a {
   text-decoration: none;
 }    
@@ -117,6 +185,12 @@ a {
   text-align: center;
   height: 100px;
 } 
+
+.leftdiv {
+  max-width: 5%;
+  height: 100%;
+  display: inline-block;
+}
 td, tr {       
   border-bottom: 1px solid gray;                 
   border-left: 1px solid gray;    
@@ -126,34 +200,54 @@ td, tr {
 
 table {
   table-layout: fixed;
-  width: 100%;  
+  width: 100%;
 }
 .numtd{
   font-family:Georgia, 'Times New Roman', Times, serif;
+  color: black;
   font-size: medium;
+  font-weight: bold;
   direction: ltr;
   text-align: center;
   width: 5%;  
 }
 .soorahtd {             
   font-family: "Lateef", serif;
-  font-weight: 500;
-  font-size: large;
+  font-size: larger;
   font-style: normal;
   width: 11%;
   padding-right: 10px;  
 } 
 .ayattd {             
-  font-family: "Lateef", serif;
-  font-weight: 500;
-  font-size: large;
-  font-style: normal;
+  font-family: "Lateef", serif;  
+  font-size: larger;
+  font-style: normal;  
   width: 42%;
   padding-right: 10px;
 } 
-.trantd {
-  font-family: "Noto Nastaliq Urdu";                
-  font-size: medium;
+.trantdu {
+  font-family: "Noto Nastaliq Urdu";    
+  color: black;              
+  font-size: 12px;
   width: 42%;
   padding-right: 10px;
 } 
+.trantde {
+  font-family: Georgia, 'Times New Roman', Times, serif;    
+  color: black;              
+  font-size: 12px;
+  width: 42%;
+  padding-right: 10px;
+  direction: ltr;
+} 
+
+@media print{
+  body{ background-color:#FFFFFF; background-image:none; color:#000000}
+  ad{ display:none;}
+  leftbar{ display:none;}
+  contentarea{ width:100%;}  
+  img {display: none; border: none;}
+  nav {display: none;}
+  #pagebutton {display: none;}
+  div {break-inside: avoid;}
+}

@@ -1,23 +1,21 @@
 {% extends "cqur_master.html" %} 
 {% block titleentry %}
-    Root Letter Index
-{% endblock %}
-{% block opstmnt %}
-مطلوبہ حروف اصليہ پر کلک کریں
+    Root Letter
 {% endblock %}
 {% block rootlist %}
+
 <ul class="alpha">
     {% for a in ArAlphabets %}                   
-    <li> {{ a.alphabet_text }}           
-        <ul class="root">
+    <li style="padding-right: 20px; padding-left: 20px;"> {{ a.alphabet_text }}           
+        <ol type="1" class="root">
         <div>                        
             {% for r in RoLtr %}                               
                 {% if a.arabic_alphabet_id == r.arabic_alphabet_id %}
-                    <li class="ltr"> <a href="/cquradbr/{{r.root_letter_id}}/">{{ r.root_letter_text }}</a></li>
+                    <li class="ltr" style="width: 40px;"> <a href="/cquradbr/{{r.root_letter_id}}/">{{ r.root_letter_text }}</a></li>
                 {% endif %}                              
             {% endfor %}                        
         </div>
-        </ul>    
+        </ol>    
     </li>        
     {% endfor %}
 </ul>
