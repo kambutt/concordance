@@ -1,0 +1,40 @@
+{% extends "cqur_master.html" %}
+{% block titleentry %}
+    Ayaat by alphabet
+{% endblock %}
+{% block ayatdet %}        
+    {% for a in ayaat %}        
+        {% ifchanged a.alphabet_text %}
+            <h2 style="width: 50px; margin: auto; text-align: center; text-decoration: underline;"><span>{{a.alphabet_text}}</span></h2>
+        {% endifchanged %}        
+        {% ifchanged a.root_letter_text %}
+            {% if a.root_letter_text != a.alphabet_text %}
+                <h3 class="rootletternum"  style="width: 200px; margin: auto; text-align: center; padding-top: 10px; padding-bottom: 5px;"><span> حروف اصلیہ:  {{a.root_letter_text}} </span></h3>   
+            {% endif %}     
+        {% endifchanged %}        
+        {% ifchanged a.kalimah_text %}           
+            <div class="kalimah">                
+                <h4>{{a.kalimah_text}}</h4>
+                <table style="border: 1px solid black;">                     
+                    <tr>
+                        <td class="tdsoorah">سورۃ</td>
+                        <td class="tdayat">آیت - ترجمہ</td>                        
+                    </tr>
+                </table>                        
+            </div>
+        {% endifchanged %}   
+        <table>          
+            <tr>
+                <td class="tdsoorah">{{ a.soorah_seq_no_ar }} <span>:  </span> {{ a.soorah_name }}</td>
+                <td class="tdayat">{{ a.ayat_seq_no_ar }} <span>:    </span> {{ a.ayat_text }}</td>                        
+            </tr>
+            <tr>                            
+                <td></td>
+                <td class="tdurdu">{{ a.translation_urdu }}</td>  
+            </tr> 
+        </table>
+        {% empty %}
+            <div class="emptydiv"> انتظار فرماىٔيں۔
+            </div>
+    {% endfor %}    
+{% endblock%}

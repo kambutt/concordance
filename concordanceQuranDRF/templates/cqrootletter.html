@@ -1,0 +1,33 @@
+{% extends "cqur_master.html" %} 
+{% block titleentry %}
+    Root Letter
+{% endblock %}
+{% block rootlist %}
+
+<ul class="alpha">
+    {% for a in alphabet %}   
+        <li style="padding-right: 20px; padding-left: 20px;"> {{ a.alphabet_text }}   </li>                    
+            <ol type="1" class="root">
+            <div>                                
+                {% for r in rootletter %} 
+                    {% ifchanged r.root_letter_id %}                              
+                        {% if a.arabic_alphabet_id == r.arabic_alphabet_id %}
+                        
+                        <label for= "root{{forloop.counter }}">{{ r.root_letter_text }}</label>
+                        <!--
+                        <li class="ltr" style="width: 60px;"> <a href="/cqadbrur/{{r.root_letter_id}}/">{{ r.root_letter_text }}</a></li>
+                        -->    
+                        {% endif %}
+                    {% endifchanged %}                            
+                {% endfor %}   
+            
+                <form action="/cqadbrur/" method="post">
+                    {% csrf_token %}
+                    <input type="submit" name="root_letter_id">         
+                </form>                         
+            </div>
+            </ol>    
+                                  
+    {% endfor %}
+</ul>
+{% endblock %}        

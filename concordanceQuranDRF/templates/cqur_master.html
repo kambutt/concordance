@@ -6,11 +6,12 @@
         <!--meta-->
         <meta lang="en">
         <meta charset="utf8">
-        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>        
         <meta http-equiv="Pragma" content="no-cache"/>
         <meta http-equiv="Expires" content="0"/>
-        <link rel="stylesheet" href="{% static 'concordanceQuran.css' %}">   
-        <link href="/path/to/print.css" media="print" rel="stylesheet" />             
+        <link rel="stylesheet" href="{% static 'concordanceQuran.css' %}">          
+        <link href="/path/to/print.css" media="print" rel="stylesheet" />    
+        <script src="{% static 'frontpage.js' %}"></script>         
         {% block linkentry %}
         {% endblock %}
         <!--title-->        
@@ -20,67 +21,17 @@
         </title>        
         <!--styles-->
     </head>
-    <body>        
-        <div class="frontcover">
-            <div style="width: 25%; margin: auto; bottom: 55%; right: 33.3%; position: fixed;">
-                <h2 style="color: rgb(125, 89, 56); text-align: center; unicode-bidi: bidi-override; font-family: Noto Nastaliq Urdu;"> شمارہ&nbsp;&nbsp;٨&nbsp;&nbsp; (حصہ اول)</h2>
-                <h2 style="color: rgb(125, 89, 56); text-align: center; unicode-bidi: bidi-override; font-family: Noto Nastaliq Urdu;"><span>&nbsp;&nbsp;&nbsp;&nbsp;ا م ن&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>                          
-            </div>
-        </div>
-        <div class="ifccontent"></div>
-            <h3 id="refhead" class="ifchead">حوالہ جات</h3>
-            <ul id="ifcul" class="ifcul">                
-                <li id="idxsrc"">ماخذ فہرست: المُعْجَمُ امُفَهْرَس لِالفاظ الْقُرآنِ الْكَرِيم (وضعه: محمد فواد عبدالباقی)</li>
-                <li id="ayatsrc">متن آیات قرآن: ten.liznat</li>          
-                <li id="transrc">ترجمہ آیات قرآن:  مولانا فتح محمد جالندھری (ten.liznat) </li>              
-                <li id="rootsrc">ماخذات حروف اصلیہ:  المُعْجَمُ المفہرس ، moc.naruq.suproc</li>                                  
-            </ul>
-        </div>        
-        <div class="flex-container">              
-            <h2></h2>
-            <div class="mainpageheading">                
-                هَذَا بَيَانٌ لِّلنَّاسِ وَ هُدًى وَ مُوْعِظَةٌ لِّلْمُتَّقِيْنَ
-            </div>           
-            <div class="divUr">
-                <p style="border: 0px; margin: 0px;">
-                    <h3>بسم الله الرحمن الرحيم</h3>
-                </p>
-                <p>
-                    <span>سب سے بہلے خداۓ وحدہ لا شریک کا لاکھ لاکھ شکر ادا کرتے ہيں جس نے اس کام کی توفیق دی۔ </span><br>            
-                    <span>مطالعہ قرآن کے دوران ایک تحریک پیدا ہوئی کہ یہ معلوم کیا جاۓ کہ قرآن کے الفاظ خود قرآن میں کس طرز پر استعمال ہوۓ ہیں تاکہ ایک سیاق و سباق ان الفاظ کا واضح مزید ہو۔</span><br>
-                    <span>اس ارادہ کے تحت مصر کے مايہ ناز محقق حضرت استاز محمد فواد عبدالباقی رحمتہ اللہ علیہ کی "المعچم المفہرس لالفاظ القران" نظر سے گزری۔</span><br>
-                    <span>اس میں قران کريم کے تمام الفاظ (وہ افعال ہوں یا اسماء پھر ان کی مختلف شکلیں) سے متعلق آيات یکجہ کر دی گئ ہیں-</span><br>
-        '           <span>اس کاوش کا مقصد "المعچم المفہرس" کی طرز پر آيات کا مکمل متن مع ترجمہ مرتب کرنا ہے</span><br>
-                </p>
-                <p>
-                    <span>یہاں جو معلومات فراہم کی گئ ہیں اس کے حصول کے دیگر اچھے ماخذات دستیاب  ہیں۔</span><br>
-                    <span>فرق محض معلومات کے پیش کرنے کے طریقے میں ہے۔ ان ماخذات کے حوالہ جات درج کر دیۓ گۓ ہیں۔ </span><br>
-                    <span>قارئین ان حوالہ جات سے رجوع کر سکتے ہیں اور قرآن فہمی میں مزید بہتری پیدا کر سکتے ہیں۔ </span>            
-                </p>                
-            </div>
-            <div>
-                <h4><p style="direction: rtl; text-align: center;">و ما توفيقى الا باالله</p></h4>
-            </div>            
-        </div>
-        <div class="flex-container"> 
-            <h2></h2>             
-            <div class="mainpageheading">                
-                وَ عَلَّمَكَ مَا لَمْ تَكُن تَعْلَمُ وَ كَانَ فَضْلُ ٱللَّهِ عَلَيْكَ عَظِيمًا
-            </div>           
-            <div class="divUr">
-                <p style="border: 0px; margin: 0px;">
-                    <h3>کچھ اس اشاعت کے بارے میں۔۔۔</h3>
-                </p>                
-                <p>                    
-                    <span>اس اشاعت میں حرف "ا" سے شروع ہونے والے کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ مع مرکزی مفہوم درج ذیل ہیں</span><br>            
-                    <span>حصہ اول میں کلمہ "اللہ" پر مبنی سورۃ لقمان كی آیت ٨٢ سے لے کر آخیر تک اور بقیہ کلمہ شامل کۓ گۓ ہیں۔ </span><br>            
-                    <span>ا ل ه</span><br>
-                    <span style="font-size: smaller;">ان پر مبنی الفاظ کا مطلب اکثر و بیشتر مرکزی مفہوم سے مشابہت رکھتا ہے۔    کلمات کے ترجمہ کے لیۓ کسی معیاری لغت کا استعمال کریں۔</span>                    
-                </p>
-            </div>
-            {% block rootmean %}
-            {% endblock %}
-        </div>
+    <body> 
+        {% block frontcover %}
+        {% endblock %}
+        {% block references %}
+        {% endblock %}
+        {% block preface %}
+        {% endblock %}
+        {% block intro %}
+        {% endblock %}        
+        {% block rootmean %}
+        {% endblock %}
         <div class="navlink">
             <nav>
                 <a href="/" style="padding: 10px;">ابتداء</a>
@@ -107,7 +58,8 @@
         <div class="w3-responsive">
             {% block ayatdet %}
             {% endblock %}
-        </div>        
+        </div>   
+           
     </body>
     <footer>
         <hr/>

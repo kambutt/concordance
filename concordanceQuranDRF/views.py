@@ -56,16 +56,26 @@ def cQurKalimaat (request):
 #Display Soorah and Ayat details per root letter
 def cQAdbrUr (request):    
     template = loader.get_template('cqadbrur.html')
-    q = request.GET.getlist("root_letter_id")    
+    q = request.GET.getlist("root_letter_id")     
     if q:
         ayaat = VwAyatDetails.objects.filter(root_letter_id__in=q).values()
-        rootmean = RootLetter.objects.filter(root_letter_id__in=q).values().order_by('root_letter_seq_no')
+        rootmean = RootLetter.objects.filter(root_letter_id__in=q).values().order_by('root_letter_seq_no')        
+        rootcount = len(rootmean)        
     else:
         ayaat = VwAyatDetails.objects.filter(root_letter_id__in=[0]).values()
         rootmean = RootLetter.objects.filter(root_letter_id__in=[0]).values()
+        rootcount = len(rootmean)
+    
+    if rootcount % 2 == 1:
+        halfcount = (rootcount+1)/2
+    else:
+        halfcount = rootcount/2
+        
     context = {
             'ayaat': ayaat,
-            'rootmean': rootmean
+            'rootmean': rootmean,
+            'rootcount': rootcount,
+            'halfcount' : halfcount,
         }
     return HttpResponse(template.render(context,request))
 
@@ -161,7 +171,6 @@ def cQurTesting (request):
     #return HttpResponse(template.render(context, request))
 
 def get_root_letter(request):
-     form = RootLetterForm   
      template = loader.get_template('cqrootletter.html')
      alphabet = ArabicAlphabet.objects.values_list('arabic_alphabet_id','alphabet_text').order_by('alphabet_text')
      rootletter = RootLetter.objects.values_list('root_letter_id','arabic_alphabet_id', 'root_letter_text').order_by('root_letter_text')

@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'concordanceQuran.css' %}"> 
+    </head>
+    <body>
+        <button id="buttone" type="button" onclick="toggleLanguage('english')" style="direction: ltr;">English</button>
+        <button id="buttonu" type="button" onclick="toggleLanguage('urdu')" style="direction: ltr;">Urdu</button>        
+        <button id="buttonp" type="button" onclick= "printpage()" style="direction: ltr;">Print</button>        
+        <div class="ifccontent"></div>
+            <h2 id="refhead" class="ifchead"></h2>
+            <ul id="ifcul" class="ifcul">
+                <li id="idxsrc""></li>
+                <li id="ayatsrc"></li>          
+                <li id="transrc"></li>              
+                <li id="rootsrc"></li>       
+                <li id="meansrc"></li>                
+            </ul>
+        </div>
+    </body>
+    <script>
+        function toggleLanguage(language) {
+            let prefhead = document.getElementById("refhead");
+            let pidxsrc = document.getElementById("idxsrc");
+            let payatsrc = document.getElementById("ayatsrc");
+            let ptransrc = document.getElementById("transrc");
+            let prootsrc = document.getElementById("rootsrc");
+            let pmeansrc = document.getElementById("meansrc");
+            let pifcul = document.getElementById("ifcul");
+
+            if (language === "english") {
+                pifcul.classList.add("ifclange");
+                pifcul.classList.remove("ifclangu");
+                prefhead.innerHTML = "References";
+                prefhead.style.direction = "ltr";                
+                pidxsrc.innerHTML = "Index Source:  Al-Mojamul Mufaharas (by:  Mohammad Fawad Abdul Baqi)";
+                pidxsrc.style.direction = "ltr";
+                payatsrc.innerHTML = "Ayat text source: tanzil.net";
+                payatsrc.style.direction = "ltr";
+                ptransrc.innerHTML = "Translation Source:  Saheeh International (tanzil.net)";
+                ptransrc.style.direction = "ltr";
+                prootsrc.innerHTML = "Root letters source:  Al-Mojamul Mufaharas, corpus.quran.com";
+                prootsrc.style.direction = "ltr";
+                pmeansrc.innerHTML = "Kalimah meaning Source: corpus.quran.com";
+                pmeansrc.style.direction = "ltr";
+            }
+            else {
+                pifcul.classList.add("ifclangu");
+                pifcul.classList.remove("ifclange");
+                prefhead.innerHTML = "حوالہ جات";                
+                prefhead.style.direction = "rtl";                
+                pidxsrc.innerHTML = "ماخذ فہرست: المُعْجَمُ امُفَهْرَس لِالفاظ الْقُرآنِ الْكَرِيم (وضعه: محمد فواد عبدالباقی)";
+                pidxsrc.style.direction = "rtl";
+                payatsrc.innerHTML = "متن آیات قرآن: ten.liznat";                
+                payatsrc.style.direction = "rtl";                             
+                ptransrc.innerHTML = "ترجمہ آیات قرآن:  مولانا فتح محمد جالندھری (ten.liznat) ";                
+                ptransrc.style.direction = "rtl";
+                prootsrc.innerHTML = "ماخذات حروف اصلیہ:  المُعْجَمُ المفہرس ، moc.naruq.suproc";
+                prootsrc.style.direction = "rtl";                
+                pmeansrc.innerHTML = "مفہوم کلمات:  لغات القرآن (تالیف: مولانا محمد عبدالرشید نعمانی)";
+                pmeansrc.style.direction = "rtl";
+            }
+        }
+        function printpage(){
+            let pbuttone = document.getElementById("buttone");
+            let pbuttonu = document.getElementById("buttonu");
+            let pbuttonp = document.getElementById("buttonp");
+
+            pbuttone.style.visibility = "hidden";
+            pbuttonu.style.visibility = "hidden";
+            pbuttonp.style.visibility = "hidden";
+            window.print();
+            pbuttone.style.visibility = "visible";
+            pbuttonu.style.visibility = "visible";
+            pbuttonp.style.visibility = "visible";            
+        }
+      </script>
+</html>
