@@ -1,26 +1,3 @@
-
-update root_letter set core_meaning = '' where root_letter_text = 'ث';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ب ت';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ب ر';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ب ط';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ب ى';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ج ج';
-update root_letter set core_meaning = '' where root_letter_text = 'ث خ ن';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ر ب';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ر ى';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ع ب';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ق ب';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ق ف';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ق ل';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ل ث';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ل ل';
-update root_letter set core_meaning = '' where root_letter_text = 'ث م ر';
-update root_letter set core_meaning = '' where root_letter_text = 'ث م ن';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ن ى';
-update root_letter set core_meaning = '' where root_letter_text = 'ث و ب';
-update root_letter set core_meaning = '' where root_letter_text = 'ث و ر';
-update root_letter set core_meaning = '' where root_letter_text = 'ث و ى';
-update root_letter set core_meaning = '' where root_letter_text = 'ث ى ب';
 update root_letter set core_meaning = '' where root_letter_text = 'ج';
 update root_letter set core_meaning = '' where root_letter_text = 'ج ا ر';
 update root_letter set core_meaning = '' where root_letter_text = 'ج ب ب';
@@ -92,6 +69,7 @@ update root_letter set core_meaning = '' where root_letter_text = 'ج و و';
 update root_letter set core_meaning = '' where root_letter_text = 'ج ى ا';
 update root_letter set core_meaning = '' where root_letter_text = 'ج ى ب';
 update root_letter set core_meaning = '' where root_letter_text = 'ج ى د';
+
 update root_letter set core_meaning = '' where root_letter_text = 'ح';
 update root_letter set core_meaning = '' where root_letter_text = 'ح ب ب';
 update root_letter set core_meaning = '' where root_letter_text = 'ح ب ر';

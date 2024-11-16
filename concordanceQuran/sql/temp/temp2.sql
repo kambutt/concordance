@@ -4,7 +4,7 @@ select * from root_letter where root_letter_text = 'ب ك ك';--140
 select * from root_letter where root_letter_text = 'ب ن و';--149
 select * from root_letter where root_letter_text = 'ب ل ى';--149
 select * from root_letter where root_letter_text = 'ت ب ع';--149
-select * from kalimaat where kalimah_text in ('نَتْلُوہُ');--1916
+select * from kalimaat where kalimah_text in ('أَثْخَنْتُمُوهُمْ');--1916
 select * from ayat where soorah_id = 3 and ayat_seq_no = 51; --344
 select * from ayat where soorah_id = 3 and ayat_seq_no = 58; --351
 select * from kalimaat_ayat_xref where kalimaat_id = 1916 and ayat_id = 344;--10736
@@ -14,7 +14,7 @@ select * FROM kalimaat_ayat_xref where kalimaat_id = 1880;
 SELECT count (DISTINCT k.kalimaat_id) --k.kalimah_seq_no, k.kalimah_text
 from root_letter r, kalimaat k, arabic_alphabet a 
 WHERE r.root_letter_id = k.root_letter_id AND r.arabic_alphabet_id = a.arabic_alphabet_id
-AND a.alphabet_text = 'ت' ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
+AND a.alphabet_text = 'ث' ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
 SELECT r.root_letter_text, k.kalimah_text from root_letter r, kalimaat k
 WHERE r.root_letter_id = k.root_letter_id
 AND r.root_letter_text = 'ت' ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
@@ -42,6 +42,10 @@ COMMIT;
 update kalimaat
 set kalimah_seq_no = 62
 where kalimah_text = 'تَبِیعًا';
+COMMIT;
+update kalimaat
+SET kalimah_text = 'أَثْخَنْتُمُوهُمْ'
+WHERE kalimah_text = 'أََثْخَنْتُمُوهُمْ';
 COMMIT;
 update kalimaat_ayat_xref
 set ayat_id = (select ayat_id from ayat where soorah_id = 17 and ayat_seq_no = 96)
