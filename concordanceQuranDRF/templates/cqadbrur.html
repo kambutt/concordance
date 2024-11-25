@@ -4,33 +4,36 @@
 {% endblock %}
 {% block frontcover %}
     <div class="cqadbrur-bg">       
-        <img src="/static/bgimg1br.png" alt="Center Part of Image" class="cqadbrur-bg-img">   
-        <div class="cqadbrur-overlay-alphabet">
-            <h1>ث</h1>                                                                      
-        </div> 
-        <!--
-        <div class="cqadbrur-overlay-vol ">
-            <h1> شمارہ&nbsp;&nbsp;١&nbsp;&nbsp;</h1>            
-        </div>
-    -->
-        <div>
-        {% for rmean in rootmean %}            
-            {% if forloop.first %}                
-                <div class="cqadbrur-overlay-start">
-                    <h4>{{ rmean.root_letter_text }}</h4>                                                                      
-                </div>      
-            {% elif forloop.last %}
-                <div class="cqadbrur-overlay-ta">
-                    <h4> تا </h4>                                                  
-                </div>
-                <div class="cqadbrur-overlay-end">
-                    <h4>{{ rmean.root_letter_text }}</h4> 
-                </div>      
-            {% endif %}
-        {% endfor %}
+        <img src="/static/bgimg1blk.png" alt="Center Part of Image" class="cqadbrur-bg-img">   
+        <div class="cqadbrur-overlay-title">
+            <h1>فہرست کلمات قرآن</h1>                                                                      
         </div>
         <div class="cqadbrur-overlay-author">
             <h1>مرتب:&nbsp;&nbsp;ڈاکٹر کامران احمد بٹ</h1>            
+        </div>
+        <div class="cqadbrur-overlay-alphabet">
+            {% with al=ayaat|first %}
+            <h1>{{ al.alphabet_text }}</h1>  
+            {% endwith %}                                                                    
+        </div>         
+        <div>
+            {% for rmean in rootmean %}            
+                {% if forloop.first %}                
+                    <div class="cqadbrur-overlay-start">
+                        <h3>{{ rmean.root_letter_text }}</h3>                                                                      
+                    </div>      
+                {% elif forloop.last %}
+                    <div class="cqadbrur-overlay-ta">
+                        <h3> تا </h3>                                                  
+                    </div>
+                    <div class="cqadbrur-overlay-end">
+                        <h3>{{ rmean.root_letter_text }}</h3> 
+                    </div>      
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="cqadbrur-overlay-vol ">
+           <h1> شمارہ&nbsp;&nbsp;٤</h1>
         </div>
         <div class="cqadbrur-overlay-year">
             <h1>٢٠٢٤</h1>            
@@ -88,8 +91,8 @@
         </p>                
         <p>                    
             <!-- <span>حرف "ت" کے تحت دو شماروں میں سے یہ دوسرا شمارہ ہے۔</span><br>                                    -->
-            <span>اس اشاعت میں حرف "ث" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ مع مرکزی مفہوم درج ذیل ہیں</span><br>                                    
-            <span style="font-size: smaller;">کلمات کا مطلب اکثر و بیشتر مرکزی مفہوم سے مشابہت رکھتا ہے۔ &nbsp;ترجمہ کے لیۓ کسی معیاری لغت کا استعمال کریں۔</span>                    
+            <span>اس اشاعت میں حرف "ج" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ مع مرکزی مفہوم درج ذیل ہیں</span><br>                                    
+            <span style="font-size: smaller;">حروف اصلیہ کا اپنا ترجمہ نہیں ہوتا۔ ان کا مرکزی مفہوم ان پر مبنی کلمات کے مفہوم کی اکثر و بیشتر آپس میں مشابہت کو واضح کرتا ہے۔ &nbsp;کلمات کے ترجمہ کے لیۓ کسی معیاری لغت کا استعمال کریں۔</span>                    
         </p>
     </div>            
 </div>
@@ -121,7 +124,7 @@
             <tr>
                 <th class="tdurdu" style="border: 1px solid black; width: 10px; padding-left: 5px;">نمبر</th>
                 <th class="tdurdu" style="border: 1px solid black; width: 15px;">حروف اصليہ</th>
-                <th class="tdurdu" style="border: 1px solid black; width: 50px;" >٭ مرکزی مفہوم</th>
+                <th class="tdurdu" style="border: 1px solid black; width: 50px;" >مرکزی مفہوم</th>
             </tr>
             {% for rmean in rootmean %}
                 {% if rmean.core_meaning %}
@@ -141,7 +144,7 @@
             <tr>
                 <th class="tdurdu" style="border: 1px solid black; width: 10px;">نمبر</th>
                 <th class="tdurdu" style="border: 1px solid black; width: 20px;">حروف اصليہ</th>
-                <th class="tdurdu" style="border: 1px solid black; width: 30px;" >٭ مرکزی مفہوم</th>
+                <th class="tdurdu" style="border: 1px solid black; width: 30px;" >مرکزی مفہوم</th>
             </tr>
             {% for rmean in rootmean %}
                 {% if rmean.core_meaning %}

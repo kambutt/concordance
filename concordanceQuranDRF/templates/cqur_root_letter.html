@@ -3,28 +3,50 @@
     Root Letter
 {% endblock %}
 {% block rootlist %}
-
-<ul class="alpha">
-    {% for a in alphabet %}                   
-    <li style="padding-right: 20px; padding-left: 20px;"> {{ a.alphabet_text }}           
+    <ul class="alpha">    
         <ol type="1" class="root">
-        <div>      
-            <form action="/cqadbrur/" method="get">                                
-                {% for r in rootletter %}                                          
-                    {% if a.arabic_alphabet_id == r.arabic_alphabet_id %}     
-                    <li class="ltr">
-                        <label for= "root_letter_id">{{ r.root_letter_text }}</label>
-                        <input type="checkbox" id="root_letter_id" name="root_letter_id" value={{ r.root_letter_id }}>
-                    </li>              
-                    {% endif %}                 
-                {% endfor %}   
-                <div>
-                    <input type="submit" value="Submit" style="direction: ltr;">     
+            <div>      
+                <form action="/cqadbrur/" method="get">     
+                    {% for a in alphabet %}                            
+                        {% for r in rootletter %}                                          
+                            {% if a.alphabet_text == r.root_letter_text %}     
+                                <li class="ltr">
+                                    <label for= "root_letter_id">{{ r.root_letter_text }}</label>
+                                    <input type="checkbox" id="root_letter_id" name="root_letter_id" value={{ r.root_letter_id }}>
+                                </li>                                     
+                            {% endif %}   
+                        {% endfor %}     
+                    {% endfor %}    
+                    <div>
+                        <input type="submit" value="Submit" style="direction: ltr;">     
+                    </div>               
+                </form>                                     
+            </div>
+        </ol>      
+    </ul>
+    <ul class="alpha">
+    {% for a in alphabet %}                            
+        <li style="padding-right: 20px; padding-left: 20px;"> {{ a.alphabet_text }}           
+            <ol type="1" class="root">
+                <div>      
+                    <form action="/cqadbrur/" method="get">                                
+                        {% for r in rootletter %}                                          
+                            {% if a.arabic_alphabet_id == r.arabic_alphabet_id %} 
+                                {% if a.alphabet_text != r.root_letter_text %}    
+                                    <li class="ltr">
+                                        <label for= "root_letter_id">{{ r.root_letter_text }}</label>
+                                        <input type="checkbox" id="root_letter_id" name="root_letter_id" value={{ r.root_letter_id }}>
+                                    </li>     
+                                {% endif %}         
+                            {% endif %}                 
+                        {% endfor %}   
+                        <div>
+                            <input type="submit" value="Submit" style="direction: ltr;">     
+                        </div>
+                    </form>                                     
                 </div>
-            </form>                                     
-        </div>
-        </ol>    
-    </li>        
+            </ol>    
+        </li>        
     {% endfor %}
-</ul>
+    </ul>
 {% endblock %}        

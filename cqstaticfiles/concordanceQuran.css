@@ -132,9 +132,47 @@ font-style: normal;
     width: 100%;
     height: 1098px;    
   }
+  .cqadbrur-overlay-title {
+    position: absolute;
+    top: 230px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%; 
+    transition: .5s ease;
+  }
+  .cqadbrur-overlay-title h1 {
+    color: white;
+    font-family: adobe-arabic, sans-serif;
+    padding: 0px;
+    font-size: 90px;
+    font-style:normal;
+    font-weight: 100;
+    text-align: center;
+  }
+
+  .cqadbrur-overlay-author {
+    position: absolute;
+    top: 490px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%; 
+  }
+  .cqadbrur-overlay-author h1 { 
+    color: white;
+    font-family: adobe-arabic, sans-serif;
+    font-style:normal;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+  }
+  
   .cqadbrur-overlay-alphabet {
     position: absolute;
-    top: 0;
+    top: 550px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -143,58 +181,19 @@ font-style: normal;
     transition: .5s ease;
   }
   .cqadbrur-overlay-alphabet h1 {  
-    /*color: white;*/
-    color: darkmagenta;
-    /* font-family: Noto Nastaliq Urdu; */
+    color: white;
     font-family: adobe-arabic, sans-serif;
+    
     padding: 0px;
-    font-size: 200px;
+    font-size: 100px;
     font-style:normal;
     font-weight: 100;
     text-align: center;
   }
-.cqadbrur-overlay-vol {
-  position: absolute;
-  top: 320px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%; 
-}
 
-.cqadbrur-overlay-vol h1 {
-  /*color: white;*/
-  color: darkmagenta;
-  /* font-family: Noto Nastaliq Urdu; */
-  font-family: adobe-arabic, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  text-align: center;
-}
-
-.cqadbrur-overlay-author {
+  .cqadbrur-overlay-start {
   position: absolute;
-  top: 510px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%; 
-}
-.cqadbrur-overlay-author h1 {  
-  /*color: white;*/
-  color: darkmagenta;
-  /* font-family: Noto Nastaliq Urdu; */
-  font-family: adobe-arabic, sans-serif;
-  font-style:normal;
-  font-weight: 700;
-  text-align: center;
-}
-
-.cqadbrur-overlay-start {
-  position: absolute;
-  top: 720px;
+  top: 725px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -202,10 +201,8 @@ font-style: normal;
   width: 100%; 
   transition: .5s ease;
 }
-.cqadbrur-overlay-start h4 {  
-  /*color: white;*/
-  color: darkmagenta;
-  /* font-family: Noto Nastaliq Urdu; */
+.cqadbrur-overlay-start h3 {  
+  color: white;
   font-family: adobe-arabic, sans-serif;
   font-size: larger;
   font-style: normal;
@@ -214,7 +211,7 @@ font-style: normal;
 }
 .cqadbrur-overlay-ta {
   position: absolute;
-  top: 750px;
+  top: 755px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -222,10 +219,8 @@ font-style: normal;
   width: 100%; 
   transition: .5s ease;  
 }
-.cqadbrur-overlay-ta h4 {  
-  /*color: white;*/
-  color: darkmagenta;
-  /* font-family: Noto Nastaliq Urdu; */
+.cqadbrur-overlay-ta h3 {  
+  color: white;
   font-family: adobe-arabic, sans-serif;
   font-size: larger;
   font-style: normal;
@@ -234,7 +229,7 @@ font-style: normal;
 }
 .cqadbrur-overlay-end {
   position: absolute;
-  top: 780px;
+  top: 785px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -242,10 +237,8 @@ font-style: normal;
   width: 100%; 
   transition: .5s ease;
 }
-.cqadbrur-overlay-end h4 {  
-  /*color: white;*/
-  color: darkmagenta;
-  /* font-family: Noto Nastaliq Urdu; */
+.cqadbrur-overlay-end h3 {  
+  color: white;
   font-family: adobe-arabic, sans-serif;
   font-size: larger;
   font-style: normal;
@@ -253,9 +246,27 @@ font-style: normal;
   text-align: center;
 }
 
+.cqadbrur-overlay-vol {
+  position: absolute;
+  top: 870px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%; 
+}
+
+.cqadbrur-overlay-vol h1 {
+  color: white;
+  font-family: adobe-arabic, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+}
+
 .cqadbrur-overlay-year {
   position: absolute;
-  top: 960px;
+  top: 950px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -264,9 +275,7 @@ font-style: normal;
 }
 
 .cqadbrur-overlay-year h1 {  
-  /*color: white;*/
-  color: darkmagenta;
-  /* font-family: Noto Nastaliq Urdu; */
+  color: white;
   font-family: adobe-arabic, sans-serif;
   font-style:normal;
   font-weight: 700;
@@ -448,22 +457,6 @@ divfrontcover.first-page {
   background-size: cover;
   background-attachment: fixed;
 }
- /*  
-
-div.frontcover {
-  page: cover; 
-  background-image: url("front_cover_ba.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
- 
-  content: url("01_9_16_alif.png");
-  content: url("01_9_16_alif.png");  
- 
-} 
-  */
-  
 
 @page:first {
   size: 8.27in 11.69in;     
