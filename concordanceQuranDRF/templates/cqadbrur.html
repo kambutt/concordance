@@ -33,7 +33,7 @@
             {% endfor %}
         </div>
         <div class="cqadbrur-overlay-vol ">
-           <h1> شمارہ&nbsp;&nbsp;٤</h1>
+           <h1> شمارہ&nbsp;&nbsp;٦</h1>
         </div>
         <div class="cqadbrur-overlay-year">
             <h1>٢٠٢٤</h1>            
@@ -89,78 +89,87 @@
         <p style="border: 0px; margin: 0px;">
             <h3>کچھ اس اشاعت کے بارے میں۔۔۔</h3>
         </p>                
-        <p>                    
-            <!-- <span>حرف "ت" کے تحت دو شماروں میں سے یہ دوسرا شمارہ ہے۔</span><br>                                    -->
-            <span>اس اشاعت میں حرف "ج" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ مع مرکزی مفہوم درج ذیل ہیں</span><br>                                    
-            <span style="font-size: smaller;">حروف اصلیہ کا اپنا ترجمہ نہیں ہوتا۔ ان کا مرکزی مفہوم ان پر مبنی کلمات کے مفہوم کی اکثر و بیشتر آپس میں مشابہت کو واضح کرتا ہے۔ &nbsp;کلمات کے ترجمہ کے لیۓ کسی معیاری لغت کا استعمال کریں۔</span>                    
+        <p>
+            {% with al=ayaat|first %}
+                {% if al.alphabet_text != al.root_letter_text %}
+                    <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ مع مرکزی مفہوم درج ذیل ہیں</span><br>
+                    <span style="font-size: smaller;">حروف اصلیہ کا اپنا ترجمہ نہیں ہوتا۔ ان کا مرکزی مفہوم ان پر مبنی کلمات کے مفہوم کی اکثر و بیشتر آپس میں مشابہت کو واضح کرتا ہے۔ &nbsp;کلمات کے ترجمہ کے لیۓ کسی معیاری لغت کا استعمال کریں۔</span>                    
+                {% else %}
+                    <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ نہیں ہوتے۔</span><br>                                    
+                {% endif %}
+            {% endwith %}  
         </p>
     </div>            
 </div>
 {% endblock %}
 {% block rootmean %}
-<div class="rootmeanrow">
-    {% if rootcount <= 14 %}
-        <table class="singletablecenter">
-            <tr>
-                <th class="tdurdu" style="border: 1px solid black; width: 10px; padding-left: 5px;">نمبر</th>
-                <th class="tdurdu" style="border: 1px solid black; width: 15px;">حروف اصليہ</th>
-                <th class="tdurdu" style="border: 1px solid black; width: 50px;" >مرکزی مفہوم</th>
-            </tr>
-            {% for rmean in rootmean %}
-                {% if rmean.core_meaning %}
-                    {% if forloop.counter <= 14 %}                            
-                        <tr style="border: 1px solid black;">
-                            <td class="tdeng" style="border: 1px solid black; width: 10px;">{{ forloop.counter }}</td>
-                            <td class="tdurdu" style="border: 1px solid black;">{{ rmean.root_letter_text }}</td>
-                            <td class="tdurdu" style="border: 1px solid black;">{{ rmean.core_meaning }}</td>  
+    {% with al=ayaat|first %}
+        {% if al.alphabet_text != al.root_letter_text %}
+            <div class="rootmeanrow">
+                {% if rootcount <= 14 %}
+                    <table class="singletablecenter">
+                        <tr>
+                            <th class="tdurdu" style="border: 1px solid black;">نمبر</th>
+                            <th class="tdurdu" style="border: 1px solid black;">حروف اصليہ</th>
+                            <th class="tdurdu" style="border: 1px solid black;" >مرکزی مفہوم</th>
                         </tr>
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
-        </table>            
-    {% else %}
-    <div class="rootmeancolumn">
-        <table class="rootmeantable">
-            <tr>
-                <th class="tdurdu" style="border: 1px solid black; width: 10px; padding-left: 5px;">نمبر</th>
-                <th class="tdurdu" style="border: 1px solid black; width: 15px;">حروف اصليہ</th>
-                <th class="tdurdu" style="border: 1px solid black; width: 50px;" >مرکزی مفہوم</th>
-            </tr>
-            {% for rmean in rootmean %}
-                {% if rmean.core_meaning %}
-                    {% if forloop.counter <= halfcount %}                            
-                        <tr style="border: 1px solid black;">
-                            <td class="tdeng" style="border: 1px solid black; width: 10px;">{{ forloop.counter }}</td>
-                            <td class="tdurdu" style="border: 1px solid black;">{{ rmean.root_letter_text }}</td>
-                            <td class="tdurdu" style="border: 1px solid black;">{{ rmean.core_meaning }}</td>  
+                        {% for rmean in rootmean %}
+                            {% if rmean.core_meaning %}
+                                {% if forloop.counter <= 14 %}                            
+                                    <tr style="border: 1px solid black;">
+                                        <td class="tdeng" style="border: 1px solid black;  width: 5px;">{{ forloop.counter }}</td>
+                                        <td class="tdurdu" style="border: 1px solid black; width: 80px;">{{ rmean.root_letter_text }}</td>
+                                        <td class="tdurdu" style="border: 1px solid black; width: 1800px;">{{ rmean.core_meaning }}</td>  
+                                    </tr>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </table>            
+                {% else %}
+                <div class="rootmeancolumn">
+                    <table class="rootmeantable">
+                        <tr>
+                            <th class="tdurdu" style="border: 1px solid black;">نمبر</th>
+                            <th class="tdurdu" style="border: 1px solid black;">حروف اصليہ</th>
+                            <th class="tdurdu" style="border: 1px solid black;" >مرکزی مفہوم</th>
                         </tr>
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
-        </table>        
-    </div>    
-    <div class="rootmeancolumn">
-        <table class="rootmeantable">
-            <tr>
-                <th class="tdurdu" style="border: 1px solid black; width: 10px;">نمبر</th>
-                <th class="tdurdu" style="border: 1px solid black; width: 20px;">حروف اصليہ</th>
-                <th class="tdurdu" style="border: 1px solid black; width: 30px;" >مرکزی مفہوم</th>
-            </tr>
-            {% for rmean in rootmean %}
-                {% if rmean.core_meaning %}
-                    {% if forloop.counter > halfcount %}                            
-                        <tr style="border: 1px solid black;">
-                            <td class="tdeng" style="border: 1px solid black; width: 10px;">{{ forloop.counter }}</td>
-                            <td class="tdurdu" style="border: 1px solid black;">{{ rmean.root_letter_text }}</td>
-                            <td class="tdurdu" style="border: 1px solid black;">{{ rmean.core_meaning }}</td>  
+                        {% for rmean in rootmean %}
+                            {% if rmean.core_meaning %}
+                                {% if forloop.counter <= halfcount %}                            
+                                    <tr style="border: 1px solid black;">
+                                        <td class="tdeng" style="border: 1px solid black; width: 5px;">{{ forloop.counter }}</td>
+                                        <td class="tdurdu" style="border: 1px solid black; width: 80px;">{{ rmean.root_letter_text }}</td>
+                                        <td class="tdurdu" style="border: 1px solid black; width: 180px;">{{ rmean.core_meaning }}</td>  
+                                    </tr>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </table>        
+                </div>    
+                <div class="rootmeancolumn">
+                    <table class="rootmeantable">
+                        <tr>
+                            <th class="tdurdu" style="border: 1px solid black;">نمبر</th>
+                            <th class="tdurdu" style="border: 1px solid black;">حروف اصليہ</th>
+                            <th class="tdurdu" style="border: 1px solid black;" >مرکزی مفہوم</th>
                         </tr>
-                    {% endif %}
+                        {% for rmean in rootmean %}
+                            {% if rmean.core_meaning %}
+                                {% if forloop.counter > halfcount %}                            
+                                    <tr style="border: 1px solid black;">
+                                        <td class="tdeng" style="border: 1px solid black; width: 5px;">{{ forloop.counter }}</td>
+                                        <td class="tdurdu" style="border: 1px solid black; width: 80px;">{{ rmean.root_letter_text }}</td>
+                                        <td class="tdurdu" style="border: 1px solid black; width: 180px;">{{ rmean.core_meaning }}</td>  
+                                    </tr>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
                 {% endif %}
-            {% endfor %}
-        </table>
-    </div>
-    {% endif %}
-</div>
+            </div>
+        {% endif %}
+    {% endwith %}
 {% endblock %}
 {% block ayatdet %}
     {% for a in ayaat %}        

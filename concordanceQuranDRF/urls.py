@@ -6,11 +6,8 @@ from . import views
 
 urlpatterns = [
     path('', views.cQEnter),
-    path('cqmainur/',views.cQMainUr),
-    path('cqfrontcoverur/',views.cQFrontCoverUr, name="cqfrontcoverur"),
-    path('infrontcoverur/',views.cQInFrontCoverUr, name="infrontcoverur"),
+    path('cqurmain/',views.cQurMain),
     path('cqmainen/',views.cQMainEn),
-    path('cqalphabet/', views.cQurAlphabet, name="cqalphabet"),
     path('cquradba/<int:arabic_alphabet_id>/', views.cQurAdba, name="cquradba"),
     path('cqrootletter/', views.cQurRootLetter, name="cqrootletter"),    
     path('cqadbrur/', views.cQAdbrUr, name="cqadbrur"),    

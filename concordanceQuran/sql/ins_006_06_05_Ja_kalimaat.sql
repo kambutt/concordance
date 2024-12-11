@@ -1,7 +1,3 @@
-SET ECHO ON
-SET FEEDBACK ON
-
-SPOOL C:\Userdata\Meta\Projects\concordanceQuranDev\concordanceQuran\sql\add_kalimaat.txt
 --'ج'
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'جِبْرِيل', root_letter_id FROM root_letter WHERE root_letter_text = 'ج';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'جَالُوت', root_letter_id FROM root_letter WHERE root_letter_text = 'ج';
@@ -180,40 +176,39 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'فَجَعَلْنَاهُنَّ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 'جَعَلَنِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 'جَعَلَهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'جَعَلَهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'جَعَلَهَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'جَعَلَهُمْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'جَعَلُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 'أَجْعَلْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 21, 'لَأَجْعَلَنَّكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 'تَجْعَلْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 23, 'تَجْعَلْنَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 24, 'تَجْعَلْنِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 25, 'تَجْعَلُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 26, 'تَجْعَلُونَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 27, 'تَجْعَلُونَهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 28, 'نَجْعَلُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 29, 'وَلِنَحْعَلَكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 30, 'وَلِنَجْعَلَهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 31, 'نَجْعَلُهَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 32, 'نَجْعَلْهُمَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 33, 'نَجْعَلَهُمْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 34, 'يَجْعَل', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 35, 'وَيَجْعَلُكُمْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 36, 'يَجْعَلْنِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 37, 'يَجْعَلهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 38, 'يَجْعَلُونَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 39, 'يَجْعَلُوهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 40, 'اجْعَلْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 41, 'اجْعَلْنَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 42, 'اجْعَلْنِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 43, 'واجْعَلْهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 44, 'اجْعَلُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 45, 'جُعِلَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 46, 'جَاعِلٌ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 47, 'جَاعِلُكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 48, 'لَجَعِلُونَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 49, 'وَجَاعِلُوهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'جَعَلَهَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'جَعَلَهُمْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'جَعَلُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'أَجْعَلْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 'لَأَجْعَلَنَّكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 21, 'تَجْعَلْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 'تَجْعَلْنَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 23, 'تَجْعَلْنِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 24, 'تَجْعَلُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 25, 'تَجْعَلُونَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 26, 'تَجْعَلُونَهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 27, 'نَجْعَلُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 28, 'وَلِنَحْعَلَكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 29, 'وَلِنَجْعَلَهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 30, 'نَجْعَلُهَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 31, 'نَجْعَلْهُمَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 32, 'نَجْعَلَهُمْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 33, 'يَجْعَل', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 34, 'وَيَجْعَلُكُمْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 35, 'يَجْعَلْنِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 36, 'يَجْعَلهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 37, 'يَجْعَلُونَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 38, 'يَجْعَلُوهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 39, 'اجْعَلْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 40, 'اجْعَلْنَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 41, 'اجْعَلْنِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 42, 'واجْعَلْهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 43, 'اجْعَلُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 44, 'جُعِلَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 45, 'جَاعِلٌ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 46, 'جَاعِلُكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 47, 'لَجَعِلُونَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 48, 'وَجَاعِلُوهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ع ل';
 COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'جُفَاء', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ف ا';
 COMMIT;
@@ -315,12 +310,11 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, '
 COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'جُنْد', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'جُنْدًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'جُنْدًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'جُنْدَنَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'جُنُود', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'جُنُودًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'جُنُوده', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'جُنُودَهُمَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'جُنْدَنَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'جُنُود', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'جُنُودًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'جُنُوده', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'جُنُودَهُمَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن د';
 COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'جَنَفًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن ف';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'مُتَجَانِفِ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ن ف';
@@ -391,7 +385,7 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'يُجِبْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'يُجِيبُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'أَجِيبُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ب';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'أَجَبْتُم', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ب';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'أُجِبْتُم', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'أُجِيبَتْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'اسْتَجَابَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'اسْتَجَابُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ب';
@@ -476,4 +470,3 @@ COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'جِيدِها', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ى د';
 COMMIT;
 --
-SPOOL OFF

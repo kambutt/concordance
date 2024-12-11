@@ -12,23 +12,14 @@ def cQEnter(request):
   return HttpResponse(template.render())
 
 #Main start page - Urdu
-def cQMainUr(request):
-  template = loader.get_template('cqmainur.html')
+def cQurMain(request):
+  template = loader.get_template('cqur_main.html')
   return HttpResponse(template.render())
 
 #Main start page - English
 def cQMainEn(request):
   template = loader.get_template('cqmainen.html')
   return HttpResponse(template.render())
-
-#Page showing all the alphabets
-def cQurAlphabet (request):
-        template = loader.get_template("cqur_alphabet.html")
-        alphabet = ArabicAlphabet.objects.values('arabic_alphabet_id', 'alphabet_text')
-        context = {
-            'alphabet' : alphabet
-        }
-        return HttpResponse(template.render(context, request))
 
 #Page showing all the root letters
 
@@ -110,17 +101,6 @@ def cQurAlRo (request, arabic_alphabet_id):
         'RoLtr':RoLtr
     }
     return HttpResponse(template.render(context,request))
-
-
-
-
-def cQFrontCoverUr (request):
-    template = loader.get_template("cqfrontcoverur.html")
-    return HttpResponse(template.render())
-
-def cQInFrontCoverUr (request):
-    template = loader.get_template("cqinsidefrontcoverur.html")
-    return HttpResponse(template.render())
 
 def cQurIndexAlphaRoot (request, arabic_alphabet_id):    
     template = loader.get_template ("cqur_index_alpha_root.html")

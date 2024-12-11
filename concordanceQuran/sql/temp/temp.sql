@@ -1,871 +1,172 @@
+SELECT r.root_letter_text, k.kalimah_seq_no, k.kalimah_text
+FROM kalimaat k,
+     root_letter r,
+     arabic_alphabet a
+WHERE k.root_letter_id = r.root_letter_id
+AND a.arabic_alphabet_id = r.arabic_alphabet_id
+--AND a.alphabet_text != r.root_letter_text
+AND a.alphabet_text = 'ح'
+ORDER BY r.root_letter_seq_no,
+         k.kalimah_seq_no;
 
+SELECT 
+    root_letter_text, kalimah_text, prev_value,
+    COUNT(*) AS change_count
+FROM (
+    SELECT 
+        r.root_letter_seq_no,r.root_letter_text, k.kalimah_text,
+        LAG(r.root_letter_seq_no) OVER (ORDER BY r.root_letter_seq_no, k.kalimah_seq_no) AS prev_value
+    FROM kalimaat k,
+     root_letter r,
+     arabic_alphabet a
+WHERE k.root_letter_id = r.root_letter_id
+AND a.arabic_alphabet_id = r.arabic_alphabet_id
+AND a.alphabet_text != r.root_letter_text
+AND a.alphabet_text = 'ج'
+) 
+WHERE  
+    root_letter_seq_no != prev_value
+--OR 
+  --  prev_value IS NULL
+GROUP BY 
+    root_letter_text, kalimah_text,prev_value;
+/*  Get volume count */
+SELECT * FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ح';
+-------------------------------------------------------------------
+SELECT * FROM vw_ayat_details where root_letter_id in (1881);
+select * from kalimaat where kalimah_text =  'يَحْيَى';
+select * from root_letter where root_letter_id  = 1881;
+select * from root_letter where root_letter_text = 'ى';
+UPDATE root_letter
+SET arabic_alphabet_id = 28
+WHERE root_letter_text = 'ى';
+COMMIT;
+select * from arabic_alphabet where alphabet_text = 'ى';
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'جَنَاح'
+AND ( (s.soorah_seq_no = 97 AND a.ayat_seq_no IN (24))
+    );
+select * from kalimaat_ayat_xref where kalimaat_id = 2207;
+/*
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'جَنَاح'
+AND ( (s.soorah_seq_no = 17  AND a.ayat_seq_no IN (24))
+    );
+COMMIT;
 
-UPDATE kalimaat SET translation_urdu = 'ابراہیم علیہ السلام', translation_english = 'Ibrahim' WHERE kalimah_text = 'إِبْرَٰهِيم';
-UPDATE kalimaat SET translation_urdu = 'آدم علیہ السلام', translation_english = 'Adam' WHERE kalimah_text = 'آدَم';
-UPDATE kalimaat SET translation_urdu = 'ارم(قبیلہ)', translation_english = 'Iram (city)' WHERE kalimah_text = 'إِرَمَ';
-UPDATE kalimaat SET translation_urdu = 'لقب یعقوب علیہ السلام', translation_english = 'Israel' WHERE kalimah_text = 'إسْرَاىٔيل';
-UPDATE kalimaat SET translation_urdu = 'اسماعیل علیہ السلام', translation_english = 'Ishmael' WHERE kalimah_text = 'إسْمَاعِيل';
-UPDATE kalimaat SET translation_urdu = 'حروف مقطعات', translation_english = 'Alif Lam Ra' WHERE kalimah_text = 'الٓر';
-UPDATE kalimaat SET translation_urdu = 'اگر نہیں', translation_english = 'except' WHERE kalimah_text = 'إِلَّا';
-UPDATE kalimaat SET translation_urdu = 'وہ سب (عورتیں)', translation_english = 'whom (feminine)' WHERE kalimah_text = 'الَّىٔ';
-UPDATE kalimaat SET translation_urdu = 'وہ سب (عورتیں)', translation_english = 'those who (feminine)' WHERE kalimah_text = 'الَّتِى';
-UPDATE kalimaat SET translation_urdu = 'وہ دو (مرد)', translation_english = 'the two who' WHERE kalimah_text = 'الَّذَانِ';
-UPDATE kalimaat SET translation_urdu = 'وہ سب (مرد)', translation_english = '' WHERE kalimah_text = 'الَّذَيْنِ';
-UPDATE kalimaat SET translation_urdu = 'حروف مقطعات', translation_english = '' WHERE kalimah_text = 'الٓمٓ';
-UPDATE kalimaat SET translation_urdu = 'حروف مقطعات', translation_english = '' WHERE kalimah_text = 'الٓمٓر';
-UPDATE kalimaat SET translation_urdu = 'حروف مقطعات', translation_english = '' WHERE kalimah_text = 'الٓمٓصٓ';
-UPDATE kalimaat SET translation_urdu = 'الیاس علیہ السلام', translation_english = '' WHERE kalimah_text = 'إِلْيَاسَ';
-UPDATE kalimaat SET translation_urdu = 'الیاس علیہ السلام', translation_english = '' WHERE kalimah_text = 'إِل يَاسَينَ';
-UPDATE kalimaat SET translation_urdu = 'کل گزشتہ', translation_english = '' WHERE kalimah_text = 'الْأَمْسِ';
-UPDATE kalimaat SET translation_urdu = 'ہاں', translation_english = '' WHERE kalimah_text = 'إِى';
-UPDATE kalimaat SET translation_urdu = 'ایوب علیہ السلام', translation_english = '' WHERE kalimah_text = 'أَيُّوب';
-UPDATE kalimaat SET translation_urdu = 'گھنا جنگل', translation_english = '' WHERE kalimah_text = 'الْأَيْكَةِ';
-UPDATE kalimaat SET translation_urdu = 'اب', translation_english = '' WHERE kalimah_text = 'الْآنَ';
-UPDATE kalimaat SET translation_urdu = 'کب', translation_english = '' WHERE kalimah_text = 'أَيَّانَ';
-UPDATE kalimaat SET translation_urdu = 'کہاں', translation_english = '' WHERE kalimah_text = 'أَيْنَ';
-UPDATE kalimaat SET translation_urdu = 'جہاں کہیں', translation_english = '' WHERE kalimah_text = 'أَيْنَمَا';
-UPDATE kalimaat SET translation_urdu = 'کون سا', translation_english = '' WHERE kalimah_text = 'أَىّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَيَّا';
-UPDATE kalimaat SET translation_urdu = 'اے', translation_english = '' WHERE kalimah_text = 'أَيَّتُها';
-UPDATE kalimaat SET translation_urdu = 'تم میں سے کون', translation_english = '' WHERE kalimah_text = 'أَيُّكُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَيِّكُم';
-UPDATE kalimaat SET translation_urdu = 'جونسی', translation_english = '' WHERE kalimah_text = 'أَيَّمَا';
-UPDATE kalimaat SET translation_urdu = 'ہم میں سے کون`', translation_english = '' WHERE kalimah_text = 'أَيُّنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَيُّهَ';
-UPDATE kalimaat SET translation_urdu = 'اے', translation_english = '' WHERE kalimah_text = 'أَيُّهَا';
-UPDATE kalimaat SET translation_urdu = 'ان میں سے کون', translation_english = '' WHERE kalimah_text = 'أَيّهُم';
-UPDATE kalimaat SET translation_urdu = 'تجھ ھی سے', translation_english = '' WHERE kalimah_text = 'إِيّاكَ';
-UPDATE kalimaat SET translation_urdu = 'تم سب کو', translation_english = '' WHERE kalimah_text = 'إِيّاكُمْ';
-UPDATE kalimaat SET translation_urdu = 'ھم کو', translation_english = '' WHERE kalimah_text = 'إِيّانا';
-UPDATE kalimaat SET translation_urdu = 'اسی کو - اسی سے', translation_english = '' WHERE kalimah_text = 'إِيَاه';
-UPDATE kalimaat SET translation_urdu = 'ان کو', translation_english = '' WHERE kalimah_text = 'إِيّاهُم';
-UPDATE kalimaat SET translation_urdu = 'محھ کو', translation_english = '' WHERE kalimah_text = 'إِيّاىَ';
-UPDATE kalimaat SET translation_urdu = 'جانوروں کے کھانے کا چارہ', translation_english = '' WHERE kalimah_text = 'أَبَّا';
-UPDATE kalimaat SET translation_urdu = 'ھمیشہ', translation_english = '' WHERE kalimah_text = 'أَبَدًا';
-UPDATE kalimaat SET translation_urdu = 'وہ بھاگا', translation_english = '' WHERE kalimah_text = 'أَبَقَ';
-UPDATE kalimaat SET translation_urdu = 'جھنڈ کے جھنڈ', translation_english = '' WHERE kalimah_text = 'أَبابيلَ';
-UPDATE kalimaat SET translation_urdu = 'اونٹ', translation_english = '' WHERE kalimah_text = 'الإٍبِلِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَبًا';
-UPDATE kalimaat SET translation_urdu = 'باپ', translation_english = '' WHERE kalimah_text = 'أَبَا';
-UPDATE kalimaat SET translation_urdu = 'تمھارا باپ', translation_english = '' WHERE kalimah_text = 'أَباكم';
-UPDATE kalimaat SET translation_urdu = 'ھمارا باپ', translation_english = '' WHERE kalimah_text = 'أَبَانَا';
-UPDATE kalimaat SET translation_urdu = 'اس کا باپ', translation_english = '' WHERE kalimah_text = 'أَبَاهُ';
-UPDATE kalimaat SET translation_urdu = 'ان کے باپ دادا', translation_english = '' WHERE kalimah_text = 'أَبَاهُمْ';
-UPDATE kalimaat SET translation_urdu = 'اے باپ', translation_english = '' WHERE kalimah_text = 'أَبَتِ';
-UPDATE kalimaat SET translation_urdu = 'تیرا باپ', translation_english = '' WHERE kalimah_text = 'أَبُوكِ';
-UPDATE kalimaat SET translation_urdu = 'ھمارا باپ', translation_english = '' WHERE kalimah_text = 'أَبُونَا';
-UPDATE kalimaat SET translation_urdu = 'ان کا باپ', translation_english = '' WHERE kalimah_text = 'أَبُوهُم';
-UPDATE kalimaat SET translation_urdu = 'ان دونوں کا باپ', translation_english = '' WHERE kalimah_text = 'أَبُوهُمَا';
-UPDATE kalimaat SET translation_urdu = 'میرا باپ', translation_english = '' WHERE kalimah_text = 'أَبِى';
-UPDATE kalimaat SET translation_urdu = 'تمھارا باپ', translation_english = '' WHERE kalimah_text = 'أَبِيكُمْ';
-UPDATE kalimaat SET translation_urdu = 'ھمارا باپ', translation_english = '' WHERE kalimah_text = 'أَبِينَا';
-UPDATE kalimaat SET translation_urdu = 'اس کا باپ', translation_english = '' WHERE kalimah_text = 'أَبِيهِ';
-UPDATE kalimaat SET translation_urdu = 'ان کا باپ', translation_english = '' WHERE kalimah_text = 'أَبِيهِمْ';
-UPDATE kalimaat SET translation_urdu = 'اس کے ماں باپ', translation_english = '' WHERE kalimah_text = 'أَبَوَاهُ';
-UPDATE kalimaat SET translation_urdu = 'تیرے دونوں باپ دادا', translation_english = '' WHERE kalimah_text = 'أَبَوَيْكَ';
-UPDATE kalimaat SET translation_urdu = 'تمھارے ماں باپ', translation_english = '' WHERE kalimah_text = 'أَبَوَيْكُم';
-UPDATE kalimaat SET translation_urdu = 'اس کے ماں باپ', translation_english = '' WHERE kalimah_text = 'أَبَوَيْه';
-UPDATE kalimaat SET translation_urdu = 'باپ دادا اور چچا', translation_english = '' WHERE kalimah_text = 'آبَاءِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آبَاءَكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آبَاءَنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آبَاءَهُمْ';
-UPDATE kalimaat SET translation_urdu = 'تمھارے باپ دادا', translation_english = '' WHERE kalimah_text = 'آبَاؤُكُمْ';
-UPDATE kalimaat SET translation_urdu = 'ھمارے باپ دادا', translation_english = '' WHERE kalimah_text = 'آبَاؤُنَا';
-UPDATE kalimaat SET translation_urdu = 'ان کے باپ دادا', translation_english = '' WHERE kalimah_text = 'آبَاؤُهُمْ';
-UPDATE kalimaat SET translation_urdu = 'تیرے باپ دادا اور چچا', translation_english = '' WHERE kalimah_text = 'آبَائِكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آبَائِكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آبَائِنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آبَائِهِمْ';
-UPDATE kalimaat SET translation_urdu = 'ان عورتوں کے باپ دادا', translation_english = '' WHERE kalimah_text = 'آبَائِهِنَّ';
-UPDATE kalimaat SET translation_urdu = 'میرے باپ دادا', translation_english = '' WHERE kalimah_text = 'آبَائِى';
-UPDATE kalimaat SET translation_urdu = 'اس نے سخت انکار کیا', translation_english = '' WHERE kalimah_text = 'أَبَى';
-UPDATE kalimaat SET translation_urdu = 'انھوں نے سخت انکار کیا', translation_english = '' WHERE kalimah_text = 'أَبَوْا۟';
-UPDATE kalimaat SET translation_urdu = 'انھوں نے انکار کیا', translation_english = '' WHERE kalimah_text = 'أَبَيْنَ';
-UPDATE kalimaat SET translation_urdu = 'وھ انکار کرتے/کرتی ھیں', translation_english = '' WHERE kalimah_text = 'تَأْبَىٰ';
-UPDATE kalimaat SET translation_urdu = 'نہ انکار کرے نہ باز آۓ', translation_english = '' WHERE kalimah_text = 'يَأْبَ';
-UPDATE kalimaat SET translation_urdu = 'نہیں مانے گا', translation_english = '' WHERE kalimah_text = 'يَأْبَى';
-UPDATE kalimaat SET translation_urdu = 'وہ آیا، وہ آپہنچا', translation_english = '' WHERE kalimah_text = 'أَتَى';
-UPDATE kalimaat SET translation_urdu = 'وھ تیرے پاس آیا', translation_english = '' WHERE kalimah_text = 'أَتَاكَ';
-UPDATE kalimaat SET translation_urdu = 'وہ تمھارے پاس آیا', translation_english = '' WHERE kalimah_text = 'أَتَاكُمْ';
-UPDATE kalimaat SET translation_urdu = 'وہ ہمارے پاس آ پہنچا', translation_english = '' WHERE kalimah_text = 'أَتَانَا';
-UPDATE kalimaat SET translation_urdu = 'اس کو پہنچا، اس کے پاس آیا', translation_english = '' WHERE kalimah_text = 'أَتَاهَا';
-UPDATE kalimaat SET translation_urdu = 'ان کو پہنچا، ان کے پاس آیا', translation_english = '' WHERE kalimah_text = 'أَتَاهُمْ';
-UPDATE kalimaat SET translation_urdu = 'وھ آئی', translation_english = '' WHERE kalimah_text = 'أَتَتْ';
-UPDATE kalimaat SET translation_urdu = 'تیرے پاس آئی', translation_english = '' WHERE kalimah_text = 'أَتَتْكَ';
-UPDATE kalimaat SET translation_urdu = 'تمھارے پاس آئی', translation_english = '' WHERE kalimah_text = 'أَتَتْكُم';
-UPDATE kalimaat SET translation_urdu = 'ان کے  پاس آئی', translation_english = '' WHERE kalimah_text = 'أَتَتْهُم';
-UPDATE kalimaat SET translation_urdu = 'وہ لاۓ، وہ آۓ، وہ پہنچے', translation_english = '' WHERE kalimah_text = 'أَتَوْا';
-UPDATE kalimaat SET translation_urdu = 'وھ تیرے پاس آۓ', translation_english = '' WHERE kalimah_text = 'أَتَوْكَ';
-UPDATE kalimaat SET translation_urdu = 'وہ سب اس کے پاس آۓ', translation_english = '' WHERE kalimah_text = 'أَتَوْهُ';
-UPDATE kalimaat SET translation_urdu = 'وھ دونوں آۓ', translation_english = '' WHERE kalimah_text = 'أَتَيَا';
-UPDATE kalimaat SET translation_urdu = 'تو لایا', translation_english = '' WHERE kalimah_text = 'أَتَيْتَ';
-UPDATE kalimaat SET translation_urdu = 'وہ آئیں، وہ کریں', translation_english = '' WHERE kalimah_text = 'أَتَيْنَ';
-UPDATE kalimaat SET translation_urdu = 'ھم آۓ، ہم لے آۓ', translation_english = '' WHERE kalimah_text = 'أَتَيْنَا';
-UPDATE kalimaat SET translation_urdu = 'ھم تیرے پاس لاۓ ھیں', translation_english = '' WHERE kalimah_text = 'أَتَيْنَاك';
-UPDATE kalimaat SET translation_urdu = 'ھم نے ان کو پھنچا دیا', translation_english = '' WHERE kalimah_text = 'أَتَيْنَهُم';
-UPDATE kalimaat SET translation_urdu = 'میں تیرے پاس لاۓ دیتا ھوں', translation_english = '' WHERE kalimah_text = 'آتِيك';
-UPDATE kalimaat SET translation_urdu = 'میں تمھارے پاس لاتا ھوں', translation_english = '' WHERE kalimah_text = 'آتِيكُم';
-UPDATE kalimaat SET translation_urdu = 'میں ان پر ضرور آؤں گا', translation_english = '' WHERE kalimah_text = 'لآتِيَنَّهُم';
-UPDATE kalimaat SET translation_urdu = 'وھ (جماعت) آوے ', translation_english = '' WHERE kalimah_text = 'وَلْتَأْتِ';
-UPDATE kalimaat SET translation_urdu = 'تو ھمارے پاس لاۓ گا', translation_english = '' WHERE kalimah_text = 'تَأْتِنَا';
-UPDATE kalimaat SET translation_urdu = 'تم ضرور میرے پاس لے آؤ گے', translation_english = '' WHERE kalimah_text = 'لَتَأْتُنَّنِى';
-UPDATE kalimaat SET translation_urdu = 'تو ان کے پاس لاتا ھے، ان کے پاس آئی', translation_english = '' WHERE kalimah_text = 'تَأْتِهِم';
-UPDATE kalimaat SET translation_urdu = 'تم آتے رھو', translation_english = '' WHERE kalimah_text = 'تَأْتُوا۟';
-UPDATE kalimaat SET translation_urdu = 'تم کرتے/آتے رھو', translation_english = '' WHERE kalimah_text = 'تَأْتُونَ';
-UPDATE kalimaat SET translation_urdu = 'تم ھمارے پاس آتے رھو', translation_english = '' WHERE kalimah_text = 'تَأْتُونَنَا';
-UPDATE kalimaat SET translation_urdu = 'تم مبرے پاس لاؤ گے', translation_english = '' WHERE kalimah_text = 'تَأْتُونِى';
-UPDATE kalimaat SET translation_urdu = 'تو لے آوے / وھ آۓ گی', translation_english = '' WHERE kalimah_text = 'تَأْتِى';
-UPDATE kalimaat SET translation_urdu = 'وھ تمھارے پاس آئی ھے', translation_english = '' WHERE kalimah_text = 'تَأْتِيكُمْ';
-UPDATE kalimaat SET translation_urdu = 'تو ھمارے پاس آۓ', translation_english = '' WHERE kalimah_text = 'تَأْتِينا';
-UPDATE kalimaat SET translation_urdu = 'وھ تمھارے پاس ضرور آے گی', translation_english = '' WHERE kalimah_text = 'لَتَأْتِيَنَّكُمْ';
-UPDATE kalimaat SET translation_urdu = 'تو ان کے پاس آتا/آتی ھے ', translation_english = '' WHERE kalimah_text = 'تَأْتيهم';
-UPDATE kalimaat SET translation_urdu = 'ھم لاتے ھیں', translation_english = '' WHERE kalimah_text = 'نَأْتِ';
-UPDATE kalimaat SET translation_urdu = 'ھم چلے آتے ھیں', translation_english = '' WHERE kalimah_text = 'نَأْتِى';
-UPDATE kalimaat SET translation_urdu = 'ھم تمھارے پاس لے آئیں', translation_english = '' WHERE kalimah_text = 'نَأْتِيَكم';
-UPDATE kalimaat SET translation_urdu = 'ھم تیرے پاس لے آئیں گے', translation_english = '' WHERE kalimah_text = 'فَلَنَأْتِيَنَّكَ';
-UPDATE kalimaat SET translation_urdu = 'ھم ان کے پاس لے آئیں گے', translation_english = '' WHERE kalimah_text = 'فَلَنَأْتِيَنَّهُم';
-UPDATE kalimaat SET translation_urdu = 'لاۓ گا / لاتا ھے', translation_english = '' WHERE kalimah_text = 'يَأْتِ';
-UPDATE kalimaat SET translation_urdu = 'تیرے پاس نھیں آیا', translation_english = '' WHERE kalimah_text = 'يَأْتِكَ';
-UPDATE kalimaat SET translation_urdu = 'تمھارے پاس نہیں آیا', translation_english = '' WHERE kalimah_text = 'يَأْتِكُم';
-UPDATE kalimaat SET translation_urdu = 'وہ لے آۓ ھمارے پاس', translation_english = '' WHERE kalimah_text = 'فَلْيَأْتِنَا';
-UPDATE kalimaat SET translation_urdu = 'اس کے پاس آۓ گا', translation_english = '' WHERE kalimah_text = 'يَأْتِهِ';
-UPDATE kalimaat SET translation_urdu = 'ان کے پاس آجاۓ / ان کے پاس نہیں آیا', translation_english = '' WHERE kalimah_text = 'يَأْتِهِم';
-UPDATE kalimaat SET translation_urdu = 'وہ آئیں، لائیں، نہیں آۓ، نہیں لاۓ', translation_english = '' WHERE kalimah_text = 'يَأْتُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْتُوك';--
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْتُوكُم';--
-UPDATE kalimaat SET translation_urdu = 'آتے ہیں', translation_english = '' WHERE kalimah_text = 'يَأْتُونَ';
-UPDATE kalimaat SET translation_urdu = 'وہ تیرے پاس نہیں لائیں گے', translation_english = '' WHERE kalimah_text = 'يَأْتُونَكَ';
-UPDATE kalimaat SET translation_urdu = 'وھ ھمارے پاس آئیں گے', translation_english = '' WHERE kalimah_text = 'يَأْتُونَنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْتُونِى';
-UPDATE kalimaat SET translation_urdu = 'آجاۓ، لے آۓ', translation_english = '' WHERE kalimah_text = 'يَأْتِى';
-UPDATE kalimaat SET translation_urdu = 'جو دونوں (مرد و عورت) اس کو کریں', translation_english = '' WHERE kalimah_text = 'يَأْتِيَنِها';
-UPDATE kalimaat SET translation_urdu = 'تجھے آجاۓ', translation_english = '' WHERE kalimah_text = 'يَأْتِيَك';
-UPDATE kalimaat SET translation_urdu = 'تمھارے پاس لے آۓ، لے آۓ گا۔۔۔', translation_english = '' WHERE kalimah_text = 'يَأْتِيكم';
-UPDATE kalimaat SET translation_urdu = 'تم دونوں کے پاس آۓ گا، نہیں آۓ گا', translation_english = '' WHERE kalimah_text = 'يَأْتِيكُمَا';
-UPDATE kalimaat SET translation_urdu = 'تم دونوں کے پاس آنے سے (پہلے)', translation_english = '' WHERE kalimah_text = 'يَأْتِيَكُمَا';
-UPDATE kalimaat SET translation_urdu = '۔۔۔عورتیں کریں، آتی ہیں۔۔۔', translation_english = '' WHERE kalimah_text = 'يَأْتِينَ';
-UPDATE kalimaat SET translation_urdu = 'ہمارے پاس لاۓ، وہ ہمارے پاس آۓ گا', translation_english = '' WHERE kalimah_text = 'يَأْتِينَا';
-UPDATE kalimaat SET translation_urdu = 'وہ تیرے پاس آئیں گے', translation_english = '' WHERE kalimah_text = 'يَأْتِينَكَ';
-UPDATE kalimaat SET translation_urdu = '۔۔۔تمہارے پاس آۓ', translation_english = '' WHERE kalimah_text = 'يَأْتِيَنَّكُمْ';
-UPDATE kalimaat SET translation_urdu = 'ان پر ضرور آ چاۓ گا', translation_english = '' WHERE kalimah_text = 'لَيَأتِيَنَّهُم';
-UPDATE kalimaat SET translation_urdu = 'وہ میرے پاس ضرور لاۓ', translation_english = '' WHERE kalimah_text = 'لَيَأْتِيَنِّى';
-UPDATE kalimaat SET translation_urdu = 'میرے پاس لے آۓ گا', translation_english = '' WHERE kalimah_text = 'يَأْتِيَنى';
-UPDATE kalimaat SET translation_urdu = 'میرے پاس لے آۓ گا', translation_english = '' WHERE kalimah_text = 'يَأتِينِى';
-UPDATE kalimaat SET translation_urdu = 'اس پر آتا ہے، آۓ گا، اس پر نہیں آتا', translation_english = '' WHERE kalimah_text = 'يَأْتِيهِ';
-UPDATE kalimaat SET translation_urdu = 'اس کو پہنچے گا، اس کے پاس آۓ گا', translation_english = '' WHERE kalimah_text = 'يَأْتِيهَا';
-UPDATE kalimaat SET translation_urdu = 'ان پر آجاۓ', translation_english = '' WHERE kalimah_text = 'يَأْتِيهم';
-UPDATE kalimaat SET translation_urdu = 'لے آ', translation_english = '' WHERE kalimah_text = 'إئْتِ';
-UPDATE kalimaat SET translation_urdu = 'ہمارے پاس آ', translation_english = '' WHERE kalimah_text = 'إِئْتِنَا';
-UPDATE kalimaat SET translation_urdu = 'تم آؤ', translation_english = '' WHERE kalimah_text = 'إئْتُوا';
-UPDATE kalimaat SET translation_urdu = 'تم ہمارے پاس لاؤ', translation_english = '' WHERE kalimah_text = 'إئْتُونَا';
-UPDATE kalimaat SET translation_urdu = 'میرے پاس لاؤ', translation_english = '' WHERE kalimah_text = 'إِئْتُونِى';
-UPDATE kalimaat SET translation_urdu = 'ان (عورتوں) کے پاس جاؤ', translation_english = '' WHERE kalimah_text = 'إِئْتُوهن';
-UPDATE kalimaat SET translation_urdu = 'تم دونوں جاؤ', translation_english = '' WHERE kalimah_text = 'إئْتِيَا';
-UPDATE kalimaat SET translation_urdu = 'تم دونوں اس کے پاس جاؤ', translation_english = '' WHERE kalimah_text = 'إِئْتِيَاهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أتُوا';--
-UPDATE kalimaat SET translation_urdu = 'اس نے دیا', translation_english = '' WHERE kalimah_text = 'آتَى';
-UPDATE kalimaat SET translation_urdu = 'اس نے تجھ کو دیا', translation_english = '' WHERE kalimah_text = 'آتَاكَ';
-UPDATE kalimaat SET translation_urdu = 'اس نے تم کو دیا', translation_english = '' WHERE kalimah_text = 'آتَاكُم';
-UPDATE kalimaat SET translation_urdu = 'اس نے ہم کو دیا', translation_english = '' WHERE kalimah_text = 'آتَانَا';
-UPDATE kalimaat SET translation_urdu = 'اس نے مجھ کو دیا', translation_english = '' WHERE kalimah_text = 'آتَانِى';
-UPDATE kalimaat SET translation_urdu = 'اس کو دیا', translation_english = '' WHERE kalimah_text = 'آتَاهُ';
-UPDATE kalimaat SET translation_urdu = 'اس کو دیا', translation_english = '' WHERE kalimah_text = 'آتَاهَا';
-UPDATE kalimaat SET translation_urdu = 'ان کو دیا', translation_english = '' WHERE kalimah_text = 'آتَاهُمْ';
-UPDATE kalimaat SET translation_urdu = 'ان دونوں کو دیا', translation_english = '' WHERE kalimah_text = 'آتَاهُمَا';
-UPDATE kalimaat SET translation_urdu = 'وہ لائی', translation_english = '' WHERE kalimah_text = 'آتَتْ';
-UPDATE kalimaat SET translation_urdu = 'انہوں نے دیا', translation_english = '' WHERE kalimah_text = 'آتَوْا';
-UPDATE kalimaat SET translation_urdu = 'انہوں نے اس کو دیا', translation_english = '' WHERE kalimah_text = 'آتَوْهُ';
-UPDATE kalimaat SET translation_urdu = 'وہ اس کو مان لیتے', translation_english = '' WHERE kalimah_text = 'آتَوْها';
-UPDATE kalimaat SET translation_urdu = 'تو نے دیا', translation_english = '' WHERE kalimah_text = 'آتَيْتَ';
-UPDATE kalimaat SET translation_urdu = 'میں نے تجھ کو دیا', translation_english = '' WHERE kalimah_text = 'آتَيْتُكَ';
-UPDATE kalimaat SET translation_urdu = 'میں نے تم کو دیا', translation_english = '' WHERE kalimah_text = 'آتَيْتُكُمْ';
-UPDATE kalimaat SET translation_urdu = 'تم نے دیا', translation_english = '' WHERE kalimah_text = 'آتَيْتُمْ';
-UPDATE kalimaat SET translation_urdu = 'تم نے ان عورتوں کو دیا', translation_english = '' WHERE kalimah_text = 'آتَيْتُمُوهُنَّ';
-UPDATE kalimaat SET translation_urdu = 'تم نے ہم کو دیا', translation_english = '' WHERE kalimah_text = 'آتَيْتَنَا';
-UPDATE kalimaat SET translation_urdu = 'تم نے مجھ کو دیا', translation_english = '' WHERE kalimah_text = 'آتَيْتَنِى';
-UPDATE kalimaat SET translation_urdu = 'تم نے ان عورتوں کو دیا', translation_english = '' WHERE kalimah_text = 'آتَيْتَهُنَّ';
-UPDATE kalimaat SET translation_urdu = 'ہم نے دیا، ہم نے بخشا', translation_english = '' WHERE kalimah_text = 'آتَيْنَا';
-UPDATE kalimaat SET translation_urdu = 'ہم نے تجھ کو دیا', translation_english = '' WHERE kalimah_text = 'آتَيْنَاكَ';
-UPDATE kalimaat SET translation_urdu = 'ہم نے تم کو دیا', translation_english = '' WHERE kalimah_text = 'آتَيْنَاكُم';
-UPDATE kalimaat SET translation_urdu = 'ہم نے اس کو دیا', translation_english = '' WHERE kalimah_text = 'آتَيْنَاهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آتَيْنَاهَا';--
-UPDATE kalimaat SET translation_urdu = 'ہم نے ان کو دیا', translation_english = '' WHERE kalimah_text = 'آتَيْنَاهُم';
-UPDATE kalimaat SET translation_urdu = 'ہم نے ان دونوں کو دی', translation_english = '' WHERE kalimah_text = 'آتَيْنَاهُمَا';
-UPDATE kalimaat SET translation_urdu = 'تم دو', translation_english = '' WHERE kalimah_text = 'تُؤُتُوا';
-UPDATE kalimaat SET translation_urdu = 'تم مجھ کو دو', translation_english = '' WHERE kalimah_text = 'تُؤُتُونِ';
-UPDATE kalimaat SET translation_urdu = 'تم ان کو دیتے ہو', translation_english = '' WHERE kalimah_text = 'تُؤُتُونَهُنَّ';
-UPDATE kalimaat SET translation_urdu = 'تم اس کو دو', translation_english = '' WHERE kalimah_text = 'تُؤُتُوهَا';
-UPDATE kalimaat SET translation_urdu = 'تو دیتا ہے', translation_english = '' WHERE kalimah_text = 'تُؤُتِى';
-UPDATE kalimaat SET translation_urdu = 'ہم اس کو عطا کریں گے', translation_english = '' WHERE kalimah_text = 'نُؤْتِه';
-UPDATE kalimaat SET translation_urdu = 'ہم اس کو دیں گے', translation_english = '' WHERE kalimah_text = 'نُؤْتِها';
-UPDATE kalimaat SET translation_urdu = 'ہم اس کو دیں گے', translation_english = '' WHERE kalimah_text = 'نُؤْتِيهِ';
-UPDATE kalimaat SET translation_urdu = 'ہم ان کو دیں گے', translation_english = '' WHERE kalimah_text = 'سَنُؤْتِيهِم';
-UPDATE kalimaat SET translation_urdu = 'وہ دے گا', translation_english = '' WHERE kalimah_text = 'يُؤْتِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْتِكُم';--
-UPDATE kalimaat SET translation_urdu = 'وہ ادا کریں', translation_english = '' WHERE kalimah_text = 'يُؤْتُوا';
-UPDATE kalimaat SET translation_urdu = 'وہ دیتے ہیں', translation_english = '' WHERE kalimah_text = 'يُؤْتُونَ';
-UPDATE kalimaat SET translation_urdu = 'وہ دیتا ہے', translation_english = '' WHERE kalimah_text = 'يُؤْتِى';
-UPDATE kalimaat SET translation_urdu = 'مجھے دے گا', translation_english = '' WHERE kalimah_text = 'يُؤْتِينَ';
-UPDATE kalimaat SET translation_urdu = 'ہم کو دے گا', translation_english = '' WHERE kalimah_text = 'سَيُؤْتِينَا';
-UPDATE kalimaat SET translation_urdu = 'اس کو دیتا ہے', translation_english = '' WHERE kalimah_text = 'يُؤْتِيه';
-UPDATE kalimaat SET translation_urdu = 'ان کو دے گا', translation_english = '' WHERE kalimah_text = 'يُؤْتِيهم';
-UPDATE kalimaat SET translation_urdu = 'تو دے', translation_english = '' WHERE kalimah_text = 'آتِ';
-UPDATE kalimaat SET translation_urdu = 'ہم کو عطا فرما، ہم کو دے', translation_english = '' WHERE kalimah_text = 'آتِنا';
-UPDATE kalimaat SET translation_urdu = 'تو ان کو دے', translation_english = '' WHERE kalimah_text = 'آتِهِم';
-UPDATE kalimaat SET translation_urdu = 'تم دو', translation_english = '' WHERE kalimah_text = 'آتُوا';
-UPDATE kalimaat SET translation_urdu = 'تم ہمارے پاس لاؤ', translation_english = '' WHERE kalimah_text = 'آتُونَا';
-UPDATE kalimaat SET translation_urdu = 'تم میرے پاس لاؤ', translation_english = '' WHERE kalimah_text = 'آتُونِى';
-UPDATE kalimaat SET translation_urdu = 'تو ان کو دو', translation_english = '' WHERE kalimah_text = 'آتُوهُمْ';
-UPDATE kalimaat SET translation_urdu = 'تم ان عورتوں کو دو', translation_english = '' WHERE kalimah_text = 'آتُوهُنَّ';
-UPDATE kalimaat SET translation_urdu = 'تم دو', translation_english = '' WHERE kalimah_text = 'آتِينَ';
-UPDATE kalimaat SET translation_urdu = 'ان کو دیا گیا', translation_english = '' WHERE kalimah_text = 'أُوتُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُوتُوهُ';--
-UPDATE kalimaat SET translation_urdu = 'اسے دیا گیا', translation_english = '' WHERE kalimah_text = 'أُوتِىَ';
-UPDATE kalimaat SET translation_urdu = 'تجھ کو دیا گیا', translation_english = '' WHERE kalimah_text = 'أُوتِيتَ';
-UPDATE kalimaat SET translation_urdu = 'اس (عورت) کو دیا گیا', translation_english = '' WHERE kalimah_text = 'أُوتِيَتْ';
-UPDATE kalimaat SET translation_urdu = 'تم کو دیا گیا', translation_english = '' WHERE kalimah_text = 'أُوتِيتُمْ';
-UPDATE kalimaat SET translation_urdu = 'مجھے وہ دیا گیا', translation_english = '' WHERE kalimah_text = 'أُوتِيتُهُ';
-UPDATE kalimaat SET translation_urdu = 'ہم کو دیا گیا', translation_english = '' WHERE kalimah_text = 'أُوتِينَا';
-UPDATE kalimaat SET translation_urdu = 'مجھے دیا گیا', translation_english = '' WHERE kalimah_text = 'أُوتَ';
-UPDATE kalimaat SET translation_urdu = 'مجھے ضرور دیا جاۓ گا', translation_english = '' WHERE kalimah_text = 'لَأَوتَيَنَّ';
-UPDATE kalimaat SET translation_urdu = 'تو کو وہ دیا جاۓ', translation_english = '' WHERE kalimah_text = 'تُؤْتَوْه';
-UPDATE kalimaat SET translation_urdu = 'ہم کو دی جاۓ', translation_english = '' WHERE kalimah_text = 'نُؤْتَى';
-UPDATE kalimaat SET translation_urdu = 'دیا جاۓ', translation_english = '' WHERE kalimah_text = 'يُؤْتَ';
-UPDATE kalimaat SET translation_urdu = 'اس کو دیا جاۓ', translation_english = '' WHERE kalimah_text = 'يُؤْتَى';
-UPDATE kalimaat SET translation_urdu = 'ان کو دیا جاۓ گا', translation_english = '' WHERE kalimah_text = 'يُؤْتَوْنَ';
-UPDATE kalimaat SET translation_urdu = 'آنے والا', translation_english = '' WHERE kalimah_text = 'آتٍ';
-UPDATE kalimaat SET translation_urdu = 'آنے والا', translation_english = '' WHERE kalimah_text = 'آتِى';
-UPDATE kalimaat SET translation_urdu = 'آنے والی', translation_english = '' WHERE kalimah_text = 'آتِيَةۢ';
-UPDATE kalimaat SET translation_urdu = 'اس کے پاس آنے والا', translation_english = '' WHERE kalimah_text = 'آتِيهِ';
-UPDATE kalimaat SET translation_urdu = 'ان پر آنے والا ہے', translation_english = '' WHERE kalimah_text = 'آتِيهِم';
-UPDATE kalimaat SET translation_urdu = 'دینا', translation_english = '' WHERE kalimah_text = 'إْيتَاء';
-UPDATE kalimaat SET translation_urdu = 'آسانی کے ساتھ آنا', translation_english = '' WHERE kalimah_text = 'مَأْتِياَّ';
-UPDATE kalimaat SET translation_urdu = 'دینے والے', translation_english = '' WHERE kalimah_text = 'المُؤْتُونَ';
-UPDATE kalimaat SET translation_urdu = 'مال و اسباب', translation_english = '' WHERE kalimah_text = 'أَثَاثًا';
-UPDATE kalimaat SET translation_urdu = 'وہ منقول ہے', translation_english = '' WHERE kalimah_text = 'يُؤْثَر';
-UPDATE kalimaat SET translation_urdu = 'اس نے پسند کیا', translation_english = '' WHERE kalimah_text = 'آثَرَ';
-UPDATE kalimaat SET translation_urdu = 'تجھ کو پسند کر لیا', translation_english = '' WHERE kalimah_text = 'آثَرَك';
-UPDATE kalimaat SET translation_urdu = 'تو پسند کرتے ہو', translation_english = '' WHERE kalimah_text = 'تُؤْثِرون';
-UPDATE kalimaat SET translation_urdu = 'ہم ہرگز تجھے ترجیح نہ دیں گے', translation_english = '' WHERE kalimah_text = 'نُؤْتِرَك';
-UPDATE kalimaat SET translation_urdu = 'وہ ترجیح دیتے ہیں', translation_english = '' WHERE kalimah_text = 'يُؤْثِرون';
-UPDATE kalimaat SET translation_urdu = 'نشان', translation_english = '' WHERE kalimah_text = 'أَثَرِ';
-UPDATE kalimaat SET translation_urdu = 'میرے نشان۔۔۔', translation_english = '' WHERE kalimah_text = 'أَثَرى';
-UPDATE kalimaat SET translation_urdu = 'نشانیاں', translation_english = '' WHERE kalimah_text = 'آثَارِ';
-UPDATE kalimaat SET translation_urdu = 'نشانیاں', translation_english = '' WHERE kalimah_text = 'آثَارًا';
-UPDATE kalimaat SET translation_urdu = 'ان کے نشانات', translation_english = '' WHERE kalimah_text = 'آثَارِهم';
-UPDATE kalimaat SET translation_urdu = 'ان دونوں کے نشانات', translation_english = '' WHERE kalimah_text = 'آثَارِهما';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَثَارَةٍ';
-UPDATE kalimaat SET translation_urdu = 'جھاؤ کا درخت', translation_english = '' WHERE kalimah_text = 'أَثْلٍ';
-UPDATE kalimaat SET translation_urdu = 'گناہ', translation_english = '' WHERE kalimah_text = 'إثْم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِثْمًا';
-UPDATE kalimaat SET translation_urdu = 'تیرا گناہ', translation_english = '' WHERE kalimah_text = 'إِثمِك';
-UPDATE kalimaat SET translation_urdu = 'اس کا گناہ', translation_english = '' WHERE kalimah_text = 'إِثْمُه';
-UPDATE kalimaat SET translation_urdu = 'ان دونوں کا گناہ', translation_english = '' WHERE kalimah_text = 'إِثْمُهُمَا';
-UPDATE kalimaat SET translation_urdu = 'میرا گناہ', translation_english = '' WHERE kalimah_text = 'إِثْمِى';
-UPDATE kalimaat SET translation_urdu = 'گنہگار', translation_english = '' WHERE kalimah_text = 'آثِمٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آثِمًا';
-UPDATE kalimaat SET translation_urdu = 'بہت سے گنہگار', translation_english = '' WHERE kalimah_text = 'الآثِمِينَ';
-UPDATE kalimaat SET translation_urdu = 'گناہ', translation_english = '' WHERE kalimah_text = 'أَثَامًا';
-UPDATE kalimaat SET translation_urdu = 'گنہگار', translation_english = '' WHERE kalimah_text = 'أَثِيم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَثِيمًا';
-UPDATE kalimaat SET translation_urdu = 'گنہگاری', translation_english = '' WHERE kalimah_text = 'تَأْثِيم';
-UPDATE kalimaat SET translation_urdu = 'گنہگاری', translation_english = '' WHERE kalimah_text = 'تَأْثِيماً';
-UPDATE kalimaat SET translation_urdu = 'کڑوا پانی', translation_english = '' WHERE kalimah_text = 'أُجَاج';
-UPDATE kalimaat SET translation_urdu = 'کڑوا پانی', translation_english = '' WHERE kalimah_text = 'أُجَاجًا';
-UPDATE kalimaat SET translation_urdu = 'تو میرے نوکری کرے گا / مزدوری کرے گا', translation_english = '' WHERE kalimah_text = 'تَأْجُرَنِى';
-UPDATE kalimaat SET translation_urdu = 'تو نے اجرت پر نوکر رکھا', translation_english = '' WHERE kalimah_text = 'اسْتَأْجَرْتَ';
-UPDATE kalimaat SET translation_urdu = 'تو اس کر اجرت پر نوکر رکھ لے', translation_english = '' WHERE kalimah_text = 'اسْتَأْجِرْه';
-UPDATE kalimaat SET translation_urdu = 'مزدوری، ثواب', translation_english = '' WHERE kalimah_text = 'أَجْر';
-UPDATE kalimaat SET translation_urdu = 'مزدوری، ثواب', translation_english = '' WHERE kalimah_text = 'أَجْرًا';
-UPDATE kalimaat SET translation_urdu = 'اس کا ثواب، بدلہ', translation_english = '' WHERE kalimah_text = 'أَجْرُه';
-UPDATE kalimaat SET translation_urdu = 'اس عورت کا ثواب، بدلہ', translation_english = '' WHERE kalimah_text = 'أَجْرَها';
-UPDATE kalimaat SET translation_urdu = 'ان کا ثواب، بدلہ', translation_english = '' WHERE kalimah_text = 'أَجْرُهم';
-UPDATE kalimaat SET translation_urdu = 'میرا ثواب، بدلہ', translation_english = '' WHERE kalimah_text = 'أَجْرِى';
-UPDATE kalimaat SET translation_urdu = 'تمہارا حق، بدلہ', translation_english = '' WHERE kalimah_text = 'أُجُورَكُمْ';
-UPDATE kalimaat SET translation_urdu = 'ان کا حق، بدلہ', translation_english = '' WHERE kalimah_text = 'أُجُورَهُمْ';
-UPDATE kalimaat SET translation_urdu = 'ان (عورتوں) کا حق، بدلہ', translation_english = '' WHERE kalimah_text = 'أُجُورَهُنَّ';
-UPDATE kalimaat SET translation_urdu = 'تو نے مدت مقرر کی', translation_english = '' WHERE kalimah_text = 'أَجَّلْتَ';
-UPDATE kalimaat SET translation_urdu = 'دیر کی گئی', translation_english = '' WHERE kalimah_text = 'أُجِّلَتْ';
-UPDATE kalimaat SET translation_urdu = 'مدت مقررہ', translation_english = '' WHERE kalimah_text = 'أَجَل';
-UPDATE kalimaat SET translation_urdu = 'مدت مقررہ', translation_english = '' WHERE kalimah_text = 'أَجَلًا';
-UPDATE kalimaat SET translation_urdu = 'ہماری مدت مقررہ', translation_english = '' WHERE kalimah_text = 'أَجَلَنَا';
-UPDATE kalimaat SET translation_urdu = 'اس کی مدت مقررہ', translation_english = '' WHERE kalimah_text = 'أَجَلَه';
-UPDATE kalimaat SET translation_urdu = 'اس کی مدت مقررہ', translation_english = '' WHERE kalimah_text = 'أَجَلهَا';
-UPDATE kalimaat SET translation_urdu = 'ان کی مدت مقررہ', translation_english = '' WHERE kalimah_text = 'أَجَلُهُم';
-UPDATE kalimaat SET translation_urdu = 'ان (عورتوں) کی مدت مقررہ', translation_english = '' WHERE kalimah_text = 'أَجَلَُهُنَّ';
-UPDATE kalimaat SET translation_urdu = 'دو مقررہ مددتیں', translation_english = '' WHERE kalimah_text = 'الأَجَلَيْنِ';
-UPDATE kalimaat SET translation_urdu = 'وہ جس کا وقت مقرر ہو', translation_english = '' WHERE kalimah_text = 'مُؤَجَْلًا';
-UPDATE kalimaat SET translation_urdu = 'واسطے، غرض، سبب', translation_english = '' WHERE kalimah_text = 'أَجْل';
-UPDATE kalimaat SET translation_urdu = 'ایک، اکیلا، پہلا', translation_english = '' WHERE kalimah_text = 'أَحَد';
-UPDATE kalimaat SET translation_urdu = 'ایک، اکیلا، پہلا', translation_english = '' WHERE kalimah_text = 'أَحَدًا';
-UPDATE kalimaat SET translation_urdu = 'تم میں سے ایک', translation_english = '' WHERE kalimah_text = 'أَحَدكم';
-UPDATE kalimaat SET translation_urdu = 'تو دونوں میں سے ایک', translation_english = '' WHERE kalimah_text = 'أَحَدُكُما';
-UPDATE kalimaat SET translation_urdu = 'ہم میں سے ایک', translation_english = '' WHERE kalimah_text = 'أَحَدَنَا';
-UPDATE kalimaat SET translation_urdu = 'ان میں سے ایک', translation_english = '' WHERE kalimah_text = 'أَحَدهم';
-UPDATE kalimaat SET translation_urdu = 'ان دونوں میں سے ایک', translation_english = '' WHERE kalimah_text = 'أَحَدهما';
-UPDATE kalimaat SET translation_urdu = 'ایک عورت', translation_english = '' WHERE kalimah_text = 'إِحدَى';
-UPDATE kalimaat SET translation_urdu = 'ان دو عورتوں میں سے ایک', translation_english = '' WHERE kalimah_text = 'إَحْدَاهما';
-UPDATE kalimaat SET translation_urdu = 'ان عورتوں میں سے ایک', translation_english = '' WHERE kalimah_text = 'إِحْدَاهُنَّ';
-UPDATE kalimaat SET translation_urdu = 'اس نے پکڑا / لیا', translation_english = '' WHERE kalimah_text = 'أَخَذَ';
-UPDATE kalimaat SET translation_urdu = 'اس نے آ پکڑا', translation_english = '' WHERE kalimah_text = 'أَخَذَتِ';
-UPDATE kalimaat SET translation_urdu = 'میں نے پکڑا', translation_english = '' WHERE kalimah_text = 'أَخَذْتُ';
-UPDATE kalimaat SET translation_urdu = 'اس نے تی کو پکڑا', translation_english = '' WHERE kalimah_text = 'أَخَذَتْكُمُ';
-UPDATE kalimaat SET translation_urdu = 'تم نے لیا', translation_english = '' WHERE kalimah_text = 'أَخَذْتْمْ';
-UPDATE kalimaat SET translation_urdu = 'اس کو پکڑ لیا', translation_english = '' WHERE kalimah_text = 'أَخَذَتْهُ';
-UPDATE kalimaat SET translation_urdu = 'میں نے اس کو پکڑا', translation_english = '' WHERE kalimah_text = 'أَخَذْتُهَا';
-UPDATE kalimaat SET translation_urdu = 'ان کو آ پکڑا', translation_english = '' WHERE kalimah_text = 'أَخَذَتْهُم';
-UPDATE kalimaat SET translation_urdu = 'میں نے ان کو پکڑا', translation_english = '' WHERE kalimah_text = 'أَخَذْتُهُمْ';
-UPDATE kalimaat SET translation_urdu = 'ان عورتوں نے لے لیا', translation_english = '' WHERE kalimah_text = 'أَخَذْنَ';
-UPDATE kalimaat SET translation_urdu = 'ہم نے لیا / پکڑا', translation_english = '' WHERE kalimah_text = 'أَخَذْنَا';
-UPDATE kalimaat SET translation_urdu = 'ہم نے اس کو پکڑا', translation_english = '' WHERE kalimah_text = 'فَأَخَذْنَاهُ';
-UPDATE kalimaat SET translation_urdu = 'ہم نے اس کو پکڑا', translation_english = '' WHERE kalimah_text = 'أَخَذْنَاهُمْ';
-UPDATE kalimaat SET translation_urdu = 'اس کو پکڑا', translation_english = '' WHERE kalimah_text = 'فَأَخَذَهُ';
-UPDATE kalimaat SET translation_urdu = 'ان کو پکڑا', translation_english = '' WHERE kalimah_text = 'فَأَخَذَهُمْ';
-UPDATE kalimaat SET translation_urdu = 'تو پکڑے', translation_english = '' WHERE kalimah_text = 'تَأْخُذْ';
-UPDATE kalimaat SET translation_urdu = 'تم کو وہ آ پکڑے', translation_english = '' WHERE kalimah_text = 'تَأْخُذُكم';
-UPDATE kalimaat SET translation_urdu = 'وہ اس کو پکڑتی ہے / آ لیتی ہے', translation_english = '' WHERE kalimah_text = 'تَأْخُذُه';
-UPDATE kalimaat SET translation_urdu = 'وہ ان کو آ پکڑے گی / آ لے گی', translation_english = '' WHERE kalimah_text = 'تَأْخُذُهم';
-UPDATE kalimaat SET translation_urdu = 'تم لے لو', translation_english = '' WHERE kalimah_text = 'تَأْخُذُوا';
-UPDATE kalimaat SET translation_urdu = 'تم اس کو لیتے ہو / لو گے', translation_english = '' WHERE kalimah_text = 'تَأْخُذُونَه';
-UPDATE kalimaat SET translation_urdu = 'تم اس کو لو گے', translation_english = '' WHERE kalimah_text = 'تَأْخُذُونَها';
-UPDATE kalimaat SET translation_urdu = 'وہ اس کو پکڑتی ہے / آ لیتی ہے', translation_english = '' WHERE kalimah_text = 'لتَأخُذُوها';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْخُذَ';
-UPDATE kalimaat SET translation_urdu = 'قبضے ميں لے لے', translation_english = '' WHERE kalimah_text = 'يَأْخُذ';
-UPDATE kalimaat SET translation_urdu = 'تمہیں پکڑے', translation_english = '' WHERE kalimah_text = 'فيَأْخُذَكم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْخُذْه';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْخُذَهم';
-UPDATE kalimaat SET translation_urdu = 'وہ لے لیں', translation_english = '' WHERE kalimah_text = 'يَأْخُذُوا';
-UPDATE kalimaat SET translation_urdu = 'وہ لیتے ہیں', translation_english = '' WHERE kalimah_text = 'يَأْخُذُونَ';
-UPDATE kalimaat SET translation_urdu = 'وہ اس کو لے لیں گے', translation_english = '' WHERE kalimah_text = 'يَأْخُذُونَها';
-UPDATE kalimaat SET translation_urdu = 'وہ لے لے', translation_english = '' WHERE kalimah_text = 'يَأْخُذُوه';
-UPDATE kalimaat SET translation_urdu = 'تو پکڑ، تو لے', translation_english = '' WHERE kalimah_text = 'خُذْ';
-UPDATE kalimaat SET translation_urdu = 'اس کو پکڑ، اس کو لے', translation_english = '' WHERE kalimah_text = 'خُذْهَا';
-UPDATE kalimaat SET translation_urdu = 'تم پکڑو، تم لو', translation_english = '' WHERE kalimah_text = 'خُذُوا';
-UPDATE kalimaat SET translation_urdu = 'اس کو پکڑو، اس کو لو', translation_english = '' WHERE kalimah_text = 'خُذُوهُ';
-UPDATE kalimaat SET translation_urdu = 'ان کو پکڑو', translation_english = '' WHERE kalimah_text = 'خُذُوهُمْ';
-UPDATE kalimaat SET translation_urdu = 'وہ لیا گیا', translation_english = '' WHERE kalimah_text = 'أُخِذَ';
-UPDATE kalimaat SET translation_urdu = 'وہ پکڑے گۓ', translation_english = '' WHERE kalimah_text = 'أُخِذُوا';
-UPDATE kalimaat SET translation_urdu = 'وہ پکڑا جاۓ گا، نہیں لیا جاۓ گا۔۔۔', translation_english = '' WHERE kalimah_text = 'يُؤْخَذ';
-UPDATE kalimaat SET translation_urdu = 'تو ہم کو پکڑے', translation_english = '' WHERE kalimah_text = 'تُؤَاخِذْنا';
-UPDATE kalimaat SET translation_urdu = 'تو مجھے پکڑے', translation_english = '' WHERE kalimah_text = 'تُؤَاخِذْنِى';
-UPDATE kalimaat SET translation_urdu = 'وہ گرفت کرے، وہ پکڑے', translation_english = '' WHERE kalimah_text = 'يُؤَاخِذُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤَاخِذُكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤَاخِذُهُمْ';
-UPDATE kalimaat SET translation_urdu = 'میں بناؤں، اختیار کروں', translation_english = '' WHERE kalimah_text = 'اتَّخَذَ';
-UPDATE kalimaat SET translation_urdu = 'اس عورت نے اختیار کیا', translation_english = '' WHERE kalimah_text = 'اتَّخَذَتْ';
-UPDATE kalimaat SET translation_urdu = 'میں نے اختیار کیا', translation_english = '' WHERE kalimah_text = 'اتَّخَذْتُ';
-UPDATE kalimaat SET translation_urdu = 'تو نے اختیار کیا', translation_english = '' WHERE kalimah_text = 'اِتَّخَذْتَ';
-UPDATE kalimaat SET translation_urdu = 'تم نے اختیار کیا', translation_english = '' WHERE kalimah_text = 'اِتَّخَذْتُمْ';
-UPDATE kalimaat SET translation_urdu = 'تم نے اس کو ٹھیرایا', translation_english = '' WHERE kalimah_text = 'اتَّخَذْتُمُوه';
-UPDATE kalimaat SET translation_urdu = 'تم نے ان کو ٹھیرایا', translation_english = '' WHERE kalimah_text = 'فَاتَّخَذْتُمُوهُمْ';
-UPDATE kalimaat SET translation_urdu = 'ہم اس کو ٹھیراتے', translation_english = '' WHERE kalimah_text = 'اِتَّخَذْنَاهُ';
-UPDATE kalimaat SET translation_urdu = 'ہم نے ان کو ٹھیرایا', translation_english = '' WHERE kalimah_text = 'اَتَّخَذْنَاهم';
-UPDATE kalimaat SET translation_urdu = 'اس نے ٹھیرا لیا ہے اس کو', translation_english = '' WHERE kalimah_text = 'اِتَّخَذَهَا';
-UPDATE kalimaat SET translation_urdu = 'انہوں نے ٹھیرا لیا', translation_english = '' WHERE kalimah_text = 'اِتَّخَذُوا';
-UPDATE kalimaat SET translation_urdu = 'انہوں نے تجھ کو اختیار کر لیا', translation_english = '' WHERE kalimah_text = 'اِتَّخَذُوك';
-UPDATE kalimaat SET translation_urdu = 'انہوں نے اس کو اختیار کر لیا', translation_english = '' WHERE kalimah_text = 'اِتَّخَذُوه';
-UPDATE kalimaat SET translation_urdu = 'انہوں نے ٹھیرا لیا ہے اس کو', translation_english = '' WHERE kalimah_text = 'اِتَّخَذُوها';
-UPDATE kalimaat SET translation_urdu = 'نہوں نے ٹھیرا لیا ہے ان کو', translation_english = '' WHERE kalimah_text = 'اِتَّخَذُوهم';
-UPDATE kalimaat SET translation_urdu = 'میں بناؤں، اختیار کروں', translation_english = '' WHERE kalimah_text = 'أَتَّخِذُ';
-UPDATE kalimaat SET translation_urdu = 'میں ضرور ٹھیراؤں گا، اختیار کروں گا', translation_english = '' WHERE kalimah_text = 'أَتَّخِذَنَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَتَّخِذ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَتَّخِذُنا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَتَّخِذُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَتَّخِذُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَفَتَتَّخِذُونَهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'نَتَّخِذَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لنَتَّخِذَنَّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'نَتَّخِذَهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَتَّخِذُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَتَّخِذَها';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَتَّخِذُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَتَّخِذُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَتَّخِذُونك';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَتَّخِذُوه';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'فَاتَّخِذْه';
-UPDATE kalimaat SET translation_urdu = 'تم اختیار کرو، تم ٹھیراؤ', translation_english = '' WHERE kalimah_text = 'اِتَّخِذُوا';
-UPDATE kalimaat SET translation_urdu = 'تم مجھے ٹھیراؤ', translation_english = '' WHERE kalimah_text = 'اِتَّخِذُونِى';
-UPDATE kalimaat SET translation_urdu = 'تم بنا لو اس کو', translation_english = '' WHERE kalimah_text = 'اِِتَّخِذُوه';
-UPDATE kalimaat SET translation_urdu = 'تو بنا لے', translation_english = '' WHERE kalimah_text = 'اِِتَّخِذى';
-UPDATE kalimaat SET translation_urdu = 'پکڑ، پکڑنا', translation_english = '' WHERE kalimah_text = 'أَخْذ';
-UPDATE kalimaat SET translation_urdu = 'پکڑ، پکڑنا', translation_english = '' WHERE kalimah_text = 'أَخْذًا';
-UPDATE kalimaat SET translation_urdu = 'پکڑ، پکڑنا', translation_english = '' WHERE kalimah_text = 'أَخْذَةً';
-UPDATE kalimaat SET translation_urdu = 'اس کی پکڑ', translation_english = '' WHERE kalimah_text = 'أَخْذَهُ';
-UPDATE kalimaat SET translation_urdu = 'ان کا لینا', translation_english = '' WHERE kalimah_text = 'أَخْذِهم';
-UPDATE kalimaat SET translation_urdu = 'پکڑنے والا', translation_english = '' WHERE kalimah_text = 'آخِذٌ';
-UPDATE kalimaat SET translation_urdu = 'لینے والے', translation_english = '' WHERE kalimah_text = 'آخِذِين';
-UPDATE kalimaat SET translation_urdu = 'اس کے لینے والے', translation_english = '' WHERE kalimah_text = 'بآخِذِيه';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'بِاتِّخَاذِكم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مُتَّخِذَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مُتَّخِذَات';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مُتَّخِذِى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'جِذْعِ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ذ ع';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'جُذُوعِ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ذ ع';
+COMMIT;
+--
+update root_letter set core_meaning = 'پھل' where root_letter_text = 'ج ن ى';
 
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أخَّرَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أخَّرَتْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أخَّرْتَنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أخَّرْتَنِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أخَّرْتَنى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أخَّرْنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'نُؤَخِّرهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤَخِّر';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤَخِّركم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يؤَخِّرُهم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أخِّرْنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤَخَّر';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأَخَّرَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَتَأَخَّر';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَسْتَأْخِرُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَسْتَأْخِرُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'المستَأْخِرين';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آخَرَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آخَرَانِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آخَرُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آخَرِينَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُخْرَى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أخْرَاكُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أخْرَاهُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أٌخَر';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آخِر';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آخِرِنا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آخِرَهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الآخِرِين';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الاخِرَة';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخانَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخَاهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخَاهُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخُوكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخُوهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخُوهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخِيكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخِيهِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخَوَيْكُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِخْوَان';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِخْوَاناً';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِخْوَانكم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِخْوَانِنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِخْوَانِهم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِخْوَانهن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِخْوَة';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِخْوَتِك';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِخْوَتِه';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِخْوَتِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُخْت';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُخْتُكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُخْتِهِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُخْتِهَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُخْتَين';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخَوَاتكم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَخَوَاتهن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِدًّا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تُؤَدُّوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'فَلْيُؤَدّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤَدِّهِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَدَّوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَدَاءٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَذِنَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَذِنْتَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَذِنَتْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آذَن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْذَن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'اِئْذَنْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'فأْذَنُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُذِنَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْذَن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَذَّنَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَذِّنْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأَذَّنَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آذَنَّاكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آذَنْتُكُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'اسْتَأذَنَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'اسْتَأذَنَكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'اسْتَأذَنُوكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَسْتَأْذِنُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَسْتَأْذنُك';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لِيَسْتَأْذِنْكم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'فَليَسْتَأْذِنُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَسْتَأْذِنُونَك';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَسْتَأْذِنُوه';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَذَانٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إذْنِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِذْنِهِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'بِإِذْنِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مُؤَذِّنٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُذُن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُذُنَيْهِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آذَان';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آذَانِنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آذَانِهم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آذَوْا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آذَيْتُمُوْنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'نُؤذُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'نُؤْذُونَنِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْذُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْذِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آذُوهُما';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُوذُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُوذِىَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُوذِينَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْذَيْنَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَذْى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَذَاهُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الإرْبَةِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مَآرِبُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأَرْضُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأَرْضَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأَرْضِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَرْضًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَرْضِكُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَرْضِنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَرْضَهُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَرْضى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأَرَاىِٔك';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آزَرَهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آزْرِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آزَرَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَؤُزَّهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَزَّا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَزِفَتِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الآزِفَة';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْسِرُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَسْرَهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَسِيرًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَسْرَى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُسَارَى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَسَّسَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُسِّسَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آسَفُونَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَسَفًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَسِفًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَسَفَى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آسِنٍ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُسْوَةٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آسَى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْسَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْسَوْا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَشَر';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِصْرًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِصْرَهم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِصْرِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَصْل';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَصْلُهَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُصُولهَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَصِيلًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الآصَال';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُفٍّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأُفُقِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الآفَاقِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْفِِكَنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْفِكُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُفِكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تُؤْفَكُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْفَكُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْفَكُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِفْكٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِفْكًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِفْكهم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَفَّاكٍ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'المُؤْتَفِكَةَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'المُؤْتَفِكَات';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَفَلَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَفَلَت';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الآفِلِين';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَكَلَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'فَأَكَلا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَكَلُه';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَكَلُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْكُل';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْكُلُهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْكُلُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْكُلُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْكُلُوها';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'نَأْكُلَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْكُل';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْكُلَان';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْكُلْنَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْكُله';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْكُلُهُنَّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْكُلُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْكُلُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'كُلَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'كُلُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'كُلُوهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'كُلِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَكْلًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَكْلِهم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آكِلُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لِلْآكِلِينَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَكَّالُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مَأْكُولٍ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُكُلِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُكُلُهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُكُلَهَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَلْتَنَهُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَلَّفَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَلَّفْتَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤَلِّفُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الْمُؤَلَّفَةِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِيلَافِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِيلَافِهِم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَلْف';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَلْفًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَلْفَيْن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آلَافٍ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُلُوفٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْلَمُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْلَمُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَلِيم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَلِيمًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِله';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِلَهًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِلَهكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِلَهَُكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِلَهُنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِلَهَهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِلَهَيْنِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آلِهة';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آلِهتَكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آلِهَتَِكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آلِِهَتُِنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آلِهَتُِهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آلِهَتِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'اللَّهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'اللَّهَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'اللَّهِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'اللَّهُمَّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْلُونَكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْلُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْتَل';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آلَاء';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمْتًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَدًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَدٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَرَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَرْتُكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَرْتَنِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَرْتَهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَرَكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَرَنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَرْنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَرَهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَرَهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَرُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لَآمُرَنَّهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمُرُهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْمُرُكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْمُرُنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْمُرُهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْمُرُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْمُرُونَنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْمُرُونِّى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْمُرِينَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْمُرُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْمُرُكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْمُرُهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْمُرُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'وَأْمُرْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمِرْتُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمِرْتَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمِرْنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمِرُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمِرُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تُؤْمَرُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تُؤْمَرُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْمَرُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْتَمِرُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'وَأْتَمِرُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمْر';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمْرًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمْركُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمْرنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمْره';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمْرهَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمْرهمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمْرِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الْأَمُور';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الْآمِرُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَّارَةٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِمْرًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الْأَمَلُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَلًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمِّينَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمّك';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمَّه';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمِّهَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمِّىَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمَّهَاتُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمَّهَاتكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمَّهَاتهم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمَّةَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمَّتُكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمَم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمَمًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَامَهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِمَامٍ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِمَامًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِمَامِهِم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَئِمَّة';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأُمِّىَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُمِّيُّونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأُمِّيِّينَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمِنَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمِنْتُكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمِنْتُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمِنُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمَنُكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْمَنَّا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْمَنْهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْمَنُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْمَنُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَأْمَنُوكُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمَنَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمَنَتْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمَنْتُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمَنْتُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمَنَّا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمَنَهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمَنُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تُؤْمِن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لَتُؤْمِنُنَّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تُؤْمِنُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تُؤْمِنُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'نُؤْمِن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لَنُؤْمِنَنَّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْمِن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْمِنّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لَيُؤْمِنَنّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لَيُؤْمِنُنّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْمِنُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤْمِنُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمِن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمِنُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'اؤْتُمِنَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمِنًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمِنَةً';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمِنُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آمِنِينَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأَمَانَةَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمانَتَهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأَمَانَاتِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَانَاتِكُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَانَاتِهِم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأَمْن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمنًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمَنَةً';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَمِين';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الْإِيمَان';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِيمَان';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِيمَانًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إيمانكم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِيمَانه';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِيمَانهَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إيمَانهم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِيمانِهِن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مَأْمَنَهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مَأْمُونٍ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مُؤْمِن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مُؤْمنًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مُؤمِنَيْنِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مُؤمِنُون';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مُؤْمِنِين';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مؤمِنة';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مؤمِنات';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لأَمَةٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إمائِكُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُنْثَى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأْنْثَيَيْنِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِناثًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آنَسَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آنَسْتُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آنَسْتُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَسْتَأْنِسوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِنس';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الْإِنْسَان';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُنَاس';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَنَاسِىَّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِنْسِيَّا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مُسْتَأْنِسِينَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَنْفٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آنِِفًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لِلْأَنَامِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَنِّى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يانِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آن';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آنِيَةٍ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آنَاء';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إنَاهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَهْل';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَهْلك';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَهْلِكُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَهْلنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَهْله';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَهْلهَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أهْلِهِم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَهْلِهِنّ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَهْلُونَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَهْلِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَهْلِيكُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَهْلِيهِم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَوَّبِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'إِيَابَهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَوَّابٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لِلْأَوَّبِينَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مَآبِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مَآبًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَوَى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَوَيْنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آوِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'فَأْوُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آوَى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'فآوَاكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آوَوْا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آوَيْنَاهُمَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تُؤْوِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تُؤْوِيهِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الْمَأْوَى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مَأْوَاكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مَأْوَاه';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'مَأْوَاهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يَؤُودُهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تأْوِيل';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْوِيلًا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'تَأْوِيله';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آل';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَوَّل';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'لأَوَّلِنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأَوَّلُونَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الْاوَّلِينَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الْأُولَى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُولَاهُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُولَاهُمَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُوْلُوا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُوْلِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُوْلات';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُوْلَاءِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'هَؤُلَاءِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'اُوْلَئِكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أُوْلَئِكُمْ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَوَّاهٌ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آيَة';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آيَتُكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آيَتَيْنِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آيات';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آيَاتِكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آيَاتنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آيَاته';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آيَاتِهَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'آيَاتِى';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَيَّدتُّك';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَيَّدَكَ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَيَّدَكُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَيَّدْنَا';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَيَّدْنَاهُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَيَّدَه';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَيَّدَهُم';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'يُؤَيَّدُ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الأَيْدِ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'أَيْيدٍ';
-UPDATE kalimaat SET translation_urdu = '', translation_english = '' WHERE kalimah_text = 'الْأَيَامَى';
+UPDATE root_letter
+SET root_letter_seq_no = root_letter_seq_no + 1
+WHERE root_letter_seq_no >= 10
+AND arabic_alphabet_id = 4;
+
+UPDATE root_letter
+SET root_letter_seq_no = 10
+WHERE root_letter_text = 'ث ع ب';
+
+UPDATE kalimaat_ayat_xref
+SET ayat_id = 917
+WHERE kalimaat_ayat_xref_id = 11138;
+
+UPDATE kalimaat
+SET root_letter_id = 1774
+WHERE root_letter_id = 176;
+
+update kalimaat
+set kalimah_seq_no = 62
+where kalimah_text = 'تَبِیعًا';
+
+update kalimaat
+SET kalimah_text = 'ٱسْتَحْيَوا'
+WHERE kalimah_text = 'ٱسْتَحْبَوا';
+COMMIT;
+--correct the wrong association 
+update kalimaat_ayat_xref
+set ayat_id = (select ayat_id from ayat where soorah_id = 6 and ayat_seq_no = 122)
+where kalimaat_ayat_xref_id = (
+select kalimaat_ayat_xref_id from kalimaat_ayat_xref 
+where kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أَحْيَيْنَاهُ') 
+and ayat_id = (select ayat_id from ayat where soorah_id = 2 and ayat_seq_no = 122));
+COMMIT;
+--
+DELETE kalimaat_ayat_xref
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'ٱلْحَقّ') 
+and ayat_id IN (select ayat_id from ayat where soorah_id = 70 and ayat_seq_no IN (24));
+COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'حَقَّ'
+AND ( (s.soorah_seq_no = 70 AND a.ayat_seq_no IN (24))
+    );
+COMMIT;
+delete kalimaat_ayat_xref
+where kalimaat_ayat_xref_id = (
+select kalimaat_ayat_xref_id from kalimaat_ayat_xref 
+where kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'بَيْنِى') 
+and ayat_id = (select ayat_id from ayat where soorah_id = 43 and ayat_seq_no = 15));
+
+--
+update kalimaat
+set kalimah_text = 'حَقّ'
+where kalimah_text = 'حَقَّ';
+commit;
+UPDATE root_letter
+SET core_meaning = 'بعد، بعید'
+WHERE root_letter_text = 'ب ع د';
+
+select * from kalimaat where root_letter_id = 149;
+--
+Delete from root_letter where root_letter_id = 140;
+
+--
+update root_letter
+set root_letter_text = 'ب ن ی',
+root_letter_notes = 'corpus.quran.com'
+where root_letter_text = 'ب ن و';
+
+--
+UPDATE root_letter
+SET root_letter_seq_no = root_letter_seq_no - 1
+WHERE root_letter_id IN (SELECT r.root_letter_id
+                     FROM root_letter r,
+                          arabic_alphabet a
+                     WHERE r.arabic_alphabet_id = a.arabic_alphabet_id
+                     AND r.root_letter_seq_no >= 21
+                     AND a.alphabet_text = 'ت');
+
+UPDATE root_letter
+set root_letter_seq_no = 10
+where root_letter_text = 'ت ر ق';
+
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'يَجْمَع'
+AND ((s.soorah_seq_no = 102 AND a.ayat_seq_no IN (6))
+    );
+
+UPDATE kalimaat
+SET kalimah_text = 'جَادَلْتُمْ'
+WHERE kalimah_text = 'حَادَلْتُمْ';
+UPDATE kalimaat
+SET kalimah_text = 'جَادَلْتَنا'
+WHERE kalimah_text = 'حَادَلْتَنا';
+UPDATE kalimaat
+SET kalimah_seq_no = kalimah_seq_no * 10;
+COMMIT;
+*/
+

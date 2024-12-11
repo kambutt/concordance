@@ -432,7 +432,6 @@ td, tr {
   font-family: "Noto Nastaliq Urdu";    
   color: black;              
   font-size: smaller;
-  width: 45%;
   padding-right: 10px;
 } 
 .tdeng {
@@ -469,6 +468,10 @@ divfrontcover.first-page {
     content: normal;
     margin: 0;
   }
+  @top-left {
+    content: normal;
+    margin: 0;
+  }
 }
 
 @page :blank {
@@ -478,22 +481,37 @@ divfrontcover.first-page {
 }
 
 @page :right { 
-  margin-top: 1in;
   @top-right {
     direction: ltr;
-    margin: 10pt 0 30pt 0;
     content: "فہرست کلمات قرآن";
-    font-size: 8pt;
+    font-size: 12pt;
     color: black;
   }
-  
-}
-/*    border-top: .25pt solid #666;*/
-@page :left {
-  margin-top: 1in;
   @top-center {
     content: counter(page);
   }
+  @top-left {
+    content: "شمارہ ٦";
+    font-size: 12pt;
+    color: black;
+  }  
+}
+/*    border-top: .25pt solid #666;*/
+@page :left {
+  @top-right {
+    direction: ltr;
+    content: "فہرست کلمات قرآن";
+    font-size: 12pt;
+    color: black;
+  }
+  @top-center {
+    content: counter(page);
+  }
+  @top-left {
+    content: "شمارہ ٦";
+    font-size: 12pt;
+    color: black;
+  }  
 }
 
 h2 {
@@ -519,7 +537,7 @@ h3, h4, h5 {
 /*root letter table double*/
 .rootmeanrow {
   direction: rtl;
-  width: 70%;
+  width: 80%;
   text-align: center;
   margin: auto;
 }

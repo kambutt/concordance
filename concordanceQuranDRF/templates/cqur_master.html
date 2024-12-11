@@ -22,6 +22,16 @@
         <!--styles-->
     </head>
     <body> 
+        {% block nav %}
+            <div class="navlink">
+                <nav>
+                    <a href="/" style="padding: 10px;">ابتداء</a>               
+                    <a href="/cqrootletter" style="padding: 10px;">حروف اصليہ </a>                
+                    <a href="/cqkalimaat" style="padding: 10px;">کلمات قرآن </a>                        
+                </nav>
+                <br>            
+            </div> 
+        {% endblock %}
         {% block frontcover %}
         {% endblock %}
         {% block references %}
@@ -31,24 +41,7 @@
         {% block intro %}
         {% endblock %}        
         {% block rootmean %}
-        {% endblock %}
-        <div class="navlink">
-            <nav>
-                <a href="/" style="padding: 10px;">ابتداء</a>
-                <a href="/cqalphabet" style="padding: 10px;">حروف تہجی </a>                
-                <a href="/cqrootletter" style="padding: 10px;">حروف اصليہ </a>                
-                <a href="/cqkalimaat" style="padding: 10px;">کلمات قرآن </a>          
-                <a href="/cqfrontcoverur" style="padding: 10px;">سرورق-اردو</a>                          
-            </nav>
-            <br>
-            <!--
-            <div style="width: 20%; margin: auto;">
-                <button id="buttone" type="button" onclick="toggleLanguage('english')" style="direction: ltr;">English</button>
-                <button id="buttonu" type="button" onclick="toggleLanguage('urdu')" style="direction: ltr;">Urdu</button>        
-                <button id="buttonp" type="button" onclick=printpage() style="direction: ltr;">Print</button>     
-            </div>
-            -->
-        </div>  
+        {% endblock %}        
         {% block main %}
         {% endblock %}
         {% block alphabet %}
