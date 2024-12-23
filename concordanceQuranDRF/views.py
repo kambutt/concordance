@@ -16,13 +16,6 @@ def cQurMain(request):
   template = loader.get_template('cqur_main.html')
   return HttpResponse(template.render())
 
-#Main start page - English
-def cQMainEn(request):
-  template = loader.get_template('cqmainen.html')
-  return HttpResponse(template.render())
-
-#Page showing all the root letters
-
 def cQurRootLetter (request):
         template = loader.get_template('cqur_root_letter.html')
         alphabet = ArabicAlphabet.objects.all().values().order_by('alphabet_text')
@@ -34,19 +27,9 @@ def cQurRootLetter (request):
         }
         return HttpResponse(template.render(context,request))
 
-#Page showing all the root letters
-def cQurKalimaat (request):
-        template = loader.get_template('cqur_kalimaat.html')        
-        kalimaat = VwAyatDetails.objects.all().values()
-    
-        context = {
-            'kalimaat':kalimaat,
-        }
-        return HttpResponse(template.render(context,request))
-
 #Display Soorah and Ayat details per root letter
 def cQAdbrUr (request):    
-    template = loader.get_template('cqadbrur.html')
+    template = loader.get_template('cqur_crpra.html')
     q = request.GET.getlist("root_letter_id")     
     if q:
         ayaat = VwAyatDetails.objects.filter(root_letter_id__in=q).values()
@@ -70,72 +53,6 @@ def cQAdbrUr (request):
         }
     return HttpResponse(template.render(context,request))
 
-#Display Soorah and Ayat details per arabic alphabet
-def cQurAdba (request,arabic_alphabet_id):
-    template = loader.get_template('cqur_adba.html')
-    ayaat = VwAyatDetails.objects.filter(arabic_alphabet_id=arabic_alphabet_id).values()
-
-    context = {
-        'ayaat': ayaat,
-    }
-    return HttpResponse(template.render(context,request))
-
-#Display Soorah and Ayat details per arabic alphabet
-def cQurAdbk (request, kalimaat_id):
-    template = loader.get_template('cqur_adbk.html')
-    ayaat = VwAyatDetails.objects.filter(kalimaat_id=kalimaat_id).values()
-
-    context = {
-        'ayaat': ayaat,
-    }
-    return HttpResponse(template.render(context,request))
-
-# Combine alphabet and root letters
-def cQurAlRo (request, arabic_alphabet_id):
-    template = loader.get_template('cqur_alpharoot.html')
-    ArAlphabets = ArabicAlphabet.objects.all().values().order_by('alphabet_text').filter(arabic_alphabet_id=arabic_alphabet_id)
-    RoLtr = RootLetter.objects.all().values().order_by('root_letter_text').filter(arabic_alphabet_id=arabic_alphabet_id)
-    
-    context = {
-        'ArAlphabets':ArAlphabets,
-        'RoLtr':RoLtr
-    }
-    return HttpResponse(template.render(context,request))
-
-def cQurIndexAlphaRoot (request, arabic_alphabet_id):    
-    template = loader.get_template ("cqur_index_alpha_root.html")
-    alphatxt = ArabicAlphabet.objects.values_list('alphabet_text').filter(arabic_alphabet_id=arabic_alphabet_id)
-    arindex = RootLetter.objects.filter(arabic_alphabet_id=arabic_alphabet_id).values('root_letter_seq_no','root_letter_text')
-    #paginator = Paginator(arindex, 25)
-    #page_number = request.GET.get("page")
-    #page_obj = paginator.get_page(page_number)
-    context = {
-        'alphatxt': alphatxt,
-        'arindex': arindex,
-        #'page_obj':page_obj,
-    }    
-    return HttpResponse(template.render(context, request))
-
-
-
-
-
-
-def concQu (request):
-    template = loader.get_template('concordanceQuran.html')
-    return HttpResponse(template.render())
-
-
-
-
-def cQurIndex (request):
-    template = loader.get_template('cqur_index.html')
-    rootLetterList = RootLetter.objects.all().values()
-    context = {
-        'rootLetterList' : rootLetterList,
-    }    
-    return HttpResponse(template.render(context,request))
-
 def cQurTesting (request):
     template = loader.get_template("cqur_testing.html")
     #template = loader.get_template('cqur_sadet.html')
@@ -149,13 +66,3 @@ def cQurTesting (request):
     #}
     return HttpResponse(template.render())
     #return HttpResponse(template.render(context, request))
-
-def get_root_letter(request):
-     template = loader.get_template('cqrootletter.html')
-     alphabet = ArabicAlphabet.objects.values_list('arabic_alphabet_id','alphabet_text').order_by('alphabet_text')
-     rootletter = RootLetter.objects.values_list('root_letter_id','arabic_alphabet_id', 'root_letter_text').order_by('root_letter_text')
-     context = {
-            'alphabet':alphabet,
-            'rootletter':rootletter,
-        }
-     return HttpResponse(template.render(context,request))

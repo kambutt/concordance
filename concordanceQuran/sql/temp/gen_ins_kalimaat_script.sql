@@ -5,6 +5,6 @@ FROM root_letter r,
       FROM dual
       CONNECT BY LEVEL < 100) w
 WHERE a.arabic_alphabet_id = r.arabic_alphabet_id     
-AND a.alphabet_text = 'ح'
+AND a.alphabet_text = 'خ'
 AND w.rowcount <= 20
 ORDER BY r.root_letter_seq_no, w.rowcount;
