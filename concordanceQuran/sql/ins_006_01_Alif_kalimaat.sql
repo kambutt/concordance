@@ -2,6 +2,7 @@
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'إِبْرَٰهِيم', root_letter_id FROM root_letter WHERE root_letter_text = 'ا';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 'إِبْلِيس', root_letter_id FROM root_letter WHERE root_letter_text = 'ا';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 30, 'آدَم', root_letter_id FROM root_letter WHERE root_letter_text = 'ا';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 35, 'إِدْرِيسَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 40, 'إِرَمَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 50, 'إسْرَاىٔيل', root_letter_id FROM root_letter WHERE root_letter_text = 'ا';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 60, 'إسْمَاعِيل', root_letter_id FROM root_letter WHERE root_letter_text = 'ا';

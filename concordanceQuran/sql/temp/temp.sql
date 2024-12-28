@@ -1,14 +1,4 @@
-/* get toc */
-SELECT k.kalimah_seq_no, r.root_letter_text, k.kalimah_text
-FROM kalimaat k,
-     root_letter r,
-     arabic_alphabet a
-WHERE k.root_letter_id = r.root_letter_id
-AND a.arabic_alphabet_id = r.arabic_alphabet_id
---AND a.alphabet_text != r.root_letter_text
-AND a.alphabet_text = 'خ'
-ORDER BY r.root_letter_seq_no,
-         k.kalimah_seq_no;
+
 
 SELECT 
     root_letter_text, kalimah_text, prev_value,
@@ -32,7 +22,18 @@ WHERE
 GROUP BY 
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */
-SELECT * FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'خ';
+SELECT * FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'د';
+/* get toc */
+SELECT k.kalimah_seq_no, r.root_letter_text, k.kalimah_text
+FROM kalimaat k,
+     root_letter r,
+     arabic_alphabet a
+WHERE k.root_letter_id = r.root_letter_id
+AND a.arabic_alphabet_id = r.arabic_alphabet_id
+--AND a.alphabet_text != r.root_letter_text
+AND a.alphabet_text = 'د'
+ORDER BY r.root_letter_seq_no,
+         k.kalimah_seq_no;
 -------------------------------------------------------------------
 SELECT * FROM vw_ayat_details where root_letter_id in (1881);
 select * from kalimaat where kalimah_text =  'الْخَالِقِينَ';
@@ -40,7 +41,8 @@ SELECT * FROM kalimaat WHERE root_letter_id IN (430);
 select * from root_letter where root_letter_id  = 1881;
 select * from root_letter where root_letter_text = 'خ ل ق';
 select * from root_letter where root_letter_text = 'خ ب أ';
-
+SELECT r.* FROM root_letter r, arabic_alphabet a WHERE r.arabic_alphabet_id = a.arabic_alphabet_id
+AND a.alphabet_text = 'د';
 
 select * from arabic_alphabet where alphabet_text = 'خ';
 SELECT k.kalimaat_id, a.ayat_id
@@ -51,6 +53,10 @@ AND ( (s.soorah_seq_no = 97 AND a.ayat_seq_no IN (24))
     );
 select * from kalimaat_ayat_xref where kalimaat_id = 2207;
 /*
+DELETE FROM root_letter
+WHERE arabic_alphabet_id IN (SELECT arabic_alphabet_id FROM arabic_alphabet WHERE alphabet_text = 'د');
+COMMIT;
+
 UPDATE root_letter
 SET arabic_alphabet_id = 28
 WHERE root_letter_text = 'ى';
@@ -91,25 +97,25 @@ SET root_letter_id = 430,
 WHERE kalimaat_id = 3542;
 commit;
 update kalimaat
-set kalimah_seq_no = 62
-where kalimah_text = 'تَبِیعًا';
-
+set kalimah_seq_no = 6
+where kalimah_text = 'تَدْمِيرًا';
+commit;
 update kalimaat
-SET kalimah_text ='يُخْلَقُونَ'
-WHERE kalimah_text = خَالَاتِكُمْ;
+SET kalimah_text = 'خَالَاتكُمْ'
+WHERE kalimah_text = 'خَالَاتِكُمْ';
 COMMIT;
 --correct the wrong association 
 update kalimaat_ayat_xref
-set ayat_id = (select ayat_id from ayat where soorah_id = 20 and ayat_seq_no = 67)
+set ayat_id = (select ayat_id from ayat where soorah_id = 49 and ayat_seq_no = 16)
 where kalimaat_ayat_xref_id = (
 select kalimaat_ayat_xref_id from kalimaat_ayat_xref 
-where kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'خِيفَةً')
-and ayat_id = (select ayat_id from ayat where soorah_id = 20 and ayat_seq_no = 27));
+where kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'دِينكُمْ')
+and ayat_id = (select ayat_id from ayat where soorah_id = 49 and ayat_seq_no = 12));
 COMMIT;
 --
 DELETE kalimaat_ayat_xref
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'ٱلْحَقّ') 
-and ayat_id IN (select ayat_id from ayat where soorah_id = 70 and ayat_seq_no IN (24));
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'خَيْر') 
+and ayat_id IN (select ayat_id from ayat where soorah_id = 23 and ayat_seq_no IN (77));
 COMMIT;
 --
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
@@ -176,4 +182,8 @@ WHERE kalimah_text = 'حَادَلْتَنا';
 UPDATE kalimaat
 SET kalimah_seq_no = kalimah_seq_no * 10;
 COMMIT;
+
+
+
 */
+

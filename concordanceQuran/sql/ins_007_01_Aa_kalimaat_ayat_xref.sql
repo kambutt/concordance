@@ -1,4 +1,3 @@
-/*
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s,
@@ -11976,7 +11975,6 @@ OR (s.soorah_seq_no = 16 and a.ayat_seq_no IN (51))
 OR (s.soorah_seq_no = 29 and a.ayat_seq_no IN (56))
     );
 COMMIT;
-*/
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s,
@@ -15348,5 +15346,14 @@ AND (
     (s.soorah_seq_no = 2 and a.ayat_seq_no IN (174))
 OR (s.soorah_seq_no = 4 and a.ayat_seq_no IN (10))
 OR (s.soorah_seq_no = 22 and a.ayat_seq_no IN (20))
+    );
+COMMIT;
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'إِدْرِيسَ'
+AND ((s.soorah_seq_no = 19 AND a.ayat_seq_no IN (56))
+OR (s.soorah_seq_no = 21 AND a.ayat_seq_no IN (85))
     );
 COMMIT;
