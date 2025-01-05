@@ -1,10 +1,10 @@
-SELECT 'INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT '||TO_CHAR(w.rowcount)||', '''', root_letter_id FROM root_letter WHERE root_letter_text ='''||r.root_letter_text||''';'
+SELECT 'INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT '||TO_CHAR(w.rowcount)||', '''', root_letter_id FROM root_letter WHERE root_letter_text ='''||r.root_letter_text||''';'||CHR(10)||'COMMIT;'||CHR(10)||'--'||r.root_letter_text
 FROM root_letter r,
      arabic_alphabet a,
      (SELECT ROWNUM rowcount
       FROM dual
       CONNECT BY LEVEL < 100) w
 WHERE a.arabic_alphabet_id = r.arabic_alphabet_id     
-AND a.alphabet_text = 'د'
-AND w.rowcount <= 5
+AND a.alphabet_text = 'ذ'
+AND w.rowcount <= 1
 ORDER BY r.root_letter_seq_no, w.rowcount;
