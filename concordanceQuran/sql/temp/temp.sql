@@ -33,7 +33,7 @@ AND a.alphabet_text = 'ر'
 ORDER BY r.root_letter_seq_no,
          k.kalimah_seq_no;
 -------------------------------------------------------------------
-SELECT * FROM vw_ayat_details where root_letter_id in (1881);
+SELECT * FROM vw_ayat_details order by root_letter_seq_no,kalimah_seq_no, soorah_seq_no, ayat_seq_no;
 select * from kalimaat where kalimah_text =  'الْخَالِقِينَ';
 SELECT count(*) FROM kalimaat WHERE root_letter_id IN (1780);
 select root_letter_text, core_meaning from root_letter where core_meaning is not null order by arabic_alphabet_id, root_letter_seq_no;
@@ -81,22 +81,22 @@ COMMIT;
 update root_letter set core_meaning = 'پھل' where root_letter_text = 'ج ن ى';
 ----------------------------
 --root letter seq fix
-SELECT * FROM arabic_alphabet WHERE alphabet_text = 'ر';
-SELECT * FROM root_letter WHERE arabic_alphabet_id = 10 ORDER BY root_letter_seq_no;
+SELECT * FROM arabic_alphabet WHERE alphabet_text = 'ز';
+SELECT * FROM root_letter WHERE arabic_alphabet_id = 11 ORDER BY root_letter_seq_no;
 
 UPDATE root_letter
 SET root_letter_seq_no = root_letter_seq_no - 1
-WHERE root_letter_seq_no >= 85
-AND arabic_alphabet_id = 10;
+WHERE root_letter_seq_no >= 28
+AND arabic_alphabet_id = 11;
 COMMIT;
 select .9 - .91 from dual;
 UPDATE root_letter
-SET root_letter_seq_no = 12
-WHERE root_letter_text = 'ذ ق ن';
+SET root_letter_seq_no = 2
+WHERE root_letter_text = 'ز ب د';
 COMMIT;
 UPDATE root_letter
-SET root_letter_text = 'ر ز ق'
-WHERE root_letter_text = 'ر ذ ق';
+SET root_letter_text = 'ز خ ر ف'
+WHERE root_letter_text = 'ز خ ر';
 COMMIT;
 -----------------------------------
 --kalimaat seq fix

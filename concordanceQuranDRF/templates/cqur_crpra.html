@@ -33,10 +33,10 @@
             {% endfor %}
         </div>
         <div class="cqadbrur-overlay-vol ">
-           <h1> شمارہ&nbsp;&nbsp;٨</h1>
+           <h1> شمارہ&nbsp;&nbsp;١</h1>
         </div>
         <div class="cqadbrur-overlay-year">
-            <h1>١-٢٠٢٥</h1>            
+            <h1>٢-٢٠٢٥</h1>            
         </div>
     </div> 
 {% endblock %}
@@ -90,12 +90,22 @@
             <h3>کچھ اس اشاعت کے بارے میں۔۔۔</h3>
         </p>                
         <p>
-            {% with al=ayaat|first %}
+            {% with al=ayaat|first %}                            
                 {% if al.alphabet_text != al.root_letter_text %}
                     <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ مع مرکزی مفہوم درج ذیل ہیں</span><br>
-                    <span style="font-size: smaller;">حروف اصلیہ کا اپنا ترجمہ نہیں ہوتا۔ ان کا مرکزی مفہوم ان پر مبنی کلمات کے مفہوم کی اکثر و بیشتر آپس میں مشابہت کو واضح کرتا ہے۔ &nbsp;کلمات کے ترجمہ کے لیۓ کسی معیاری لغت کا استعمال کریں۔</span>                    
+                    <span style="font-size: smaller;">حروف اصلیہ کا ترجمہ نہیں ہوتا۔ ان کا مرکزی مفہوم ان پر مبنی کلمات کے مفہوم کی اکثر و بیشتر آپس میں مشابہت کو واضح کرتا ہے۔ &nbsp;کلمات کے ترجمہ کے لیۓ لغت کا استعمال کریں۔</span>                    
                 {% else %}
-                    <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ نہیں ہوتے۔</span><br>                                    
+                    {% for zl in ayaat %}
+                        {% if forloop.last %}
+                            {% if al.alphabet_text == zl.alphabet_text %}
+                                <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ نہیں ہوتے۔</span><br>                                    
+                            {% elif al.alphabet_text != zl.alphabet_text %}
+                                <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" تا "{{ zl.alphabet_text}}" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ نہیں ہوتے۔</span><br>
+                            {% else %}
+                                <span>Either Root letters or alphabet, not both</span><br>
+                            {% endif %}
+                        {% endif %}  
+                    {% endfor %}
                 {% endif %}
             {% endwith %}  
         </p>
