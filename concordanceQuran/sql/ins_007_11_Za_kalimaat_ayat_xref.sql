@@ -1113,7 +1113,7 @@ SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'زَادَتْه'
-AND ( (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (134))
+AND ( (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (124))
     );
 COMMIT;
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
