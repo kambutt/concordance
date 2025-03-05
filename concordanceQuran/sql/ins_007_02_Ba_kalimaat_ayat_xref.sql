@@ -3205,20 +3205,7 @@ AND (
     (s.soorah_seq_no = 30 and a.ayat_seq_no IN (49))
     );
 COMMIT;
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id) SELECT k.kalimaat_id, a.ayat_id FROM soorah s, ayat a, kalimaat k WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'إِبْلِيس'
-AND (
-    (s.soorah_seq_no = 2 and a.ayat_seq_no IN (34))
-OR (s.soorah_seq_no = 7 and a.ayat_seq_no IN (11))
-OR (s.soorah_seq_no = 15 and a.ayat_seq_no IN (31,32))
-OR (s.soorah_seq_no = 17 and a.ayat_seq_no IN (61))
-OR (s.soorah_seq_no = 18 and a.ayat_seq_no IN (50))
-OR (s.soorah_seq_no = 20 and a.ayat_seq_no IN (116))
-OR (s.soorah_seq_no = 26 and a.ayat_seq_no IN (95))
-OR (s.soorah_seq_no = 34 and a.ayat_seq_no IN (20))
-OR (s.soorah_seq_no = 38 and a.ayat_seq_no IN (74,75))
-    );
-COMMIT;
+
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id) SELECT k.kalimaat_id, a.ayat_id FROM soorah s, ayat a, kalimaat k WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'ٱبْلَعِى'
 AND (

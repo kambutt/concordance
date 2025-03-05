@@ -93,8 +93,9 @@ CREATE TABLE kalimaat
     ,update_user VARCHAR2(40)
     ,CONSTRAINT pk_kalimaat PRIMARY KEY (kalimaat_id)
     ,CONSTRAINT fk_kalimaat_root_letter FOREIGN KEY (root_letter_id) REFERENCES root_letter (root_letter_id)
-    ,CONSTRAINT uk_kalimaat_kalimah_text UNIQUE (kalimah_text)
+    ,CONSTRAINT uk_kalimaat_kalimah_text UNIQUE (kalimah_text, root_letter_id)
     );
+    
 DROP TABLE kalimaat_ayat_xref;
 CREATE TABLE kalimaat_ayat_xref (
     kalimaat_ayat_xref_id  NUMBER NOT NULL,
