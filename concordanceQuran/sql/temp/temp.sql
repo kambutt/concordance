@@ -21,7 +21,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ش' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ص' ORDER BY root_letter_seq_no;
 /* get toc */
 SELECT r.root_letter_text, k.kalimah_text
 FROM kalimaat k,
@@ -29,7 +29,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'ش'
+AND a.alphabet_text = 'ص'
 ORDER BY r.root_letter_seq_no,
          k.kalimah_seq_no;
 /* Get xref count */
@@ -127,6 +127,10 @@ UPDATE root_letter
 SET root_letter_text = 'ش ر ذ م'
 WHERE root_letter_text = 'ش ر ذ';
 COMMIT;
+UPDATE root_letter
+SET core_meaning = 'فعل:کمتر، اسم:چھوٹا'
+WHERE root_letter_text = 'ص غ ر';
+COMMIT;
 -----------------------------------
 --kalimaat seq fix
 SELECT * FROM root_letter WHERE arabic_alphabet_id = 10 ORDER BY root_letter_seq_no;
@@ -152,16 +156,16 @@ COMMIT;
 ------------------------------
 --correct the wrong association 
 update kalimaat_ayat_xref
-set ayat_id = (select ayat_id from ayat where soorah_id = 40 and ayat_seq_no = 67)
+set ayat_id = (select ayat_id from ayat where soorah_id = 3 and ayat_seq_no = 172)
 where kalimaat_ayat_xref_id = (
 select kalimaat_ayat_xref_id from kalimaat_ayat_xref 
-where kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'شُيُوخًا')
-and ayat_id = (select ayat_id from ayat where soorah_id = 4 and ayat_seq_no = 67));
+where kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أَصَابَهُمْ')
+and ayat_id = (select ayat_id from ayat where soorah_id = 3 and ayat_seq_no = 173));
 COMMIT;
 --delete wrong association
 DELETE kalimaat_ayat_xref
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'شَيْئًا') 
-and ayat_id IN (select ayat_id from ayat where soorah_id = 16 and ayat_seq_no IN (74));
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أَصْلِحُوا') 
+and ayat_id IN (select ayat_id from ayat where soorah_id = 49 and ayat_seq_no IN (1));
 COMMIT;
 --create missing asssociation
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)

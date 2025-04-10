@@ -1483,7 +1483,6 @@ FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'ٱذْهَبُوا'
 AND ( (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (87,93))
-OR (s.soorah_seq_no =  AND a.ayat_seq_no IN ())
     );
 COMMIT;
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
