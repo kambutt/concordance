@@ -102,7 +102,7 @@ update root_letter set core_meaning = '' where root_letter_text = 'ع ى ش';
 update root_letter set core_meaning = '' where root_letter_text = 'ع ى ل';
 update root_letter set core_meaning = '' where root_letter_text = 'ع ى ن';
 update root_letter set core_meaning = '' where root_letter_text = 'ع ى ى';
-update root_letter set core_meaning = '' where root_letter_text = 'غ';
+COMMIT;
 update root_letter set core_meaning = '' where root_letter_text = 'غ ب ر';
 update root_letter set core_meaning = '' where root_letter_text = 'غ ب ن';
 update root_letter set core_meaning = '' where root_letter_text = 'غ ث و';

@@ -45,7 +45,7 @@ WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'سُنْدُسٍ'
 AND ( (s.soorah_seq_no = 18 AND a.ayat_seq_no IN (31))
 OR (s.soorah_seq_no = 44 AND a.ayat_seq_no IN (53))
-OR (s.soorah_seq_no = 76 AND a.ayat_seq_no IN (31))
+OR (s.soorah_seq_no = 76 AND a.ayat_seq_no IN (21))
     );
 COMMIT;
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)

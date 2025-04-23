@@ -4,7 +4,7 @@ FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'دَاوُد'
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (251))
-OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (162))
+OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (163))
 OR (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (78))
 OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (84))
 OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (55))
