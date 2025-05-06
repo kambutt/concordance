@@ -1,5 +1,5 @@
 --ص
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'ص', root_letter_id FROM root_letter WHERE root_letter_text ='ص';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'صٓ', root_letter_id FROM root_letter WHERE root_letter_text ='ص';
 COMMIT;
 --ص ب ا
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'الصَّابِئُونَ', root_letter_id FROM root_letter WHERE root_letter_text ='ص ب ا';

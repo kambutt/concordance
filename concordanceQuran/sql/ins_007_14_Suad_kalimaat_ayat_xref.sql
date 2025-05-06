@@ -2,7 +2,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'ص'
+AND k.kalimah_text = 'صٓ'
 AND ( (s.soorah_seq_no = 38 AND a.ayat_seq_no IN (1))
     );
 COMMIT;
