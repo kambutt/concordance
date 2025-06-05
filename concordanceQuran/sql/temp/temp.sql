@@ -29,7 +29,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'غ' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ف' ORDER BY root_letter_seq_no;
 /* get toc */
 SELECT r.root_letter_text, k.kalimah_text
 FROM kalimaat k,
@@ -37,7 +37,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'غ'
+AND a.alphabet_text = 'ف'
 ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
 /* Get xref count */
 SELECT r.root_letter_seq_no, k.kalimah_seq_no, k.kalimah_text,COUNT(x.kalimaat_ayat_xref_id)
@@ -118,35 +118,36 @@ COMMIT;
 update root_letter set core_meaning = 'پھل' where root_letter_text = 'ج ن ى';
 ----------------------------
 --root letter seq fix
-SELECT * FROM arabic_alphabet WHERE alphabet_text = 'ظ';
-SELECT * FROM root_letter WHERE arabic_alphabet_id = 1 ORDER BY root_letter_seq_no;--1772
+SELECT * FROM arabic_alphabet WHERE alphabet_text = 'ف';
+SELECT * FROM root_letter WHERE arabic_alphabet_id = 20 ORDER BY root_letter_seq_no;--1772
 SELECT * FROM kalimaat WHERE root_letter_id = 1772 order by kalimah_seq_no;
-select * from root_letter where root_letter_text = 'ع س ع س';
+select * from root_letter where root_letter_text = 'ف' order by r;
+SELECT * FROM root_letter WHERE root_letter_text = 'ف ض و';
 update root_letter
 set root_letter_seq_no = 10
 WHERE root_letter_text = 'غ ر ف';
 commit;
 UPDATE root_letter
-SET root_letter_seq_no = root_letter_seq_no + 1
-WHERE root_letter_seq_no >= 1
-AND arabic_alphabet_id = 19;
+SET root_letter_seq_no = root_letter_seq_no -1
+WHERE root_letter_seq_no >= 29
+AND arabic_alphabet_id = 20;
 COMMIT;
 select .9 - .91 from dual;
 UPDATE root_letter
-SET root_letter_seq_no = 1.8
+SET root_letter_seq_no = 2
 WHERE root_letter_seq_no = .5
-and root_letter_text = 'ع';
+and root_letter_text = 'ف';
 COMMIT;
 UPDATE root_letter
 SET root_letter_text = 'ط م ث'
 WHERE root_letter_text = 'ط م ت';
 COMMIT;
 UPDATE root_letter
-SET root_letter_text = 'ض ف د ع'
+SET root_letter_text = 'ف ض و'
    ,confirmation_flag = 1
    ,root_letter_notes = 'corpus.quran.com'
-   ,core_meaning = 'مینڈک'
-WHERE root_letter_text = 'ض ف د';
+   --,core_meaning = 'مینڈک'
+WHERE root_letter_text = 'ف ض ى';
 COMMIT;
 UPDATE root_letter
 SET core_meaning = 'غالب'
@@ -157,25 +158,31 @@ WHERE root_letter_text = 'ا خ ر';
 COMMIT;
 -----------------------------------
 --kalimaat seq fix
-SELECT * FROM root_letter WHERE arabic_alphabet_id = 10 ORDER BY root_letter_seq_no;
+SELECT * FROM root_letter WHERE arabic_alphabet_id = 20 ORDER BY root_letter_seq_no;
+SELECT * FROM root_letter WHERE root_letter_text = 'ف ر ق';
 SELECT * FROM kalimaat 
-WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'غ ى ث')
+WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ف س ق')
 ORDER BY kalimah_seq_no;
 
 UPDATE kalimaat
 SET kalimah_seq_no = kalimah_seq_no + 1
-WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'غ ى ث')
-AND kalimah_seq_no >= 2;
+WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ف س ق')
+AND kalimah_seq_no >= 4;
 COMMIT;
 
 UPDATE kalimaat
-SET kalimah_seq_no = 5
-WHERE kalimah_text = 'مَسْنُونٍ';
+SET kalimah_seq_no = 4
+WHERE kalimah_text = 'يَفْسُقُونَ';
 COMMIT;
 
 UPDATE kalimaat
-SET kalimah_text = 'فَأَغْرَيْنَا'
-WHERE kalimah_text = 'فَأَغْرَبْنَا';
+SET kalimah_text = 'تَتَفَكَّرُوا'
+WHERE kalimah_text = 'تَنَفَكَّرُوا';
+commit;
+
+UPDATE kalimaat
+SET kalimah_text = 'ف ض و'
+WHERE kalimah_text = 'ف ض ى';
 COMMIT;
 
 DELETE kalimaat
@@ -185,11 +192,11 @@ COMMIT;
 ------------------------------
 --correct the wrong association 
 update kalimaat_ayat_xref
-set ayat_id = (select ayat_id from ayat where soorah_id = 82 and ayat_seq_no = 16)
+set ayat_id = (select ayat_id from ayat where soorah_id = 7 and ayat_seq_no = 127)
 where kalimaat_ayat_xref_id = (
 select kalimaat_ayat_xref_id from kalimaat_ayat_xref 
-where kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'غَائِبِينَ')
-and ayat_id = (select ayat_id from ayat where soorah_id = 82 and ayat_seq_no = 12));
+where kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'فَوْقهُمْ' )
+and ayat_id = (select ayat_id from ayat where soorah_id = 7 and ayat_seq_no = 137));
 COMMIT;
 
 --delete wrong association
