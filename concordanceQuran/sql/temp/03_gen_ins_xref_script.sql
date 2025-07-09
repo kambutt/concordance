@@ -12,5 +12,5 @@ FROM kalimaat k,
      arabic_alphabet a 
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'ف'
+AND a.alphabet_text = 'ق'
 ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
