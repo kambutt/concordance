@@ -1,3 +1,0 @@
-"ROOT_LETTER_TEXT","ROOT_LETTER_SEQ_NO","KATEXT","SAM"
-"ك و ن",58,"يكن",2
-"ك و ن",58,"كن",2

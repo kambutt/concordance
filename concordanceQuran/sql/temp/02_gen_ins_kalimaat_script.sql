@@ -9,7 +9,7 @@ FROM root_letter r,
        (SELECT 1 firstrow, 'X' txt
        FROM dual) fr
 WHERE a.arabic_alphabet_id = r.arabic_alphabet_id     
-AND a.alphabet_text = 'ك'
+AND a.alphabet_text = 'ل'
 AND w.rowcount = lr.lastrow(+)
 AND w.rowcount = fr.firstrow(+)
 AND w.rowcount <= 3
