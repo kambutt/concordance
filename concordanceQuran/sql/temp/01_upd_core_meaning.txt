@@ -1,0 +1,541 @@
+SQL> @C:\Userdata\Meta\Projects\concordanceQuranDev\concordanceQuran\sql\temp\01_upd_core_meaning.sql
+SQL> update root_letter set core_meaning = 'سو، صد' where root_letter_text = 'م ا ى';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: فراہم کرنا، مزے کرنا، فائدہ اٹھانا ؛ اسم: تفریح، سامان' where root_letter_text = 'م ت ع';
+
+Error starting at line : 2 File @ C:\Userdata\Meta\Projects\concordanceQuranDev\concordanceQuran\sql\temp\01_upd_core_meaning.sql
+In command -
+update root_letter set core_meaning = 'فعل: فراہم کرنا، مزے کرنا، فائدہ اٹھانا ؛ اسم: تفریح، سامان' where root_letter_text = 'م ت ع'
+Error at Command Line : 2 Column : 39 File @ C:\Userdata\Meta\Projects\concordanceQuranDev\concordanceQuran\sql\temp\01_upd_core_meaning.sql
+Error report -
+SQL Error: ORA-12899: value too large for column "CONCORD"."ROOT_LETTER"."CORE_MEANING" (actual: 106, maximum: 100)
+
+https://docs.oracle.com/error-help/db/ora-12899/12899. 00000 -  "value too large for column %s (actual: %s, maximum: %s)"
+*Cause:    An attempt was made to insert or update a column with a value
+           which is too wide for the width of the destination column.
+           The name of the column is given, along with the actual width
+           of the value, and the maximum allowed width of the column.
+           Note that widths are reported in characters if character length
+           semantics are in effect for the column, otherwise widths are
+           reported in bytes. Also, when the actual value was the same
+           as the maximum, there wasn't enough space for the entire
+           converted value. The actual was the amount placed in the output
+           buffer, but there was more to be stored.
+*Action:   Examine the SQL statement for correctness.  Check source
+           and destination column data types.
+           Either make the destination column wider, or use a subset
+           of the source column (i.e. use substring).
+
+More Details :
+https://docs.oracle.com/error-help/db/ora-12899/
+SQL> update root_letter set core_meaning = 'ٹھوس' where root_letter_text = 'م ت ن';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'مثالی، مشابہہ، مجسمے' where root_letter_text = 'م ث ل';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'شاندار' where root_letter_text = 'م ج د';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'جادوگر' where root_letter_text = 'م ج س';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'خالص کرنا، صفائ کرنا' where root_letter_text = 'م ح ص';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'تباہ کرنا' where root_letter_text = 'م ح ق';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'قوت' where root_letter_text = 'م ح ل';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'امتحان' where root_letter_text = 'م ح ن';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'ختم کرنا' where root_letter_text = 'م ح و';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'ہل چلانا' where root_letter_text = 'م خ ر';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'درد زہ' where root_letter_text = 'م خ ض';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: پھیلانا، مدد کرنا، سہارہ دینا ؛ اسم: سیاہی، شرط' where root_letter_text = 'م د د';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'شہر' where root_letter_text = 'م د ن';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'شخص، مرد، عورت' where root_letter_text = 'م ر ا';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'جاری کرنا، مرجان' where root_letter_text = 'م ر ج';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'بے ادبی' where root_letter_text = 'م ر ح';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'قائم رہنا، بغاوت کرنا' where root_letter_text = 'م ر د';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: گزرنا ؛ اسم: وقت' where root_letter_text = 'م ر ر';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'بیمار، بیماری' where root_letter_text = 'م ر ض';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: تنازعہ ؛ اسم: شک' where root_letter_text = 'م ر ى';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'مخلوط' where root_letter_text = 'م ز ج';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'بکھرنا' where root_letter_text = 'م ز ق';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'بارش کے بادل' where root_letter_text = 'م ز ن';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'پونچھنا' where root_letter_text = 'م س ح';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'مسخ کرنا' where root_letter_text = 'م س خ';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'کھجور کے ریشے کی بٹی ہوئ رسی' where root_letter_text = 'م س د';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: چھونا ؛ اسم: لمس' where root_letter_text = 'م س س';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: تھامنا، روکنا ؛ اسم: مشک' where root_letter_text = 'م س ك';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'شام' where root_letter_text = 'م س و';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'مخلوط' where root_letter_text = 'م ش ج';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: چلنا ؛ اسم: چال' where root_letter_text = 'م ش ى';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'مصر' where root_letter_text = 'م ص ر';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'جنین، نطفہ' where root_letter_text = 'م ض غ';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'پہلے' where root_letter_text = 'م ض ى';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'بارش' where root_letter_text = 'م ط ر';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'پراعتماد' where root_letter_text = 'م ط و';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'بکری' where root_letter_text = 'م ع ز';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'چھوٹی اعانت' where root_letter_text = 'م ع ن';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'آنتیں' where root_letter_text = 'م ع ى';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'نفرت' where root_letter_text = 'م ق ت';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: ٹھرنا ؛ اسم: وقفہ' where root_letter_text = 'م ك ث';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'منصوبہ' where root_letter_text = 'م ك ر';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'قائم کرنا' where root_letter_text = 'م ك ن';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'سیٹیاں' where root_letter_text = 'م ك و';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: بھر دینا ؛ اسم: سردار' where root_letter_text = 'م ل ا';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'نمکین' where root_letter_text = 'م ل ح';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'غربت' where root_letter_text = 'م ل ق';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: ملکیت ؛ اسم: مملکت، بادشاہ، فرشتہ' where root_letter_text = 'م ل ك';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: ہدایت دینا ؛ اسم: مذہب' where root_letter_text = 'م ل ل';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'وقفہ' where root_letter_text = 'م ل و';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'روکنا' where root_letter_text = 'م ن ع';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: احسان کرنا ؛ اسم: من (و سلوی)' where root_letter_text = 'م ن ن';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'تمنا، خواہش' where root_letter_text = 'م ن ى';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: تیاری ؛ اسم: آرامگاہ' where root_letter_text = 'م ه د';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: چھوٹ دینا ؛ اسم: پگھلا ہوا تانبہ' where root_letter_text = 'م ه ل';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'بےوقعت' where root_letter_text = 'م ه ن';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'موت' where root_letter_text = 'م و ت';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'لہر' where root_letter_text = 'م و ج';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'ہلنا' where root_letter_text = 'م و ر';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'مال و دولت' where root_letter_text = 'م و ل';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'پانی' where root_letter_text = 'م و ه';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'فعل: ہلنا ؛ اسم: دسترخوان' where root_letter_text = 'م ى د';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'سامان' where root_letter_text = 'م ى ر';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'ممیز' where root_letter_text = 'م ى ز';
+
+1 row updated.
+
+SQL> update root_letter set core_meaning = 'جھکنا، حملہ' where root_letter_text = 'م ى ل';
+
+1 row updated.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> /*
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ا ب';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ا ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ب ا';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ب ت';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ب ذ';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ب ز';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ب ط';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ب ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ت ق';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ث ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ج د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ج س';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ج ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ج م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ج و';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ح ب';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ح ت';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ح ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ح س';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ح ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن خ ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن خ ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن د د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن د م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن د و';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ذ ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ز ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ز غ';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ز ف';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ز ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن س ا';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن س ب';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن س خ';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن س ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن س ف';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن س ك';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن س ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن س و';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن س ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ش ا';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ش ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ش ز';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ش ط';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ص ب';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ص ت';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ص ح';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ص ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ص ف';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ص ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ض ج';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ض خ';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ض د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ض ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ط ح';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ط ف';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ط ق';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ظ ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ع ج';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ع س';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ع ق';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ع ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ع م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن غ ض';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف ث';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف ح';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف خ';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف ذ';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف س';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف ش';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف ق';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ف ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ق ب';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ق ذ';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ق ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ق ص';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ق ض';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ق ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ق م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ك ب';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ك ث';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ك ح';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ك د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ك ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ك س';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ك ص';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ك ف';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ك ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن م ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن م م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ه ج';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ه ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ه ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن و ا';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن و ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن و س';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن و ش';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن و ص';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن و ق';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن و م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن و ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن و ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ن ى ل';
+SQL>COMMIT;
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ا ت';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ب ط';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ب و';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ج ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ج ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ح د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه د د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه د م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه د ه د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه د ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ر ب';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ر ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ز ا';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ز ز';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ز م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ش ش';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ش ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ض م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ط ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ل ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ل ك';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ل ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه م د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه م ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه م ز';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه م س';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه م م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه م ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ن ا';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه و د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه و ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه و ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه و ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ى ا';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ى ت';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ى ج';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ى ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ه ى م';
+SQL>COMMIT;
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ا د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ا ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ب ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ب ق';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ب ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ت د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ت ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ت ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ث ق';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ث ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ج ب';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ج د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ج س';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ج ف';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ج ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ج ه';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ح د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ح ش';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ح ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و د د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و د ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و د ق';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و د ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ذ ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ر ث';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ر د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ر ق';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ر ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ز ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ز ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ز ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و س ط';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و س ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و س ق';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و س ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و س م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و س ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و س و س';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ش ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ص ب';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ص د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ص ف';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ص ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ص ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ض ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ض ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ط ا';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ط ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ط ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ع د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ع ظ';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ع ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ف د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ف ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ف ض';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ف ق';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ف ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ق ب';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ق ت';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ق د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ق ذ';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ق ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ق ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ق ف';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ق ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ك ا';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ك د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ك ز';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ك ل';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ل ج';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ل د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ل ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ن ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ه ب';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ه ج';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ه ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ه ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'و ى ك';
+SQL>COMMIT;
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى ا س';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى ب س';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى ت م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى د ى';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى س ر';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى ق ظ';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى ق ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى م م';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى م ن';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى ن ع';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى ه د';
+SQL>update root_letter set core_meaning = '' where root_letter_text = 'ى و م';
+SQL>COMMIT;
+SQL>*/
+SQL> SPOOL OFF
