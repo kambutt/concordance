@@ -70,7 +70,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ه' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'و' ORDER BY root_letter_seq_no;
 /* get toc */
 SELECT r.root_letter_text, k.kalimah_text
 FROM kalimaat k,
@@ -78,7 +78,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'ن'
+AND a.alphabet_text = 'و'
 ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
 /* Get xref count */
 SELECT r.root_letter_seq_no, k.kalimah_seq_no, k.kalimah_text,COUNT(x.kalimaat_ayat_xref_id)
@@ -103,12 +103,17 @@ ORDER BY s.soorah_seq_no ;
 SELECT * FROM kalimaat WHERE kalimah_text = 'سَابِقٌ';
 SELECT * FROM root_letter WHERE ROOT_LETTER_ID = 33;
 -------------------------------------------------------------------
+/* Arabic Alphabet */
+select * from arabic_alphabet; -- where alphabet_text = 'ل';
+delete arabic_alphabet where arabic_alphabet_id = 42;
+commit;
+
 SELECT * FROM vw_ayat_details order by root_letter_seq_no,kalimah_seq_no, soorah_seq_no, ayat_seq_no;
 select * from kalimaat where kalimah_text =  'الْمَشْئَمَةِ';
 SELECT count(*) FROM kalimaat WHERE root_letter_id IN (1780);
 select root_letter_text, core_meaning from root_letter where core_meaning is not null order by arabic_alphabet_id, root_letter_seq_no;
 select * from root_letter where root_letter_text =  'ش';
-select * from arabic_alphabet where alphabet_text = 'ل';
+
 select r.*
 FROM root_letter r
 WHERE r.arabic_alphabet_id = 23
@@ -218,7 +223,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'ى'
+AND a.alphabet_text = 'و'
 GROUP BY r.root_letter_text, r.root_letter_seq_no, REGEXP_REPLACE(k.kalimah_text,'َ|ِ|ُ|ً|ٍ|ٌ|ْ|ّ|ٓ','')
 HAVING sum(1) > 1
 ORDER BY 2, 4 DESC; --, r.root_letter_seq_no, k.kalimah_seq_no;
@@ -226,16 +231,17 @@ ORDER BY 2, 4 DESC; --, r.root_letter_seq_no, k.kalimah_seq_no;
 
 --kalimaat seq fix
 SELECT * FROM root_letter WHERE arabic_alphabet_id = 20 ORDER BY root_letter_seq_no;
-SELECT * FROM root_letter WHERE root_letter_text = 'ه د ى';--
+SELECT * FROM root_letter WHERE root_letter_text = 'و ك ا';--
 SELECT * FROM kalimaat 
-WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ه ل ك')
+WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'و ل ج')
 ORDER BY kalimah_seq_no;
+
 SET SERVEROUTPUT ON;
 DECLARE
   CURSOR c1 IS
     SELECT kalimah_seq_no
     FROM kalimaat
-    WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ه ل ك')
+    WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'و ف ى')
     ORDER BY kalimah_seq_no;
   v_kalimah_seq_no kalimaat.kalimah_seq_no%TYPE := 0;
 BEGIN
@@ -246,7 +252,7 @@ BEGIN
         
         UPDATE kalimaat
         SET kalimah_seq_no = v_kalimah_seq_no + 1
-        WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ه ل ك')
+        WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'و ف ى')
         AND kalimah_seq_no = r1.kalimah_seq_no;
         COMMIT;
         DBMS_OUTPUT.PUT_LINE('Update kalimah_seq_no from ' || r1.kalimah_seq_no || ' to ' || (v_kalimah_seq_no + 1));   
@@ -258,20 +264,20 @@ END;
 select * from kalimaat where kalimah_text = 'لَيْلَهَا' ;
 --'ك ت ب'
 UPDATE kalimaat
-SET kalimah_seq_no = kalimah_seq_no + 1
-WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ن ذ ر')
-AND kalimah_seq_no >= 13
-and kalimah_text <> 'لِيُنْذرُوا';
+SET kalimah_seq_no = kalimah_seq_no - 1
+WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'و ف ى')
+AND kalimah_seq_no = 32
+and kalimah_text <> 'الْمُوفُونَ';
 COMMIT;
 
 UPDATE kalimaat
-SET kalimah_seq_no = 7
-WHERE kalimah_text = 'مَنَامِهَا';
+SET kalimah_seq_no = 4
+WHERE kalimah_text = 'وَلِيجَةً';
 COMMIT;
 
 UPDATE kalimaat
-SET kalimah_text = 'أَهْوَائهمْ'
-WHERE kalimah_text = 'أَهْوَاءَهُمْ';
+SET kalimah_text = 'وَلَدْنَهُمْ'
+WHERE kalimah_text = 'وَلَدْتَهُمْ';
 COMMIT;
 
 UPDATE kalimaat
@@ -280,12 +286,12 @@ WHERE kalimah_text = 'ف ض ى';
 COMMIT;
 
 UPDATE kalimaat
-SET root_letter_id = 1388
-WHERE kalimah_text = 'لَيَالِىَ';
+SET root_letter_id = 1691
+WHERE kalimah_text IN ('مُتَّكِئِينَ','مُتَّكَأَ');
 COMMIT;
 
 DELETE kalimaat
-WHERE kalimah_text in ('يُهْدَى') ;
+WHERE kalimah_text in ('وَهْنِ') ;
 --AND root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'نُنْجِى');
 COMMIT;
 
@@ -294,11 +300,11 @@ COMMIT;
 ------------------------------
 --correct the wrong association 
 update kalimaat_ayat_xref
-set ayat_id = (select ayat_id from ayat where soorah_id = 62 and ayat_seq_no = 6)
+set ayat_id = (select ayat_id from ayat where soorah_id = 18 and ayat_seq_no = 102)
 where kalimaat_ayat_xref_id = (
 select kalimaat_ayat_xref_id from kalimaat_ayat_xref 
-where kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'النَّاس')
-and ayat_id = (select ayat_id from ayat where soorah_id = 63 and ayat_seq_no = 6));
+where kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أَوْلِيَاء')
+and ayat_id = (select ayat_id from ayat where soorah_id = 18 and ayat_seq_no = 101));
 COMMIT;
 
 --delete wrong association
@@ -316,8 +322,8 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'النَّعِيم'    
-AND ( (s.soorah_seq_no = 26 AND a.ayat_seq_no IN (85))
+AND k.kalimah_text = 'وَاحِدَة'   
+AND ( (s.soorah_seq_no = 34 AND a.ayat_seq_no IN (46))
     );
 COMMIT;
 SELECT *
@@ -364,8 +370,8 @@ AND k.kalimah_text = 'قَالُوا'
 AND (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (111));
 --
 update kalimaat
-set kalimah_text = 'كتب'
-where kalimah_text = 'كَتَبَ';
+set kalimah_text = 'يُوحى'
+where kalimah_text = 'يُوحِى';
 commit;
 UPDATE root_letter
 SET core_meaning = 'بعد، بعید'
