@@ -1,0 +1,21 @@
+SQL> @C:\Userdata\Meta\Projects\concordanceQuranDev\concordanceQuran\sql\temp\03_gen_ins_xref_script.sql
+SQL> SELECT
+  2  'INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+  3  SELECT k.kalimaat_id, a.ayat_id
+  4  FROM soorah s, ayat a, kalimaat k
+  5  WHERE s.soorah_id = a.soorah_id
+  6  AND k.kalimah_text = '''||k.kalimah_text||'''
+  7  AND ( (s.soorah_seq_no =  AND a.ayat_seq_no IN ())
+  8  OR (s.soorah_seq_no =  AND a.ayat_seq_no IN ())
+  9      );'||chr(10)||'COMMIT;'
+ 10  FROM kalimaat k,
+ 11       root_letter r,
+ 12       arabic_alphabet a 
+ 13  WHERE k.root_letter_id = r.root_letter_id
+ 14  AND a.arabic_alphabet_id = r.arabic_alphabet_id
+ 15  AND a.alphabet_text = 'ي'
+ 16  ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
+
+0 rows selected. 
+
+SQL> SPOOL OFF

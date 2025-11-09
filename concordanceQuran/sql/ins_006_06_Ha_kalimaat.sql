@@ -891,7 +891,7 @@ COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  1, 'حَىَّ', root_letter_id FROM root_letter WHERE root_letter_text ='ح ى ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  2, 'تَحْيُوْنَ', root_letter_id FROM root_letter WHERE root_letter_text ='ح ى ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  3, 'نَحْيَا', root_letter_id FROM root_letter WHERE root_letter_text ='ح ى ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  4, 'يَحْيَىَ', root_letter_id FROM root_letter WHERE root_letter_text ='ح ى ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  4, 'يَحْيَى', root_letter_id FROM root_letter WHERE root_letter_text ='ح ى ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  5, 'حَيَّوْكَ', root_letter_id FROM root_letter WHERE root_letter_text ='ح ى ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  6, 'يُحَيِّكَ', root_letter_id FROM root_letter WHERE root_letter_text ='ح ى ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  7, 'فَحَيُّوا', root_letter_id FROM root_letter WHERE root_letter_text ='ح ى ى';

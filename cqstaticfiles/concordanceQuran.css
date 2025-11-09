@@ -425,12 +425,12 @@ divfrontcover.first-page {
     content: counter(page);
   }
   @top-left {
-    content: "شمارہ ٦";
+    content: "شمارہ ٢";
     font-size: 12pt;
     color: black;
   }
   @bottom-center {
-    content: "و";
+    content: "ى";
   }  
 }
 /*    border-top: .25pt solid #666;*/
@@ -445,12 +445,12 @@ divfrontcover.first-page {
     content: counter(page);
   }
   @top-left {
-    content: "شمارہ ٦";
+    content: "شمارہ ٢";
     font-size: 12pt;
     color: black;
   }
   @bottom-center {
-    content: "و";
+    content: "ى";
   }
 }
 
