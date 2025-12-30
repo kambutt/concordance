@@ -3558,7 +3558,7 @@ OR (s.soorah_seq_no = 85 AND a.ayat_seq_no IN (9))
 OR (s.soorah_seq_no = 86 AND a.ayat_seq_no IN (4))
 OR (s.soorah_seq_no = 97 AND a.ayat_seq_no IN (4))
 OR (s.soorah_seq_no = 104 AND a.ayat_seq_no IN (1))
-    );'كُلَّا'
+    );
 
 COMMIT;
 

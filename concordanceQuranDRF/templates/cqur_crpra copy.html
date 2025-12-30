@@ -1,46 +1,38 @@
 {% extends "cqur_master.html" %}
 {% block titleentry %}
-    فہرست کلمات قرآن&nbsp;-ب-&nbsp;&nbsp;شمارہ ٧
+    Ayaat by root
 {% endblock %}
 {% block frontcover %}
     <div class="cqadbrur-bg">       
         <img src="/static/bgimg1blk.png" alt="Center Part of Image" class="cqadbrur-bg-img">   
         <div class="cqadbrur-overlay-title">
-            <h1>فہرست کلمات قرآن</h1>                                                                   
+            <h1>فہرست کلمات قرآن</h1>                                                                      
         </div>
         <div class="cqadbrur-overlay-author">
             <h1>مرتب:&nbsp;&nbsp;ڈاکٹر کامران احمد بٹ</h1>            
         </div>
-        <div>
+        <div class="cqadbrur-overlay-alphabet">
             {% with fr=firstroot lr=lastroot %}
-                {% if fr.root_letter_text|length == 1 and lr.root_letter_text|length == 1 %}  
+                {% if {{fr.root_letter_text|length}} == 1 and {{lr.root_letter_text|length}} == 1 %}   
+                              
                     {% if fr.root_letter_text == lr.root_letter_text %} 
-                        <div class="cqadbrur-overlay-alphabet">
-                            <h1> {{fr.root_letter_text}} </h1>                                                                      
-                        </div>                         
+                    <h2>{{fr.root_letter_text}} I am here {{lr.root_letter_text}}</h2>    
+                        
                     {% else %}
-                        <div class="cqadbrur-overlay-startnr">
+                        <div class="cqadbrur-overlay-start">
                             <h1>{{ fr.root_letter_text }}</h1>                                                                      
                         </div>
-                        <div class="cqadbrur-overlay-tanr">
+                        <div class="cqadbrur-overlay-ta">
                             <h1> تا </h1>                                                  
                         </div>
-                        <div class="cqadbrur-overlay-endnr">
+                        <div class="cqadbrur-overlay-end">
                             <h1>{{ lr.root_letter_text }}</h1> 
                         </div>
                     {% endif %} 
-                {% else %}                 
-                    {% if fr.root_letter_text == lr.root_letter_text %} 
-                        <div class="cqadbrur-overlay-alphabet">   
-                            <h1>{{ fr.alphabet_text }}</h1>
-                        </div>
-                        <div class="cqadbrur-overlay-start">
-                            <h3>{{ fr.root_letter_text }}</h3>                                                                      
-                        </div>
+                {% else %}    
+                    {% if fr.root_letter_text == lr.root_letter_text %}     
+                        <h1>{{ fr.root_letter_text }}</h1>
                     {% else %}
-                        <div class="cqadbrur-overlay-alphabet">   
-                            <h1>{{ fr.alphabet_text }}</h1>
-                        </div>
                         <div class="cqadbrur-overlay-start">
                             <h3>{{ fr.root_letter_text }}</h3>                                                                      
                         </div>
@@ -52,14 +44,14 @@
                         </div>
                     {% endif %}  
                 {% endif %}                         
-            {% endwith %}                                                                 
+            {% endwith %}                                                            
         </div>         
         
-        
+        <!--
         <div class="cqadbrur-overlay-vol ">
-           <h1> شمارہ&nbsp;&nbsp;٧</h1>
+           <h1> شمارہ&nbsp;&nbsp;٢</h1>
         </div>
-        
+        -->
         <div class="cqadbrur-overlay-year">
             <h1>١٢-٢٠٢٥</h1>            
         </div>
@@ -118,8 +110,7 @@
             {% with al=ayaat|first %}                            
                 {% if al.alphabet_text != al.root_letter_text %}
                     <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ مع مرکزی مفہوم درج ذیل ہیں</span><br>
-                    <span style="font-size: smaller;">حروف اصلیہ کا ترجمہ نہیں ہوتا۔ ان کا مرکزی مفہوم ان پر مبنی کلمات کے مفہوم کی اکثر و بیشتر آپس میں مشابہت کو واضح کرتا ہے۔ &nbsp;کلمات کے ترجمہ کے لیۓ لغت کا استعمال کریں۔</span><br>                    
-                    <span style="font-size: smaller;"> اشاعت دوم:&nbsp; چند کلمات کو یکجا کیا گیا ہے جہاں صرف حرکات کے فرق سے مفہوم میں زمین و آسمان کا فرق نہیں پڑتا ہے-کچھ حروف اصلیہ کے مفہوم لغت کے اعتیار سے تبدیل کۓ گۓ ہیں</span>                    
+                    <span style="font-size: smaller;">حروف اصلیہ کا ترجمہ نہیں ہوتا۔ ان کا مرکزی مفہوم ان پر مبنی کلمات کے مفہوم کی اکثر و بیشتر آپس میں مشابہت کو واضح کرتا ہے۔ &nbsp;کلمات کے ترجمہ کے لیۓ لغت کا استعمال کریں۔</span>                    
                 {% else %}
                     {% for zl in ayaat %}
                         {% if forloop.last %}
@@ -233,6 +224,6 @@
             {% empty %}
                 <div class="emptydiv"> انتظار فرماىٔيں۔
                 </div>
-    {% endfor %}
+            {% endfor %}
 {% endblock%}
 

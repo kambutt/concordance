@@ -82,16 +82,15 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'تُزَكُّوا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'تُزَكِّيهِمْ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'يُزَكُّونَ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'يُزَكَّى', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'يزكَّى', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'يُزَكِّيكُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'يُزَكِّيهِمْ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'تَزَكَّى', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'يَتَزَكَّى', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'يَزَّكَّى', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'أَزْكَى', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'زَكِيَّا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 'زَكِيَّة', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 'الزَّكَاة', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'أَزْكَى', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'زَكِيَّا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'زَكِيَّة', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 'الزَّكَاة', root_letter_id FROM root_letter WHERE root_letter_text ='ز ك و';
 COMMIT;
 --ز ل ز ل
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'زُلْزِلَتِ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ل ز ل';
@@ -249,17 +248,16 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'تَزَيَّلُوا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ل';
 COMMIT;
 --ز ى ن
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'زَيَّنَ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'زيّن', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'زَيَّنَّا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'زَيَّنَّاهَا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'زَيَّنَهُ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'فَزَيَّنُوا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'لَأُزَيِّنَنَّ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'زُيِّنَ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'ٱزَّيِّنَتْ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'زِينَة', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'زِينَتَكُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'زِينَتِهِ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'زِينَتهَا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'زِينَتَّهنَّ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'ٱزَّيِّنَتْ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'زِينَة', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'زِينَتَكُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'زِينَتِهِ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'زِينَتهَا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'زِينَتَّهنَّ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى ن';
 COMMIT;

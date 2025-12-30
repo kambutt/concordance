@@ -3410,8 +3410,10 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'أَمْلَى'   
+AND k.kalimah_text = 'أمْلى'   
 AND ( (s.soorah_seq_no = 47 AND a.ayat_seq_no IN (25))
+OR (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (183))
+OR (s.soorah_seq_no = 68 AND a.ayat_seq_no IN (45))
     );
 COMMIT;
 
@@ -3422,16 +3424,6 @@ WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'أَمْلَيْتُ'     
 AND ( (s.soorah_seq_no = 13 AND a.ayat_seq_no IN (32))
 OR (s.soorah_seq_no = 22 AND a.ayat_seq_no IN (44,48))
-    );
-COMMIT;
-
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
-SELECT k.kalimaat_id, a.ayat_id
-FROM soorah s, ayat a, kalimaat k
-WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'أُمْلِى'   
-AND ( (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (183))
-OR (s.soorah_seq_no = 68 AND a.ayat_seq_no IN (45))
     );
 COMMIT;
 

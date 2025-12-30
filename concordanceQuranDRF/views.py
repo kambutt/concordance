@@ -34,11 +34,15 @@ def cQAdbrUr (request):
     if q:
         ayaat = VwAyatDetails.objects.filter(root_letter_id__in=q).values()
         rootmean = RootLetter.objects.filter(root_letter_id__in=q).values().order_by('root_letter_seq_no')        
-        rootcount = len(rootmean)        
+        rootcount = len(rootmean)  
+        firstroot =  VwAyatDetails.objects.filter(root_letter_id__in=q).values().order_by('root_letter_seq_no')[0]    
+        lastroot =  VwAyatDetails.objects.filter(root_letter_id__in=q).values().order_by('-root_letter_seq_no')[0]    
     else:
         ayaat = VwAyatDetails.objects.filter(root_letter_id__in=[0]).values()
         rootmean = RootLetter.objects.filter(root_letter_id__in=[0]).values()
         rootcount = len(rootmean)
+        firstroot =  VwAyatDetails.objects.filter(root_letter_id__in=[0]).values().order_by('root_letter_seq_no')[0]    
+        lastroot =  VwAyatDetails.objects.filter(root_letter_id__in=[0]).values().order_by('-root_letter_seq_no')[0]    
     
     if rootcount % 2 == 1:
         halfcount = (rootcount+1)/2
@@ -50,6 +54,8 @@ def cQAdbrUr (request):
             'rootmean': rootmean,
             'rootcount': rootcount,
             'halfcount' : halfcount,
+            'firstroot' : firstroot,
+            'lastroot' : lastroot,
         }
     return HttpResponse(template.render(context,request))
 

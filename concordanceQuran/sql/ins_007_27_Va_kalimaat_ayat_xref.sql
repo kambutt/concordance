@@ -5810,6 +5810,8 @@ OR (s.soorah_seq_no = 32 AND a.ayat_seq_no IN (4))
 OR (s.soorah_seq_no = 41 AND a.ayat_seq_no IN (34))
 OR (s.soorah_seq_no = 42 AND a.ayat_seq_no IN (8,9,28,31,44))
 OR (s.soorah_seq_no = 45 AND a.ayat_seq_no IN (19))
+OR (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (196))
+OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (101))
     );
 COMMIT;
 
@@ -5873,16 +5875,6 @@ FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'وَلِيُّهُمَا'      
 AND ( (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (122))
-    );
-COMMIT;
-
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
-SELECT k.kalimaat_id, a.ayat_id
-FROM soorah s, ayat a, kalimaat k
-WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'وَلِيِّىَ'     
-AND ( (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (196))
-OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (101))
     );
 COMMIT;
 

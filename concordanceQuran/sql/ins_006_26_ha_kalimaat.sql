@@ -4,12 +4,12 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'هَاتَيْنِ', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'هَذانِ', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'هَكَذَا', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'هَهُنَا', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'هَارُوتَ', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'هَرُون', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'هُنَالِكَ', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'هِيَهْ', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'هَيْهَاتَ', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'هَهُنَا', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'هَارُوتَ', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'هَرُون', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'هُنَالِكَ', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'هِيَهْ', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'هَيْهَاتَ', root_letter_id FROM root_letter WHERE root_letter_text ='ه';
 COMMIT;
 --ه ا ت
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'هَاتُوا', root_letter_id FROM root_letter WHERE root_letter_text ='ه ا ت';

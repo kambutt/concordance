@@ -83,6 +83,7 @@ DROP TABLE kalimaat;
 CREATE TABLE kalimaat
     (kalimaat_id NUMBER NOT NULL    
     ,root_letter_id NUMBER
+    ,subject_id NUMBER
     ,kalimah_seq_no  NUMBER
     ,kalimah_text VARCHAR2(100) NOT NULL    
     ,translation_urdu VARCHAR2(40)
@@ -93,6 +94,7 @@ CREATE TABLE kalimaat
     ,update_user VARCHAR2(40)
     ,CONSTRAINT pk_kalimaat PRIMARY KEY (kalimaat_id)
     ,CONSTRAINT fk_kalimaat_root_letter FOREIGN KEY (root_letter_id) REFERENCES root_letter (root_letter_id)
+    ,CONSTRAINT fk_kalimaat_subject FOREIGN KEY (subject_id) REFERENCES subject (subject_id)
     ,CONSTRAINT uk_kalimaat_kalimah_text UNIQUE (kalimah_text, root_letter_id)
     );
     
@@ -111,6 +113,21 @@ CREATE TABLE kalimaat_ayat_xref (
     CONSTRAINT fk_kalimaat_ayat_xref_ayat FOREIGN KEY (ayat_id)
     REFERENCES ayat (ayat_id),
     CONSTRAINT u_kalimaat_id_ayat_id UNIQUE (kalimaat_id, ayat_id)
+);
+DROP TABLE subject;
+CREATE TABLE subject (
+    subject_id  NUMBER NOT NULL,
+    subject_text_u VARCHAR2(100) NOT NULL,
+    subject_text_e VARCHAR2(100) NOT NULL,
+    order_subject_id NUMBER,
+    create_user VARCHAR2(30) NOT NULL,
+    create_date DATE NOT NULL,
+    update_user VARCHAR2(30),
+    update_date DATE,
+    CONSTRAINT pk_subject PRIMARY KEY (subject_id),
+    CONSTRAINT fk_subject_subject FOREIGN KEY (order_subject_id) REFERENCES subject (subject_id),
+    CONSTRAINT u_subject_text_u UNIQUE (subject_text_u),
+    CONSTRAINT u_subject_text_e UNIQUE (subject_text_e)
 );
 
 DROP TABLE nhw_kalimah;
@@ -192,17 +209,21 @@ SELECT '' id,
         soor.soorah_seq_no,
         soor.soorah_seq_no_ar,
         soor.soorah_name,              
-        relo.revelation_location_name
+        relo.revelation_location_name,
+        subj.subject_text_u,
+        subj.subject_text_e
 FROM arabic_alphabet aral,
      root_letter rolet,
      kalimaat kali,
      kalimaat_ayat_xref kaax,
      ayat ayat,     
      soorah soor,
-     revelation_location relo
+     revelation_location relo,
+     subject subj
 WHERE rolet.arabic_alphabet_id = aral.arabic_alphabet_id
 AND rolet.root_letter_id = kali.root_letter_id
 AND kaax.kalimaat_id = kali.kalimaat_id
+AND subj.subject_id(+) = kali.subject_id
 AND kaax.ayat_id = ayat.ayat_id
 AND soor.soorah_id = ayat.soorah_id
 AND soor.revelation_location_id = relo.revelation_location_id

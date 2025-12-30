@@ -211,3 +211,24 @@ BEGIN
     END IF;
 END;
 /
+CREATE OR REPLACE TRIGGER trg_iu_subject
+BEFORE INSERT OR UPDATE 
+ON subject
+FOR EACH ROW
+BEGIN
+    IF INSERTING THEN
+        SELECT seq_subject_pk.NEXTVAL,
+               SYSDATE, USER
+        INTO :NEW.subject_id,
+             :NEW.create_date,
+             :NEW.create_user
+        FROM dual;
+    END IF;
+    IF UPDATING THEN
+        SELECT SYSDATE, USER
+        INTO :NEW.update_date,
+             :NEW.update_user
+        FROM DUAL;
+    END IF;
+END;
+/

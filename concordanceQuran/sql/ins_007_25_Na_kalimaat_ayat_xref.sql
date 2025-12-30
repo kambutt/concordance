@@ -4,7 +4,7 @@ FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'نٓ' 
 AND ( (s.soorah_seq_no = 68 AND a.ayat_seq_no IN (1))
-    );
+    ); 
 COMMIT;
 
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)

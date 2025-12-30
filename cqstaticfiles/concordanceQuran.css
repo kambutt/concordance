@@ -138,6 +138,7 @@ body ,html {
   font-weight: 700;
   text-align: center;
 }
+
 .cqadbrur-overlay-ta {
   position: absolute;
   top: 755px;
@@ -175,6 +176,64 @@ body ,html {
   text-align: center;
 }
 
+.cqadbrur-overlay-startnr {
+  position: absolute;
+  top: 600px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%; 
+  transition: .5s ease;
+}
+.cqadbrur-overlay-startnr h1 {  
+    color: white;
+    font-family: adobe-arabic, sans-serif;    
+    padding: 0px;
+    font-size: 50px;
+    font-style:normal;
+    font-weight: 100;
+    text-align: center;
+}
+
+.cqadbrur-overlay-tanr {
+  position: absolute;
+  top: 650px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%; 
+  transition: .5s ease;  
+}
+.cqadbrur-overlay-tanr h1 {  
+    color: white;
+    font-family: adobe-arabic, sans-serif;    
+    padding: 0px;
+    font-size: 50px;
+    font-style:normal;
+    font-weight: 100;
+    text-align: center;
+}
+.cqadbrur-overlay-endnr {
+  position: absolute;
+  top: 700px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%; 
+  transition: .5s ease;
+}
+.cqadbrur-overlay-endnr h1 {  
+    color: white;
+    font-family: adobe-arabic, sans-serif;    
+    padding: 0px;
+    font-size: 50px;
+    font-style:normal;
+    font-weight: 100;
+    text-align: center;
+}
 .cqadbrur-overlay-vol {
   position: absolute;
   top: 870px;
@@ -376,13 +435,14 @@ td, tr {
   padding-right: 10px;
   direction: ltr;
 } 
-/* For printing in book format*/
+
 @page {
   size: 8.27in 11.69in;
   @top-center {
     content: counter(page);
   }
 }
+/* For printing in book format*/
 
 divfrontcover.first-page {
   background-image: url("bgimg1blu.png");
@@ -425,12 +485,12 @@ divfrontcover.first-page {
     content: counter(page);
   }
   @top-left {
-    content: "شمارہ ٢";
+    content: "شمارہ ١"; 
     font-size: 12pt;
     color: black;
   }
   @bottom-center {
-    content: "ى";
+    content: "ب";
   }  
 }
 /*    border-top: .25pt solid #666;*/
@@ -445,12 +505,12 @@ divfrontcover.first-page {
     content: counter(page);
   }
   @top-left {
-    content: "شمارہ ٢";
+    content: "شمارہ ١";
     font-size: 12pt;
     color: black;
   }
   @bottom-center {
-    content: "ى";
+    content: "ب";
   }
 }
 
