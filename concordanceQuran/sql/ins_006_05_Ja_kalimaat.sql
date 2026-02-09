@@ -1,7 +1,8 @@
 --'ج'
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'جِبْرِيل', root_letter_id FROM root_letter WHERE root_letter_text = 'ج';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'الْجُودِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و د';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'جَالُوت', root_letter_id FROM root_letter WHERE root_letter_text = 'ج';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'جَهَنَّم', root_letter_id FROM root_letter WHERE root_letter_text = 'ج';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'جِبْرِيل', root_letter_id FROM root_letter WHERE root_letter_text = 'ج';
 COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'تَجْأَرُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ا ر';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'تَجْأَرُونَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ا ر';
@@ -79,7 +80,7 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'جِدَالَنا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج د ل';
 COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'مَجْذُوذٍ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ذ ذ';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'جُذَانًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ذ ذ';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'جُذَاذًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ذ ذ';
 COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'جِذْعِ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ذ ع';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'جُذُوعِ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج ذ ع';
@@ -389,8 +390,7 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 21, 'مُجِيبٌ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 'الْمُجِيبُونَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ب';
 COMMIT;
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'الْجُودِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و د';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'الْجِيَادُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و د';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'الْجِيَادُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و د';
 COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'يُجَاوِرُونَكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ر';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'وَيُجِرْكُم', root_letter_id FROM root_letter WHERE root_letter_text = 'ج و ر';

@@ -19,14 +19,8 @@ CREATE SEQUENCE seq_kalimaat_ayat_xref_pk START WITH 1 INCREMENT BY 1;
 DROP SEQUENCE seq_arabic_alphabet_pk;
 CREATE SEQUENCE seq_arabic_alphabet_pk START WITH 1 INCREMENT BY 1;
 
-DROP SEQUENCE seq_nhw_kalimah_pk;
-CREATE SEQUENCE seq_nhw_kalimah_pk START WITH 1 INCREMENT BY 1;
-
-DROP SEQUENCE seq_nhw_kalimah_type_pk;
-CREATE SEQUENCE seq_nhw_kalimah_type_pk START WITH 1 INCREMENT BY 1;
-
-DROP SEQUENCE seq_nhw_kalimah_subtype_pk;
-CREATE SEQUENCE seq_nhw_kalimah_subtype_pk START WITH 1 INCREMENT BY 1;
-
 DROP SEQUENCE seq_subject_pk;
 CREATE SEQUENCE seq_subject_pk START WITH 1 INCREMENT BY 1;
+
+DROP SEQUENCE seq_kalimaat_subject_xref_pk;
+CREATE SEQUENCE seq_kalimaat_subject_xref_pk START WITH 1 INCREMENT BY 1;

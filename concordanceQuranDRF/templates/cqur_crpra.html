@@ -1,6 +1,6 @@
 {% extends "cqur_master.html" %}
 {% block titleentry %}
-    فہرست کلمات قرآن&nbsp;-ب-&nbsp;&nbsp;شمارہ ٧
+    فہرست کلمات قرآن&nbsp;-ح-&nbsp;&nbsp;شمارہ ٧
 {% endblock %}
 {% block frontcover %}
     <div class="cqadbrur-bg">       
@@ -61,7 +61,7 @@
         </div>
         
         <div class="cqadbrur-overlay-year">
-            <h1>١٢-٢٠٢٥</h1>            
+            <h1>٢-٢٠٢٦</h1>           
         </div>
     </div> 
 {% endblock %}
@@ -69,10 +69,14 @@
     <div class="ifccontent">
         <h3 id="refhead" class="ifchead">حوالہ جات</h3>
         <ul id="ifcul" class="ifcul">                
-            <li id="idxsrc"">ماخذ فہرست: المُعْجَمُ امُفَهْرَس لِالفاظ الْقُرآنِ الْكَرِيم (وضعه: محمد فواد عبدالباقی)</li>
-            <li id="ayatsrc">متن آیات قرآن: ten.liznat</li>          
-            <li id="transrc">ترجمہ آیات قرآن:  مولانا فتح محمد جالندھری (ten.liznat) </li>              
-            <li id="rootsrc">ماخذات حروف اصلیہ:  المُعْجَمُ المفہرس ، moc.naruq.suproc</li>                                  
+            <li id="idxsrc"">ماخذ فہرست:<br> المُعْجَمُ امُفَهْرَس لِالفاظ الْقُرآنِ الْكَرِيم (وضعه: محمد فواد عبدالباقی)</li><br>
+            <li id="ayatsrc">متن آیات قرآن:<br> ten.liznat</li><br>          
+            <li id="transrc">ترجمہ آیات قرآن:<br>  مولانا فتح محمد جالندھری (ten.liznat) </li><br>
+            <li id="rootsrc">ماخذات حروف اصلیہ:<br>  المُعْجَمُ المفہرس ، moc.naruq.suproc ، nocixeL s'enaL <br>
+                حروف اصلیہ کے تعین میں اختلاف کی صورت میں moc.naruq.suproc کو محض یکسانیت رکھنے کیلۓ ترجیچ دی گئ ہے۔
+            </li><br>
+            <li id="rootsrc">لغت:<br>  لغات القرآن  (تالیف:  مولانا محمد عبدالرشید نعمانی)
+            </li>                                  
         </ul>
     </div>        
 {% endblock %}
@@ -119,7 +123,7 @@
                 {% if al.alphabet_text != al.root_letter_text %}
                     <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ مع مرکزی مفہوم درج ذیل ہیں</span><br>
                     <span style="font-size: smaller;">حروف اصلیہ کا ترجمہ نہیں ہوتا۔ ان کا مرکزی مفہوم ان پر مبنی کلمات کے مفہوم کی اکثر و بیشتر آپس میں مشابہت کو واضح کرتا ہے۔ &nbsp;کلمات کے ترجمہ کے لیۓ لغت کا استعمال کریں۔</span><br>                    
-                    <span style="font-size: smaller;"> اشاعت دوم:&nbsp; چند کلمات کو یکجا کیا گیا ہے جہاں صرف حرکات کے فرق سے مفہوم میں زمین و آسمان کا فرق نہیں پڑتا ہے-کچھ حروف اصلیہ کے مفہوم لغت کے اعتیار سے تبدیل کۓ گۓ ہیں</span>                    
+                    <span style="font-size: smaller;"> اشاعت دوم:&nbsp; چند کلمات کو یکجا کیا گیا ہے جہاں صرف حرکات کے فرق سے مفہوم میں زمین و آسمان کا فرق نہیں پڑتا ہے-کچھ حروف اصلیہ کے مفہوم لغت کے اعتیار سے تبدیل کۓ گۓ ہیں-</span>                    
                 {% else %}
                     {% for zl in ayaat %}
                         {% if forloop.last %}

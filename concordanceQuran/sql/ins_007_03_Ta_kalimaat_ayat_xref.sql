@@ -1034,6 +1034,16 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id 
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'ٱلتَّرَاقِىَ'
+AND (
+    (s.soorah_seq_no = 75 and a.ayat_seq_no IN (26))
+    );    
+COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id) 
+SELECT k.kalimaat_id, a.ayat_id 
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'تَرَكَ'
 AND (
     (s.soorah_seq_no = 2 and a.ayat_seq_no IN (180,248))

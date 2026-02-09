@@ -130,46 +130,21 @@ CREATE TABLE subject (
     CONSTRAINT u_subject_text_e UNIQUE (subject_text_e)
 );
 
-DROP TABLE nhw_kalimah;
-CREATE TABLE nhw_kalimah
-    (nhw_kalimah_id NUMBER NOT NULL
-    ,nhw_kalimah_text VARCHAR2(10) NOT NULL
+DROP TABLE kalimaat_subject_xref;
+CREATE TABLE kalimaat_subject_xref
+    (kalimaat_subject_xref_id NUMBER NOT NULL
+    ,kalimaat_id NUMBER NOT NULL
+    ,subject_id NUMBER NOT NULL
     ,create_date DATE NOT NULL
     ,create_user VARCHAR2(40) NOT NULL
     ,update_date DATE
     ,update_user VARCHAR2(40)
-    ,CONSTRAINT pk_nhw_kalimah PRIMARY KEY (nhw_kalimah_id)
-    ,CONSTRAINT u_nhw_kalimah_text UNIQUE (nhw_kalimah_text)
-    );
-
-DROP TABLE nhw_kalimah_type;
-CREATE TABLE nhw_kalimah_type
-    (nhw_kalimah_type_id NUMBER NOT NULL
-    ,nhw_kalimah_id NUMBER NOT NULL
-    ,nhw_kalimah_type_text VARCHAR2(10) NOT NULL
-    ,create_date DATE NOT NULL
-    ,create_user VARCHAR2(40) NOT NULL
-    ,update_date DATE
-    ,update_user VARCHAR2(40)
-    ,CONSTRAINT pk_nhw_kalimah_type PRIMARY KEY (nhw_kalimah_type_id)
-    ,CONSTRAINT fk_nhw_kalimah FOREIGN KEY (nhw_kalimah_id)
-        REFERENCES nhw_kalimah(nhw_kalimah_id)
-    ,CONSTRAINT u_nhw_kalimah_type_text UNIQUE (nhw_kalimah_type_text)
-    );
-
-DROP TABLE nhw_kalimah_subtype;
-CREATE TABLE nhw_kalimah_subtype
-    (nhw_kalimah_subtype_id NUMBER NOT NULL
-    ,nhw_kalimah_type_id NUMBER NOT NULL
-    ,nhw_kalimah_subtype_text VARCHAR2(10) NOT NULL
-    ,create_date DATE NOT NULL
-    ,create_user VARCHAR2(40) NOT NULL
-    ,update_date DATE
-    ,update_user VARCHAR2(40)
-    ,CONSTRAINT pk_nhw_kalimah_subtype PRIMARY KEY (nhw_kalimah_subtype_id)
-    ,CONSTRAINT fk_nhw_kalimah_type FOREIGN KEY (nhw_kalimah_type_id)
-        REFERENCES nhw_kalimah_type(nhw_kalimah_type_id)
-    ,CONSTRAINT u_nhw_kalimah_subtype_text UNIQUE (nhw_kalimah_subtype_text)
+    ,CONSTRAINT pk_kalimaat_subject_xref PRIMARY KEY (kalimaat_subject_xref_id)
+    ,CONSTRAINT fk_kalimaat_subject_xref_kalimaat FOREIGN KEY (kalimaat_id)
+        REFERENCES kalimaat(kalimaat_id)
+    ,CONSTRAINT fk_kalimaat_subject_xref_subject FOREIGN KEY (subject_id)
+        REFERENCES subject(subject_id)
+    ,CONSTRAINT uk_kalimaat_id_subject_id UNIQUE (kalimaat_id, subject_id)
     );
 
 DROP VIEW vw_root_by_alpha;

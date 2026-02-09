@@ -2,13 +2,14 @@
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'فَاَثْبَتُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'ثَبَّتْنَاكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'نُثَبِّتُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'يُثبت', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'يُثَبِّتَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'ثَبِّتْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'فَثَبِّتُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'لِيُثْبِتُوكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'ثُبُوتِهَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'ثَابِتٌ', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'تَثْبِيتًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'يُثْبِتُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'لِيُثْبِتُوكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'ثُبُوتِهَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'ثَابِتٌ', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'تَثْبِيتًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ت';
 COMMIT;
 --ث ب ر
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'ثُبُورًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ث ب ر';

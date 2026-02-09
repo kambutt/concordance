@@ -147,70 +147,6 @@ BEGIN
     END IF;
 END;
 /
-
-CREATE OR REPLACE TRIGGER trg_iu_nhw_kalimah
-BEFORE INSERT OR UPDATE 
-ON nhw_kalimah
-FOR EACH ROW
-BEGIN
-    IF INSERTING THEN
-        SELECT seq_nhw_kalimah_pk.NEXTVAL,
-               SYSDATE, USER
-        INTO :NEW.nhw_kalimah_id,
-             :NEW.create_date,
-             :NEW.create_user
-        FROM dual;
-    END IF;
-    IF UPDATING THEN
-        SELECT SYSDATE, USER
-        INTO :NEW.update_date,
-             :NEW.update_user
-        FROM DUAL;
-    END IF;
-END;
-/
-CREATE OR REPLACE TRIGGER trg_iu_nhw_kalimah_type
-BEFORE INSERT OR UPDATE 
-ON nhw_kalimah_type
-FOR EACH ROW
-BEGIN
-    IF INSERTING THEN
-        SELECT seq_nhw_kalimah_type_pk.NEXTVAL,
-               SYSDATE, USER
-        INTO :NEW.nhw_kalimah_type_id,             
-             :NEW.create_date,
-             :NEW.create_user
-        FROM dual;
-    END IF;
-    IF UPDATING THEN
-        SELECT SYSDATE, USER
-        INTO :NEW.update_date,
-             :NEW.update_user
-        FROM DUAL;
-    END IF;
-END;
-/
-CREATE OR REPLACE TRIGGER trg_iu_nhw_kalimah_subtype
-BEFORE INSERT OR UPDATE 
-ON nhw_kalimah_subtype
-FOR EACH ROW
-BEGIN
-    IF INSERTING THEN
-        SELECT seq_nhw_kalimah_subtype_pk.NEXTVAL,
-               SYSDATE, USER
-        INTO :NEW.nhw_kalimah_subtype_id,             
-             :NEW.create_date,
-             :NEW.create_user
-        FROM dual;
-    END IF;
-    IF UPDATING THEN
-        SELECT SYSDATE, USER
-        INTO :NEW.update_date,
-             :NEW.update_user
-        FROM DUAL;
-    END IF;
-END;
-/
 CREATE OR REPLACE TRIGGER trg_iu_subject
 BEFORE INSERT OR UPDATE 
 ON subject
@@ -220,6 +156,27 @@ BEGIN
         SELECT seq_subject_pk.NEXTVAL,
                SYSDATE, USER
         INTO :NEW.subject_id,
+             :NEW.create_date,
+             :NEW.create_user
+        FROM dual;
+    END IF;
+    IF UPDATING THEN
+        SELECT SYSDATE, USER
+        INTO :NEW.update_date,
+             :NEW.update_user
+        FROM DUAL;
+    END IF;
+END;
+/
+CREATE OR REPLACE TRIGGER trg_iu_kalimaat_subject_xref
+BEFORE INSERT OR UPDATE 
+ON kalimaat_subject_xref
+FOR EACH ROW
+BEGIN
+    IF INSERTING THEN
+        SELECT seq_kalimaat_subject_xref_pk.NEXTVAL,
+               SYSDATE, USER
+        INTO :NEW.kalimaat_subject_xref_id,
              :NEW.create_date,
              :NEW.create_user
         FROM dual;

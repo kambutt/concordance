@@ -111,7 +111,9 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'مُتْرَفِیہَا', root_letter_id FROM root_letter WHERE root_letter_text = 'ت ر ف';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'مُتْرَفِیہِمْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ت ر ف';
 COMMIT;
---
+--ت ر ق
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'ٱلتَّرَاقِىَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ت ر ق';
+COMMIT;
 --ت ر ك
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'تَرَكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ت ر ك';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'تَرَکْتُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ت ر ك';

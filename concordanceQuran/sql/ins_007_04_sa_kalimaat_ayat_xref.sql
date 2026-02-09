@@ -71,13 +71,21 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id 
 FROM soorah s, ayat a, kalimaat k 
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'يُثبت'
+AND k.kalimah_text = 'يُثَبِّتَ'
 AND (
     (s.soorah_seq_no = 8 and a.ayat_seq_no IN (11))
 OR (s.soorah_seq_no = 14 and a.ayat_seq_no IN (27))
 OR (s.soorah_seq_no = 16 and a.ayat_seq_no IN (102))
 OR (s.soorah_seq_no = 47 and a.ayat_seq_no IN (7))
-OR (s.soorah_seq_no = 13 and a.ayat_seq_no IN (39))
+    );    
+COMMIT;
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id) 
+SELECT k.kalimaat_id, a.ayat_id 
+FROM soorah s, ayat a, kalimaat k 
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'يُثْبِتُ'
+AND (
+    (s.soorah_seq_no = 13 and a.ayat_seq_no IN (39))
     );    
 COMMIT;
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id) 
