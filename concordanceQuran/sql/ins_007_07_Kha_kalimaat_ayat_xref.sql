@@ -1966,17 +1966,23 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'خَطاً'
+AND k.kalimah_text = 'خَطَاً'
 AND ( (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (92))
-OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (31))
     );
 COMMIT;
-
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'الْخَاطِئُونَ'
+AND k.kalimah_text = 'خِطْئًا'
+AND ( (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (31))
+    );
+COMMIT;
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'الْخَاطِئُونَ'
 AND ( (s.soorah_seq_no = 69 AND a.ayat_seq_no IN (37))
     );
 COMMIT;
@@ -1984,7 +1990,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'خَاطِئِينَ'
+AND k.kalimah_text = 'خَاطِئِينَ'
 AND ( (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (29,91,97))
 OR (s.soorah_seq_no = 28 AND a.ayat_seq_no IN (8))
     );
@@ -1993,7 +1999,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'خَاطِئَةٍ'
+AND k.kalimah_text = 'خَاطِئَةٍ'
 AND ( (s.soorah_seq_no = 69 AND a.ayat_seq_no IN (9))
 OR (s.soorah_seq_no = 96 AND a.ayat_seq_no IN (16))
     );
@@ -2002,7 +2008,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'خَطِيئَةٌ'
+AND k.kalimah_text = 'خَطِيئَةٌ'
 AND ( (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (112))
     );
 COMMIT;
@@ -2010,7 +2016,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'خَطِيئَتُهُ'
+AND k.kalimah_text = 'خَطِيئَتُهُ'
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (81))
     );
 COMMIT;
@@ -2018,7 +2024,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'خَطِيئَتِى'
+AND k.kalimah_text = 'خَطِيئَتِى'
 AND ( (s.soorah_seq_no = 26 AND a.ayat_seq_no IN (82))
     );
 COMMIT;
@@ -2026,7 +2032,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'خَطِيئَاتِكُم'
+AND k.kalimah_text = 'خَطِيئَاتِكُم'
 AND ( (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (161))
     );
 COMMIT;
@@ -2034,7 +2040,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'خَطِيئَاتِهِم'
+AND k.kalimah_text = 'خَطِيئَاتِهِم'
 AND ( (s.soorah_seq_no = 71 AND a.ayat_seq_no IN (25))
     );
 COMMIT;
@@ -4542,7 +4548,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'خَِيَانَةً'
+AND k.kalimah_text = 'خِيَانَةً'
 AND ( (s.soorah_seq_no = 8 AND a.ayat_seq_no IN (58))
     );
 COMMIT;
