@@ -710,7 +710,7 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'أَمَدًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ا م د';
 COMMIT;
 --'ا م ر'
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'I', root_letter_id FROM root_letter WHERE root_letter_text = 'ا م ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'أَمَرَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا م ر';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'أَمَرْتُكَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا م ر';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'أَمَرْتَنِى', root_letter_id FROM root_letter WHERE root_letter_text = 'ا م ر';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'أَمَرْتَهُمْ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا م ر';

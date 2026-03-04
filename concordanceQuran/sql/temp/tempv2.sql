@@ -9,7 +9,7 @@ select r.root_letter_text,
 from kalimaat k,
      root_letter r
 where k.root_letter_id = r.root_letter_id
-  and r.root_letter_text = 'ا خ ذ'
+  and r.root_letter_text = 'ا ه ل'
 order by 3;
 --
 select r.root_letter_text,
@@ -26,43 +26,61 @@ from kalimaat k,
 where k.root_letter_id = r.root_letter_id
   and k.kalimaat_id(+) = ksx.kalimaat_id
   and s.subject_id(+) = ksx.subject_id
-  and r.root_letter_text = 'ا م ن'
+  and r.root_letter_text = 'ا ى ى'
   --and k.kalimaat_id = 120
   --and s.subject_id = 1581
 order by 3;
+select * from kalimaat WHERE kalimah_text = 'أَجَلهُنَّ';
+--
 
---'ایمان','اعتماد','حفاظت'
 select *
 from subject
-where subject_text_u in ('ایمان','امن','امانت','اعتبار')
+where subject_text_u in ('نشانی','حکم','آیت')
   OR subject_text_e in ('');
 --
-'مانوس/ہزار/محبت'
+INSERT INTO subject (subject_text_u, subject_text_e)
+VALUES ('آیت', 'Verse');
+COMMIT;
+--
+'نشانی/حکم/آیت'
 UPDATE root_letter
-SET core_meaning = 'ماں/قوم/ان پڑھ/زائر/پیشوا/راستہ/سامنے/مسکن'
-WHERE root_letter_text = 'ا م م';
+SET core_meaning = 'نشانی/حکم/آیت'
+WHERE root_letter_text = 'ا ى ى';
 commit;
 --
 UPDATE subject
-SET subject_text_u = 'اعتبار',
-    subject_text_e = 'Credibility'
-WHERE subject_text_u = 'اعتماد';
+SET subject_text_u = 'غیر شادی شدہ',
+    subject_text_e = 'Unmarried'
+WHERE subject_text_u = 'غیر شادی شدہ';
 COMMIT;
+rollback;
 --
 update KALIMAAT_SUBJECT_XREF
-SET subject_id = 527
-WHERE kalimaat_id IN (782) 
-AND subject_id  in (2141) ;
+SET subject_id = 2747
+WHERE kalimaat_id IN (939,941,942,943,944,936,938,937) 
+--AND subject_id  in (152) 
+;
 commit;
 --
 INSERT INTO kalimaat_subject_XREF (subject_id, kalimaat_id)
-SELECT 1093, 772 from dual;
+SELECT 2747, 944 from dual;
+INSERT INTO kalimaat_subject_XREF (subject_id, kalimaat_id)
+SELECT 2747, 941 from dual;
+INSERT INTO kalimaat_subject_XREF (subject_id, kalimaat_id)
+SELECT 2747, 942 from dual;
+INSERT INTO kalimaat_subject_XREF (subject_id, kalimaat_id)
+SELECT 2747, 936 from dual;
+INSERT INTO kalimaat_subject_XREF (subject_id, kalimaat_id)
+SELECT 2747, 939 from dual;
+INSERT INTO kalimaat_subject_XREF (subject_id, kalimaat_id)
+SELECT 1581, 936 from dual;
+--
 select * from kalimaat where kalimah_text = 'أَمْرًا';
 --
 update KALIMAAT_SUBJECT_XREF
-SET subject_id = 2662 --'پیچھے'
-WHERE kalimaat_id IN (select kalimaat_id from KALIMAAT_SUBJECT_XREF where subject_id = 1519)
-AND subject_id = 1519;--'تاخیر'
+SET subject_id = 2747
+WHERE kalimaat_id IN (940)
+AND subject_id = 2163;--'تاخیر'
 --
 update KALIMAAT_SUBJECT_XREF
 SET subject_id = 2605 --'پیچھے'
@@ -109,12 +127,13 @@ INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
 with k as
 (select kalimaat_id
     from kalimaat
-    where kalimah_text IN ('أَجَلهُنَّ'
+    where kalimah_text IN ('أَهْل'
+
 )),s as
 (
     select subject_id
     from subject
-    where subject_text_u = 'مدت'
+    where subject_text_u = 'لوگ'
 ) 
 SELECT k.kalimaat_id,
        s.subject_id
@@ -154,23 +173,22 @@ update KALIMAAT_SUBJECT_XREF set subject_id = 1512 where subject_id = 1430;
 select count(1)/60 from root_letter;
 select *
 from subject
-where subject_text_u in ('برانگیختگی','اکسانا')--1075,335,1557
-  OR subject_text_e in ('Abode');
---If relacing, update existing subject
+where subject_text_u in ('ابتدائ','لوگ','حامل','تاویل','آگے','پہلے','والے','تعبیر','قوم')
+  OR subject_text_e in ('Interpretation');--If relacing, update existing subject
 UPDATE subject
-SET subject_text_u = 'کراہت',
-    subject_text_e = 'Disgust'
-WHERE subject_text_u = 'غلط فہمی';
+SET subject_text_u = 'تعبیر',
+    subject_text_e = 'Interpretation'
+WHERE subject_text_u = 'تعبیر';
 COMMIT;
---
+--'آگے','پہلے'
 --If new subject, insert new subject
 INSERT INTO subject (subject_text_u, subject_text_e)
-VALUES ('امانت', 'Fidelity');
+VALUES ('فروکش', 'Interpretation');
 COMMIT;
 --
 --Delete old subject list with commas or subject not updated above
 DELETE FROM subject
-WHERE subject_text_u = 'واقف';
+WHERE subject_text_u = 'تاویل';
 ----Update root letter core meaning script
 ROLLBACK;
 --
