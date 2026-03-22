@@ -4875,14 +4875,13 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id 
 FROM soorah s, ayat a, kalimaat k 
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'بَلغت'
+AND k.kalimah_text = 'بَلَغت'
 AND (
     (s.soorah_seq_no = 19 and a.ayat_seq_no IN (8))
 OR (s.soorah_seq_no = 18 and a.ayat_seq_no IN (76))
 OR (s.soorah_seq_no = 33 and a.ayat_seq_no IN (10))
 OR (s.soorah_seq_no = 56 and a.ayat_seq_no IN (83))
 OR (s.soorah_seq_no = 75 and a.ayat_seq_no IN (26))
-OR (s.soorah_seq_no = 5 and a.ayat_seq_no IN (67))
     );
 COMMIT;
 
@@ -5001,6 +5000,15 @@ WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'يَبْلُغُوا'
 AND (
     (s.soorah_seq_no = 24 and a.ayat_seq_no IN (58))
+    );
+COMMIT;
+
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id) 
+SELECT k.kalimaat_id, a.ayat_id 
+FROM soorah s, ayat a, kalimaat k 
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'بَلَّغْتَ'
+AND ((s.soorah_seq_no = 5 and a.ayat_seq_no IN (67))
     );
 COMMIT;
 

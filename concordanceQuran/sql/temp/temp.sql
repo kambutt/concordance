@@ -121,8 +121,10 @@ select * from arabic_alphabet; -- where alphabet_text = 'ل';
 delete arabic_alphabet where arabic_alphabet_id = 42;
 commit;
 
-SELECT * FROM vw_ayat_details order by root_letter_seq_no,kalimah_seq_no, soorah_seq_no, ayat_seq_no;
-select * from kalimaat where kalimah_text =  'الْمَشْئَمَةِ';
+SELECT * FROM vw_ayat_details
+where kalimaat_id = 1183
+ order by root_letter_seq_no,kalimah_seq_no, soorah_seq_no, ayat_seq_no;
+select * from kalimaat where kalimah_text =  'بَرْزَخٌ';
 SELECT count(*) FROM kalimaat WHERE root_letter_id IN (1780);
 select root_letter_text, core_meaning from root_letter 
 where root_letter_text =  'ت'
@@ -131,7 +133,7 @@ select * from root_letter where root_letter_text =  'ت';
 
 select r.*
 FROM root_letter r
-WHERE r.arabic_alphabet_id = 23
+WHERE r.arabic_alphabet_id = 2
 order by root_letter_seq_no;
 SELECT *
 FROM KALIMAAT
@@ -231,19 +233,23 @@ WHERE root_letter_text = 'ى ه د';
 COMMIT;
 -----------------------------------
 BEGIN
-  prc_fixseq('خ ط ا');
+  prc_fixseq('ب ل غ');
 COMMIT;
 END;
 /
 --kalimaat seq fix
+select * from kalimaat where kalimah_text in ('أبَارِيقَ','إِسْتَبْرَق');
+SELECT soorah_seq_no, ayat_seq_no FROM vw_ayat_details
+where kalimaat_id = 1190
+ order by root_letter_seq_no,kalimah_seq_no, soorah_seq_no, ayat_seq_no;
+
 SELECT * FROM kalimaat WHERE root_letter_id = 1772 order by kalimah_seq_no;
 SELECT * FROM root_letter WHERE arabic_alphabet_id = 2 ORDER BY root_letter_seq_no;
 SELECT * FROM root_letter WHERE root_letter_text = 'ح';--
 SELECT * FROM kalimaat 
-WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ا م ر')
+WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ب ل غ')
 --ORDER BY kalimah_text;
 ORDER BY kalimah_seq_no;
-
 
 SET SERVEROUTPUT ON;
 
@@ -259,23 +265,43 @@ COMMIT;
 
 UPDATE kalimaat
 SET kalimah_seq_no = 1
-WHERE kalimah_text = 'الْجِيَادُ';
---and root_letter_id = 1881;
+WHERE kalimah_text = 'أبَارِيقَ';
+UPDATE kalimaat
+SET kalimah_seq_no = 2
+WHERE kalimah_text = 'إِسْتَبْرَق';
+UPDATE kalimaat
+SET kalimah_seq_no = 3
+WHERE kalimah_text = 'بَابِلَ';
+UPDATE kalimaat
+SET kalimah_seq_no = 4
+WHERE kalimah_text = 'بَدْرٍ';
+UPDATE kalimaat
+SET kalimah_seq_no = 5
+WHERE kalimah_text = 'بَرْزَخًا';
+UPDATE kalimaat
+SET kalimah_seq_no = 6
+WHERE kalimah_text = 'بَرْزَخٌ';
+UPDATE kalimaat
+SET kalimah_seq_no = 7
+WHERE kalimah_text = 'بَكَّةَ';
+UPDATE kalimaat
+SET kalimah_seq_no = 8
+WHERE kalimah_text = 'بَلَى';
 COMMIT;
-
+--
 UPDATE kalimaat
 SET kalimah_text = 'أَنَّى'
 WHERE kalimah_text = 'أَنِّى';
 COMMIT;
 
 UPDATE kalimaat
-SET root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ح')
-WHERE kalimah_text IN ('حُنَيْنٍ');
+SET root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ب')
+WHERE kalimah_text IN ('أبَارِيقَ','إِسْتَبْرَق');
 COMMIT;
 
 UPDATE kalimaat
-SET kalimah_text = 'أَمَرَ'
-WHERE kalimah_text = 'أَمر'
+SET kalimah_text = 'بَلَغت'
+WHERE kalimah_text = 'بَلغت'
 --AND root_letter_id = 381
 ;
 COMMIT;
@@ -293,10 +319,10 @@ select kalimaat_id from kalimaat where kalimah_text = 'خِطْئًا';'خَطَ
 select count(*) from kalimaat_ayat_xref where kalimaat_id = (select kalimaat_id 
 from kalimaat where kalimah_text = 'الْحَجْ');
 UPDATE kalimaat_ayat_xref
-SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أُخِذَ')
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أخذَ')
+SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'بَلَّغْتَ')
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'بَلَغت')
 AND AYAT_ID in (select a.ayat_id from ayat a, soorah s 
-WHERE a.soorah_id = s.soorah_id AND a.ayat_seq_no = 70 and s.soorah_seq_no = 8);
+WHERE a.soorah_id = s.soorah_id AND a.ayat_seq_no = 67 and s.soorah_seq_no = 5);
 COMMIT;
 select kalimaat_id from kalimaat where kalimah_text = 'آتوا';
 select kalimaat_id from kalimaat where kalimah_text = 'أُتُوا';
