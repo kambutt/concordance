@@ -3,6 +3,16 @@
 --Check corpus to confirm if it is ok to change subject
 --If so, proceed with below
 --
+select ksx.kalimaat_id, count(*)
+from KALIMAAT_SUBJECT_XREF ksx,
+      ROOT_LETTER r,
+      KALIMAAT k
+WHERE k.kalimaat_id = ksx.KALIMAAT_ID
+AND k.root_letter_id = r.root_letter_id
+AND R.ROOT_LETTER_TEXT = 'ت ل و'
+GROUP BY ksx.kalimaat_id
+having count(*) > 1;  
+--
 select r.root_letter_text,
       r.core_meaning,
       k.kalimah_text,
@@ -11,7 +21,7 @@ select r.root_letter_text,
 from kalimaat k,
      root_letter r
 where k.root_letter_id = r.root_letter_id
-  and r.root_letter_text = 'ب ر ح'
+  and r.root_letter_text = 'ت ل و'
 order by 4;
 --
 select r.root_letter_text,
@@ -28,42 +38,45 @@ from kalimaat k,
 where k.root_letter_id = r.root_letter_id
   and k.kalimaat_id(+) = ksx.kalimaat_id
   and s.subject_id(+) = ksx.subject_id
-  and r.root_letter_text = 'ب ك ر'
-  --and k.kalimaat_id = 120
-  --and s.subject_id = 1581
+  and r.root_letter_text = 'ت ى ه'
+  --and k.kalimaat_id = 1878
+  --and ksx.subject_id = 340
 order by 3;
 
-select * from kalimaat WHERE kalimah_text = 'أَجَلهُنَّ';
+
+select * from kalimaat WHERE kalimah_text = 'یَتَّبِعُونَ';
 --
+
 ---------------------------------------------------Root letter-----------------------------------
 SELECT *
 FROM root_letter
 WHERE core_meaning like '%رخصت%';
 --
 UPDATE root_letter
-SET core_meaning = 'صبح/کنواری'
-WHERE root_letter_text = 'ب ك ر';
+SET core_meaning = 'مرتبہ'
+WHERE root_letter_text = 'ت و ر';
 --
 COMMIT;
-
+ROLLBACK;
 --------------------------------------------------------Subject---------------------------------
 select *
 from subject
-where subject_text_u in ('باقی','دائم')
+where subject_text_u in ('مرتبہ')
   OR subject_text_e in ('')
   or subject_text_u like '%x%';
+
 --
 INSERT INTO subject (subject_text_u, subject_text_e)
-VALUES ('بیل', 'Bull');
+VALUES ('مرتبہ', 'Instance');
 rollback;
 --
 UPDATE subject
-SET subject_text_u = 'کنواری',
-    subject_text_e = 'Virgin'
-WHERE subject_text_u = 'کنوارہ';
+SET subject_text_u = 'پڑھنا',
+    subject_text_e = 'Recitation'
+WHERE subject_text_u = 'تلاوت';
 --
 DELETE FROM subject
-WHERE subject_text_u IN ('دائم');
+WHERE subject_text_u IN ('گرد');
 --Update root letter core meaning script
 COMMIT;
 ROLLBACK;
@@ -72,20 +85,26 @@ ROLLBACK;
 select * from kalimaat_subject_xref where subject_id = 26;
 --
 UPDATE kalimaat_subject_xref
-SET subject_id = 1387
+SET subject_id = 2921
 WHERE kalimaat_id IN (SELECT kalimaat_id
                       FROM kalimaat k,
                            root_letter r
                       WHERE k.root_letter_id = r.root_letter_id
-                        AND r.root_letter_text = 'ب س ل');
-
+                        AND r.root_letter_text = 'ت و ر')
+--AND kalimaat_id NOT IN (1590,1606,1591,1589)
+--AND subject_id = 1528
+;
+UPDATE kalimaat_subject_xref
+SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أَتْلُ')
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'اتْلُ' );
+--
 update KALIMAAT_SUBJECT_XREF
-SET subject_id = 1538
-WHERE kalimaat_id IN (1434,1431,1435);
+SET subject_id = 340
+WHERE kalimaat_id IN (1909);
 --
 update KALIMAAT_SUBJECT_XREF
 SET subject_id = 1427
-WHERE kalimaat_id IN (1402);
+WHERE kalimaat_id IN ();
 --
 update KALIMAAT_SUBJECT_XREF
 SET subject_id = 1427
@@ -93,7 +112,11 @@ WHERE subject_id IN ();
 rollback;
 --
 INSERT INTO kalimaat_subject_XREF (subject_id, kalimaat_id)
-select 2862,1422 from dual;
+select 343,1911 from dual;
+INSERT INTO kalimaat_subject_XREF (subject_id, kalimaat_id)
+select 1036,1567 from dual;
+INSERT INTO kalimaat_subject_XREF (subject_id, kalimaat_id)
+select 1036,1568 from dual;
 --
 INSERT INTO kalimaat_subject_xref (kalimaat_id, subject_id)
 SELECT kalimaat_id,2622
@@ -120,10 +143,11 @@ where k.root_letter_id = r.root_letter_id
 order by 3;
 --
 DELETE FROM kalimaat_subject_xref
-where subject_id in (select subject_id from subject where subject_text_u = 'ہمیشگی')
-and kalimaat_id in (select kalimaat_id
+where --subject_id in (select subject_id from subject where subject_text_u = 'ترکہ')
+--and 
+kalimaat_id in (select kalimaat_id
     from kalimaat
-    where kalimah_text IN (''));
+    where kalimah_text IN ('اتْلُ'));
     --
 commit;
 --
