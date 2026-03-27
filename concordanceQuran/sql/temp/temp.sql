@@ -70,7 +70,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ت' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ث' ORDER BY root_letter_seq_no;
 SELECT root_letter_text, num_ayaat, ayatsize
 FROM vw_root_ayat_count_for_vol WHERE root_letter_text = 'خ ى ر' ORDER BY kalimah_seq_no;
 select * from arabic_alphabet where alphabet_text = 'خ';
@@ -90,7 +90,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'ت'
+AND a.alphabet_text = 'ث'
 --AND r.root_letter_text = 'ا ب و'
 ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
 /* Get xref count */
@@ -423,12 +423,12 @@ BEGIN
 END;
 /
 BEGIN
-  prc_fixseq('ت ب ع');
+  prc_fixseq('ت ل و');
   COMMIT;
 END;
 /
 select * from kalimaat where root_letter_id in 
-(select root_letter_id from root_letter where root_letter_text = 'ت ب ع')
+(select root_letter_id from root_letter where root_letter_text = 'ت ل و')
 order by kalimah_seq_no;
 SELECT * FROM kalimaat_ayat_xref WHERE kalimaat_id = 116;
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id) SELECT k.kalimaat_id, a.ayat_id FROM soorah s, ayat a, kalimaat k WHERE s.soorah_id = a.soorah_id
