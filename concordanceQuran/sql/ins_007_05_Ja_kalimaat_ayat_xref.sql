@@ -1643,7 +1643,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'جَعَلَهُ'
+AND k.kalimah_text = 'جعَلهُ'
 AND ( (s.soorah_seq_no = 3  AND a.ayat_seq_no IN (126))
 OR (s.soorah_seq_no = 7  AND a.ayat_seq_no IN (143))
 OR (s.soorah_seq_no = 8  AND a.ayat_seq_no IN (10))
@@ -1651,6 +1651,7 @@ OR (s.soorah_seq_no = 18  AND a.ayat_seq_no IN (96,98))
 OR (s.soorah_seq_no = 25  AND a.ayat_seq_no IN (45,54))
 OR (s.soorah_seq_no = 68  AND a.ayat_seq_no IN (50))
 OR (s.soorah_seq_no = 87  AND a.ayat_seq_no IN (5))
+OR (s.soorah_seq_no = 19  AND a.ayat_seq_no IN (6))
     );
 COMMIT;
 --9
@@ -1690,15 +1691,6 @@ OR (s.soorah_seq_no = 43  AND a.ayat_seq_no IN (15,19))
     );
 COMMIT;
 --10
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
-SELECT k.kalimaat_id, a.ayat_id
-FROM soorah s, ayat a, kalimaat k
-WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'أَجْعَلْ'
-AND ( (s.soorah_seq_no = 18  AND a.ayat_seq_no IN (95))
-    );
-COMMIT;
---1
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -1794,7 +1786,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'وَلِنَحْعَلَكَ'
+AND k.kalimah_text = 'نَحْعَلَكَ'
 AND ( (s.soorah_seq_no = 2  AND a.ayat_seq_no IN (259))
     );
 COMMIT;
@@ -1803,7 +1795,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'وَلِنَجْعَلَهُ'
+AND k.kalimah_text = 'نَجْعَلَهُ'
 AND ( (s.soorah_seq_no = 19  AND a.ayat_seq_no IN (21))
     );
 COMMIT;
@@ -1868,7 +1860,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'وَيَجْعَلُكُمْ'
+AND k.kalimah_text = 'يَجْعَلُكُمْ'
 AND ( (s.soorah_seq_no = 27  AND a.ayat_seq_no IN (62))
     );
 COMMIT;
@@ -1929,6 +1921,7 @@ OR (s.soorah_seq_no = 19  AND a.ayat_seq_no IN (10))
 OR (s.soorah_seq_no = 20  AND a.ayat_seq_no IN (29,58))
 OR (s.soorah_seq_no = 26  AND a.ayat_seq_no IN (84))
 OR (s.soorah_seq_no = 28  AND a.ayat_seq_no IN (38))
+OR (s.soorah_seq_no = 18  AND a.ayat_seq_no IN (95))
     );
 COMMIT;
 --13
@@ -1953,15 +1946,6 @@ OR (s.soorah_seq_no = 26  AND a.ayat_seq_no IN (85))
     );
 COMMIT;
 --3
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
-SELECT k.kalimaat_id, a.ayat_id
-FROM soorah s, ayat a, kalimaat k
-WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'واجْعَلْهُ'
-AND ( (s.soorah_seq_no = 19  AND a.ayat_seq_no IN (6))
-    );
-COMMIT;
---1
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2005,8 +1989,8 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'وَجَاعِلُوهُ'
-AND ( (s.soorah_seq_no = 28  AND a.ayat_seq_no IN (7))
+AND k.kalimah_text = 'جَاعِلُوهُ'
+AND ( (s.soorah_seq_no = 28  AND a.ayat_seq_no IN (7)) 
     );
 COMMIT;
 --7
