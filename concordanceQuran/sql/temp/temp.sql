@@ -70,14 +70,14 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ج' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ح' ORDER BY root_letter_seq_no;
 
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE root_letter_text = 'خ ى ر' ORDER BY kalimah_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE root_letter_text = 'ح' ORDER BY kalimah_seq_no;
 select * from arabic_alphabet where alphabet_text = 'خ';
 select * from root_letter where arabic_alphabet_id = 7 order by root_letter_seq_no;
 select * from kalimaat where root_letter_id = 448;
-select x.kalimaat_id, s.soorah_seq_no, a.ayat_seq_no 
+select x.kalimaat_id, s.soorah_seq_no, a.ayat_seq_no  
 from KALIMAAT_AYAT_XREF X,
      ayat a,
      soorah s
@@ -91,7 +91,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'ج'
+AND a.alphabet_text = 'ح'
 --AND r.root_letter_text = 'ا ب و'
 ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
 /* Get xref count */
@@ -265,21 +265,21 @@ AND kalimah_seq_no >= 12
 COMMIT;
 
 UPDATE kalimaat
-SET kalimah_seq_no = 1
-WHERE kalimah_text = 'أبَارِيقَ';
+SET kalimah_seq_no = .5
+WHERE kalimah_text = 'أَحْمَدُ';
 --
 UPDATE kalimaat
-SET kalimah_text = 'أَجْعَلْ'
-WHERE kalimah_text = 'أَجْعَلْ';
+SET kalimah_text = 'يَحِلّ'
+WHERE kalimah_text = 'يحِلُّ';
 COMMIT;
-
+------------Kalimah root_letter fix ----------------------
 UPDATE kalimaat
-SET root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ت')
-WHERE kalimah_text IN ('تُبَّعِ');
+SET root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ح')
+WHERE kalimah_text IN ('مُحَمَّدٌ');
 COMMIT;
-
+---------------------------------------------------------
 DELETE kalimaat
-WHERE kalimah_text in ('أَجْعَلْ') ;
+WHERE kalimah_text in ('حَكَمًا') ;
 COMMIT;
 
 update kalimaat set kalimah_seq_no = 12,'يَذْكُرُ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ ك ر';
@@ -289,16 +289,17 @@ COMMIT;
 select soorah_id from soorah where soorah_seq_no = 17;
 select kalimaat_id from kalimaat where kalimah_text = 'أَتْلُ';'خَطَاً'
 select count(*) from kalimaat_ayat_xref where kalimaat_id = (select kalimaat_id 
-from kalimaat where kalimah_text = 'الْحَجْ');
+from kalimaat where kalimah_text = 'حُكْمًا');
 UPDATE kalimaat_ayat_xref
-SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'اجْعَلْ')
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أَجْعَلْ' );
+SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'يُحِلُّ')
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'يَحِلّ')
 AND AYAT_ID in (select a.ayat_id 
                 from ayat a, soorah s 
                 WHERE a.soorah_id = s.soorah_id 
-                AND (s.soorah_seq_no in (19) and a.ayat_seq_no in (6)));
+                AND (s.soorah_seq_no in (7) and a.ayat_seq_no in (157)));
 COMMIT;
-select kalimaat_id from kalimaat where kalimah_text = 'آتوا';
+rollback;
+select kalimaat_id from kalimaat where kalimah_text = 'ٱلْحَقّ';
 select kalimaat_id from kalimaat where kalimah_text = 'أُتُوا';
 select a. from ayat a, soorah s WHERE a.soorah_id = s.soorah_id AND a.ayat_seq_no = 25 and s.soorah_seq_no = 2;
 SELECT r.root_letter_text, r.root_letter_seq_no, REGEXP_REPLACE(
@@ -395,14 +396,14 @@ BEGIN
 END;
 /
 BEGIN
-  prc_fixseq('ج ع ل');
+  prc_fixseq('ح');
   COMMIT;
 END;
 /
 select * from kalimaat where root_letter_id in 
-(select root_letter_id from root_letter where root_letter_text = 'ت ل و')
+(select root_letter_id from root_letter where root_letter_text = 'ح ص ى')
 order by kalimah_seq_no;
-SELECT * FROM kalimaat_ayat_xref WHERE kalimaat_id = 116;
+SELECT * FROM kalimaat_ayat_xref WHERE kalimaat_id = 2907;
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id) SELECT k.kalimaat_id, a.ayat_id FROM soorah s, ayat a, kalimaat k WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'بَدّلهُ'
 AND (

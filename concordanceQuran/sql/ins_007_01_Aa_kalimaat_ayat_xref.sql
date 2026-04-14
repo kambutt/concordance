@@ -6623,7 +6623,7 @@ FROM soorah s,
     ayat a,
     kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'أَكَلُه'
+AND k.kalimah_text = 'أَكَلهُ'
 AND (
     (s.soorah_seq_no = 12 and a.ayat_seq_no IN (14))
     );

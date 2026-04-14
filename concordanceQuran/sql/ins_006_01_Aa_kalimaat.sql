@@ -625,7 +625,7 @@ COMMIT;
 --'ا ك ل'
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'أَكَلَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا ك ل';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'فَأَكَلا', root_letter_id FROM root_letter WHERE root_letter_text = 'ا ك ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'أَكَلُه', root_letter_id FROM root_letter WHERE root_letter_text = 'ا ك ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'أَكَلهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا ك ل';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'أَكَلُوا', root_letter_id FROM root_letter WHERE root_letter_text = 'ا ك ل';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'تَأْكُل', root_letter_id FROM root_letter WHERE root_letter_text = 'ا ك ل';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'تَأْكُلُهُ', root_letter_id FROM root_letter WHERE root_letter_text = 'ا ك ل';
