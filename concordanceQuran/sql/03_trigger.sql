@@ -189,3 +189,24 @@ BEGIN
     END IF;
 END;
 /
+CREATE OR REPLACE TRIGGER trg_iu_juz
+BEFORE INSERT OR UPDATE 
+ON juz
+FOR EACH ROW
+BEGIN
+    IF INSERTING THEN
+        SELECT seq_juz_pk.NEXTVAL,
+               SYSDATE, USER
+        INTO :NEW.juz_id,
+             :NEW.create_date,
+             :NEW.create_user
+        FROM dual;
+    END IF;
+    IF UPDATING THEN
+        SELECT SYSDATE, USER
+        INTO :NEW.update_date,
+             :NEW.update_user
+        FROM DUAL;
+    END IF;
+END;
+/

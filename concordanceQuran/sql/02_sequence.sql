@@ -24,3 +24,6 @@ CREATE SEQUENCE seq_subject_pk START WITH 1 INCREMENT BY 1;
 
 DROP SEQUENCE seq_kalimaat_subject_xref_pk;
 CREATE SEQUENCE seq_kalimaat_subject_xref_pk START WITH 1 INCREMENT BY 1;
+
+DROP SEQUENCE seq_juz_pk;
+CREATE SEQUENCE seq_juz_pk START WITH 1 INCREMENT BY 1;

@@ -203,3 +203,22 @@ AND kaax.ayat_id = ayat.ayat_id
 AND soor.soorah_id = ayat.soorah_id
 AND soor.revelation_location_id = relo.revelation_location_id
 ORDER BY kali.kalimah_seq_no, soor.soorah_seq_no, ayat.ayat_seq_no;
+
+DROP TABLE juz;
+CREATE TABLE juz
+    (juz_id NUMBER NOT NULL
+    ,juz_no NUMBER NOT NULL
+    ,ruku_no NUMBER NOT NULL
+    ,soorah_id NUMBER
+    ,ayat_id_start NUMBER
+    ,ayat_id_end NUMBER
+    ,create_date DATE NOT NULL
+    ,create_user VARCHAR2(40) NOT NULL
+    ,update_date DATE
+    ,update_user VARCHAR2(40)
+    ,CONSTRAINT pk_juz PRIMARY KEY (juz_id)
+    ,CONSTRAINT fk_juz_soorah FOREIGN KEY (soorah_id)
+        REFERENCES soorah(soorah_id)
+    ,CONSTRAINT fk_juz_ayat FOREIGN KEY (ayat_id)
+        REFERENCES ayat(ayat_id)
+    );

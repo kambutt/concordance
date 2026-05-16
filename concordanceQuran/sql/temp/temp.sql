@@ -70,7 +70,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'خ' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'د' ORDER BY root_letter_seq_no;
 
 SELECT root_letter_text, num_ayaat, ayatsize
 FROM vw_root_ayat_count_for_vol WHERE root_letter_text = 'ح' ORDER BY kalimah_seq_no;
@@ -91,7 +91,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'خ'
+AND a.alphabet_text = 'د'
 --AND r.root_letter_text = 'ا ب و'
 ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
 --/* get toc */
@@ -101,7 +101,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'خ'
+AND a.alphabet_text = 'د'
 --AND r.root_letter_text IN ('خ ر ج')
 GROUP BY r.root_letter_text
 ORDER BY 1;
@@ -281,8 +281,8 @@ SET kalimah_seq_no = .5
 WHERE kalimah_text = 'أَحْمَدُ';
 --
 UPDATE kalimaat
-SET kalimah_text = 'خِفْتُكُمْ'
-WHERE kalimah_text = 'خِِفْتُكُمْ'
+SET kalimah_text = 'يُدْخِلكُمْ'
+WHERE kalimah_text = 'يُدْخِِلكُمْ'
 ;
 COMMIT;
 ------------Kalimah root_letter fix ----------------------
@@ -304,12 +304,12 @@ select kalimaat_id from kalimaat where kalimah_text = 'أَتْلُ';
 select count(*) from kalimaat_ayat_xref where kalimaat_id = (select kalimaat_id 
 from kalimaat where kalimah_text = 'حُكْمًا');
 UPDATE kalimaat_ayat_xref
-SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'خلق')
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'خُلُق')
+SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'يَدَّعُونَ')
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'يدعونَ')
 AND AYAT_ID in (select a.ayat_id 
                 from ayat a, soorah s 
                 WHERE a.soorah_id = s.soorah_id 
-                AND (s.soorah_seq_no = 52 AND a.ayat_seq_no IN (35))
+                AND (s.soorah_seq_no = 36 AND a.ayat_seq_no IN (57))
                 );
 COMMIT;
 
@@ -411,7 +411,7 @@ BEGIN
 END;
 /
 BEGIN
-  prc_fixseq('خ ل ف');
+  prc_fixseq('د ع و');
   COMMIT;
 END;
 /
