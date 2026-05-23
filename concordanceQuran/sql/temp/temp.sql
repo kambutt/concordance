@@ -70,7 +70,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'د' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ذ' ORDER BY root_letter_seq_no;
 
 SELECT root_letter_text, num_ayaat, ayatsize
 FROM vw_root_ayat_count_for_vol WHERE root_letter_text = 'ح' ORDER BY kalimah_seq_no;
@@ -91,7 +91,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'د'
+AND a.alphabet_text = 'ذ'
 --AND r.root_letter_text = 'ا ب و'
 ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
 --/* get toc */
@@ -281,8 +281,8 @@ SET kalimah_seq_no = .5
 WHERE kalimah_text = 'أَحْمَدُ';
 --
 UPDATE kalimaat
-SET kalimah_text = 'يُدْخِلكُمْ'
-WHERE kalimah_text = 'يُدْخِِلكُمْ'
+SET kalimah_text = 'ذَنُوبِ'
+WHERE kalimah_text = 'ذُنُوبِ'
 ;
 COMMIT;
 ------------Kalimah root_letter fix ----------------------

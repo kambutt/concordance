@@ -21,8 +21,9 @@ select r.root_letter_text,
 from kalimaat k,
      root_letter r
 where k.root_letter_id = r.root_letter_id
-  and r.root_letter_text = 'د ر ك'
-order by 5;
+  and r.root_letter_text = 'ذ ى ع'
+order by 3;
+
 --
 select r.root_letter_text,
       r.core_meaning,
@@ -38,7 +39,7 @@ from kalimaat k,
 where k.root_letter_id = r.root_letter_id
   and k.kalimaat_id(+) = ksx.kalimaat_id
   and s.subject_id(+) = ksx.subject_id
-  and r.root_letter_text = 'د ر ك'
+  and r.root_letter_text = 'ذ ى ع'
   --and ksx.subject_id = 3103
   --AND k.kalimaat_id IN (3233)
 order by 4,3;
@@ -66,15 +67,15 @@ FROM root_letter
 WHERE core_meaning like '%رخصت%'; 
 --
 UPDATE root_letter
-SET core_meaning = 'دین/قرض/بدلہ/محکومی'
-WHERE root_letter_text = 'د ى ن';
+SET core_meaning = 'شہرت'
+WHERE root_letter_text = 'ذ ى ع';
 --
 COMMIT;
 ROLLBACK;
 --------------------------------------------------------Subject---------------------------------
 select *
 from subject
-where subject_text_u in ('دین','قرض','بدلہ','محکومی')
+where subject_text_u in ('شہرت')
   OR subject_text_e in ('')
   or subject_text_u like '%x%';
 --
@@ -83,15 +84,39 @@ VALUES ('محکومی','Subjugation' );
 rollback;
 --
 UPDATE subject
-SET subject_text_u = 'دین',
-    subject_text_e = 'Creed'
-WHERE subject_text_u = 'دین';--
+SET subject_text_u = 'شہرت',
+    subject_text_e = 'Fame'
+WHERE subject_text_u = 'تذلیل';--'بے عزتی'
 --
 DELETE FROM subject
 WHERE subject_text_u IN ('مختلف');
 --Update root letter core meaning script
 COMMIT;
-ROLLBACK;
+rollback;
+INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
+SELECT kalimaat_id, 325
+FROM kalimaat k,
+     root_letter r
+WHERE k.root_letter_id = r.root_letter_id
+  AND r.root_letter_text = 'ذ ى ع'
+  --AND k.kalimaat_id IN (4231)
+  ;
+INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
+SELECT kalimaat_id, 547
+FROM kalimaat k,
+     root_letter r
+WHERE k.root_letter_id = r.root_letter_id
+  AND r.root_letter_text = 'ذ و د'
+  --AND k.kalimaat_id IN (4238,4239)
+  ;
+INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
+SELECT kalimaat_id, 367
+FROM kalimaat k,
+     root_letter r
+WHERE k.root_letter_id = r.root_letter_id
+  AND r.root_letter_text = 'ذ ه ب'
+  AND k.kalimaat_id NOT IN (4231,4238,4239)
+  ;
 ------------------------------------------KALIMAAT---------------------------------------------------
 select * from kalimaat where kalimah_text in ('أَخْلُقُ');
 
@@ -99,15 +124,15 @@ select * from kalimaat where kalimah_text in ('أَخْلُقُ');
 select * from kalimaat_subject_xref where subject_id = 999;
 --
 update KALIMAAT_SUBJECT_XREF
-set subject_id = 2610
+set subject_id = 2181
 WHERE 1=1
 AND kalimaat_id IN (select kalimaat_id from kalimaat where root_letter_id in (430))
 AND subject_id = 322
 ;
 update KALIMAAT_SUBJECT_XREF
-set subject_id = 3181
+set subject_id = 2181
 WHERE 1=1
-AND kalimaat_id IN (3196)
+AND kalimaat_id IN (4119)
 --AND subject_id = 1510
 ;
 UPDATE kalimaat_subject_xref
@@ -129,13 +154,13 @@ AND subject_id = 1179
 COMMIT;
 --
 UPDATE kalimaat_subject_xref
-SET subject_id = 531
+SET subject_id = 1397
 WHERE kalimaat_id IN (SELECT kalimaat_id
                       FROM kalimaat k,
                            root_letter r
                       WHERE k.root_letter_id = r.root_letter_id
-                        AND r.root_letter_text = 'رسم')
---AND kalimaat_id NOT IN (2350)
+                        AND r.root_letter_text = 'ذ ن ب')
+  AND kalimaat_id NOT IN (4215,4214)
 --AND subject_id = 1528
 --and subject_id in (select subject_id from subject where subject_text_u in ('جلنا'))
 ;
@@ -178,14 +203,7 @@ select 3184, 3790 from dual;
 INSERT INTO kalimaat_subject_XREF (subject_id, kalimaat_id)
 select 3184, 3788 from dual;
 --
-INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, 469
-FROM kalimaat k,
-     root_letter r
-WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'د ى ن'
-  AND k.kalimaat_id IN (4069,4059)
-  ;
+
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
 SELECT kalimaat_id, 3222
 FROM kalimaat k,

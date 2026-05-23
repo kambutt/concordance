@@ -152,7 +152,7 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'ذُنُوبكُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ ن ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'ذُنُوبنَا', root_letter_id FROM root_letter WHERE root_letter_text ='ذ ن ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'ذُنُوبِهِمْ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ ن ب';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'ذُنُوبِ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ ن ب';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'ذَنُوبِ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ ن ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'ذَنُوبًا', root_letter_id FROM root_letter WHERE root_letter_text ='ذ ن ب';
 COMMIT;
 --ذ ن ب'
@@ -183,7 +183,7 @@ COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'تَذْهَلُ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ ه ل';
 COMMIT;
 --ذ ه ل'
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'تَذُودَانِِ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ و د';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'تَذُودَانِ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ و د';
 COMMIT;
 --ذ و د'
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'ذَاقَا', root_letter_id FROM root_letter WHERE root_letter_text ='ذ و ق';
@@ -204,7 +204,7 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'أَذَقْنَاهُ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ و ق';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'نُذِقْهُ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ و ق';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'فَلَنُذِيقَنَّ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ و ق';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'وَلَنُذِيقَنَّهُمْْ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ و ق';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'وَلَنُذِيقَنَّهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ و ق';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 'نُذِيقُهُ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ و ق';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 21, 'نُذِيقهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ و ق';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 'يُذِيقَ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ و ق';
