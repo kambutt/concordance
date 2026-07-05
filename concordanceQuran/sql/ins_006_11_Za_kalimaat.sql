@@ -2,6 +2,7 @@
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'زَرَابِىُّ', root_letter_id FROM root_letter WHERE root_letter_text ='ز';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'زَكَرِيَّا', root_letter_id FROM root_letter WHERE root_letter_text ='ز';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'زَنْجَبِيلًا', root_letter_id FROM root_letter WHERE root_letter_text ='ز';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'زَيْدٌ', root_letter_id FROM root_letter WHERE root_letter_text = 'ز';
 COMMIT;
 --ز ب د
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'زَبَدٌ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ب د';
@@ -9,9 +10,10 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, '
 COMMIT;
 --ز ب ر
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'الزَّبُورِ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ب ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'الزُّبُرِِ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ب ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'زُبُرًا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ب ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'زُبَرَ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ب ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'زَبُورًا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ب ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'الزُّبُرِ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ب ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'زُبُرًا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ب ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'زُبَرَ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ب ر';
 COMMIT;
 --ز ب ن
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'الزَّبَانِيَةَ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ب ن';
@@ -226,7 +228,6 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 29, 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 30, 'لِيَزْدَادُوا', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى د';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 31, 'زِيَادَةٌ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى د';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 32, 'مَزِيد', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى د';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 33, 'زَيْدٌ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى د';
 COMMIT;
 --ز ى غ
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'زَاغَ', root_letter_id FROM root_letter WHERE root_letter_text ='ز ى غ';

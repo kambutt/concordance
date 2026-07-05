@@ -70,7 +70,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */ 
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ر' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'س' ORDER BY root_letter_seq_no;
 
 SELECT root_letter_text, num_ayaat, ayatsize
 FROM vw_root_ayat_count_for_vol WHERE root_letter_text = 'ح' ORDER BY kalimah_seq_no;
@@ -91,7 +91,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'ر'
+AND a.alphabet_text = 'س'
 --AND r.root_letter_text = 'ا ب و'
 ORDER BY r.root_letter_seq_no, k.kalimah_seq_no;
 --/* get toc */
@@ -101,7 +101,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'د'
+AND a.alphabet_text = 'س'
 --AND r.root_letter_text IN ('خ ر ج')
 GROUP BY r.root_letter_text
 ORDER BY 1;
@@ -277,22 +277,23 @@ AND kalimah_seq_no >= 12
 COMMIT;
 
 UPDATE kalimaat
-SET kalimah_seq_no = .5
-WHERE kalimah_text = 'رُّبَمَا';
+SET kalimah_seq_no = 4
+WHERE kalimah_text = 'زَيْدٌ';
 --
 UPDATE kalimaat
-SET kalimah_text = 'أُرِيْدُ'
-WHERE kalimah_text = 'أُرِيد'
+SET kalimah_text = 'سَوِيًا'
+WHERE kalimah_text = 'سَوِيًَا'
 ;
 COMMIT;
+
 ------------Kalimah root_letter fix ----------------------
 UPDATE kalimaat
-SET root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ر')
-WHERE kalimah_text IN ('رُّبَمَا');
+SET root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ز')
+WHERE kalimah_text IN ('زَيْدٌ');
 COMMIT;
 ---------------------------------------------------------
 DELETE kalimaat
-WHERE kalimah_text in ('أُرْسِلُوا') ;
+WHERE kalimah_text in ('مُسْمَعِ') ;
 COMMIT;
 
 update kalimaat set kalimah_seq_no = 12,'يَذْكُرُ', root_letter_id FROM root_letter WHERE root_letter_text ='ذ ك ر';
@@ -304,12 +305,12 @@ select kalimaat_id from kalimaat where kalimah_text = 'أَتْلُ';
 select count(*) from kalimaat_ayat_xref where kalimaat_id = (select kalimaat_id 
 from kalimaat where kalimah_text = 'حُكْمًا');
 UPDATE kalimaat_ayat_xref
-SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أُرِيْدَ')
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أُرِيْدُ')
+SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'مُسْمعٍ')
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'مُسْمَعِ')
 AND AYAT_ID in (select a.ayat_id 
                 from ayat a, soorah s 
                 WHERE a.soorah_id = s.soorah_id 
-                AND (s.soorah_seq_no = 72 AND a.ayat_seq_no IN (10))
+                AND (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (46))
                 );
 COMMIT;
 
@@ -411,7 +412,7 @@ BEGIN
 END;
 /
 BEGIN
-  prc_fixseq('ر و د');
+  prc_fixseq('س ل م');
   COMMIT;
 END;
 /
@@ -611,7 +612,7 @@ group by r.root_letter_text
 where kalimah_count > 0
 group by root_letter_text, kalimah_count
 order by 3 desc;
-
+''
 select r.root_letter_text,
        count(k.kalimah_text) kalimah_count,
        RANK() OVER (PARTITION BY count(k.kalimah_text) ORDER BY count(k.kalimah_text)) rk
@@ -620,3 +621,6 @@ from kalimaat k,
 where k.root_letter_id = r.root_letter_id
 group by r.root_letter_text;
 /
+-------------
+
+COMMIT;

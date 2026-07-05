@@ -21,7 +21,7 @@ select r.root_letter_text,
 from kalimaat k,
      root_letter r
 where k.root_letter_id = r.root_letter_id
-  and r.root_letter_text = 'ت و ب'
+  and r.root_letter_text = 'س ى ل'
 order by 3;
 --
 select r.root_letter_text,
@@ -38,15 +38,13 @@ from kalimaat k,
 where k.root_letter_id = r.root_letter_id
   and k.kalimaat_id(+) = ksx.kalimaat_id
   and s.subject_id(+) = ksx.subject_id
-  and r.root_letter_text = 'ر ا ف'
-  --and ksx.subject_id = 3103
-  --AND k.kalimaat_id IN (3233)
+  and r.root_letter_text = 'س ى ل'
 --order by 4,3;
 order by 3,4;
 --
 select *
 from vw_ayat_details
-where root_letter_text = 'د ر ك';
+where root_letter_text = ;
 --
 select * from kalimaat WHERE kalimah_text = 'تُدْرِكَ';--3880
 select * from kalimaat_ayat_xref where kalimaat_id = 3880;
@@ -66,73 +64,80 @@ FROM root_letter
 WHERE core_meaning like '%رخصت%'; 
 --/اللہ
 UPDATE root_letter
-SET core_meaning = 'تعریف/اللہ'
-WHERE root_letter_text = 'ح م د';
+SET core_meaning = 'بہنا'
+WHERE root_letter_text = 'س ى ل';
 --
 COMMIT;
 ROLLBACK;
 --------------------------------------------------------Subject---------------------------------
 select *
 from subject
-where subject_text_u in ('اللہ','مہربانی')
-  OR subject_text_e in ('')
+where subject_text_u in ()
+;
+select *
+from subject
+where subject_text_u in ('بہنا')
+  OR subject_text_e in ('Flow')
   or subject_text_u like '%x%';
+
 
 --
 INSERT INTO subject (subject_text_u, subject_text_e)
-VALUES ('زنگ','Rust');
+VALUES ('قافلہ','Caravan');
+
 rollback;
 --
 UPDATE subject
-SET subject_text_u = 'زینت',
-    subject_text_e = 'Adornment'
-WHERE subject_text_u =  'سجاوٹ';
+SET subject_text_u = 'قافلہ',
+    subject_text_e = 'Caravan'
+WHERE subject_text_u = 'قافلہ';
 --
 DELETE FROM subject
-WHERE subject_text_u IN ('پیغام','بھیجنا');
+WHERE subject_text_u IN ('چلنا');
 --Update root letter core meaning script
 COMMIT;
 rollback;
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, 442
+SELECT kalimaat_id, 286
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ب ص ر'
-  AND k.kalimaat_id IN (1270)
+  AND r.root_letter_text = 'س ى ل'
+  --AND k.kalimaat_id IN (5870)
   ;
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, 3361
+SELECT kalimaat_id, 2307
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ر و د'
-  AND k.kalimaat_id IN (4929,4925,4928,4924,4926,4930)
+  AND r.root_letter_text = 'س ى ر'
+  AND k.kalimaat_id NOT IN (5870)
   ;
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, 3363
+SELECT kalimaat_id, 3516
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ر و د'
-  AND k.kalimaat_id IN (4931)
+  AND r.root_letter_text = 'س ى ح'
+  AND k.kalimaat_id IN (5858)
   ;
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, 1427
+SELECT kalimaat_id, 232
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ر و د'
-  AND k.kalimaat_id not IN (4929,4925,4928,4924,4926,4930,4931,12861,4923)
+  AND r.root_letter_text = 'س و ى'
+  AND k.kalimaat_id NOT IN (5854,5855,5847,5846,5843,5844,5845,5834,5833,5838,5835,5837,5839)
   ;
   Update kalimaat_subject_xref
-  set subject_id = 442
+  set subject_id = 733
   where kalimaat_id IN (SELECT kalimaat_id
                           FROM kalimaat k,
                                root_letter r
                         WHERE k.root_letter_id = r.root_letter_id
-                        AND r.root_letter_text = 'ح م د'
-                        AND k.kalimaat_id IN (2993));
+                        AND r.root_letter_text = 'س م د'
+                        --AND k.kalimaat_id NOT IN (5477)
+                        );
 ------------------------------------------KALIMAAT---------------------------------------------------
 select * from kalimaat where kalimah_text in ('أَخْلُقُ');
 

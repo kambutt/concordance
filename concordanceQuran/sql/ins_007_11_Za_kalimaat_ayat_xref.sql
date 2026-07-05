@@ -47,7 +47,14 @@ FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'الزَّبُورِ'
 AND ( (s.soorah_seq_no = 21 AND a.ayat_seq_no IN (105))
-OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (163))
+    );
+COMMIT;
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'زَبُورًا'
+AND ( (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (163))
 OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (55))
     );
 COMMIT;
@@ -55,7 +62,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'الزُّبُرِِ'
+AND k.kalimah_text = 'الزُّبُرِ'
 AND ( (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (184))
 OR (s.soorah_seq_no = 16 AND a.ayat_seq_no IN (44))
 OR (s.soorah_seq_no = 26 AND a.ayat_seq_no IN (196))
