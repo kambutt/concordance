@@ -21,8 +21,8 @@ select r.root_letter_text,
 from kalimaat k,
      root_letter r
 where k.root_letter_id = r.root_letter_id
-  and r.root_letter_text = 'ش ى ع'
-order by 3;
+  and r.root_letter_text = 'ص ى ف'
+order by 5;
 --
 select r.root_letter_text,
       r.core_meaning,
@@ -38,7 +38,7 @@ from kalimaat k,
 where k.root_letter_id = r.root_letter_id
   and k.kalimaat_id(+) = ksx.kalimaat_id
   and s.subject_id(+) = ksx.subject_id
-  and r.root_letter_text = 'ش ى ع'
+  and r.root_letter_text = 'س ل س ل'
 --order by 4,3;
 order by 3,4;
 --
@@ -64,8 +64,8 @@ FROM root_letter
 WHERE core_meaning like '%رخصت%'; 
 --/اللہ
 UPDATE root_letter
-SET core_meaning = 'پھیلاؤ/گروہ'
-WHERE root_letter_text = 'ش ى ع';
+SET core_meaning = 'موسم'
+WHERE root_letter_text = 'ش ت و';
 --
 COMMIT;
 ROLLBACK;
@@ -80,17 +80,15 @@ and (
      or instr(subject_text_u, '،') != 0
      OR instr(subject_text_u, '/') != 0
      )
---and subject_text_u in ('کنارہ')
+--and subject_text_u in ('کنارہ'،)
 order by subject_id
 ;
 --
 select *
 from subject
-where subject_text_u in ('پھیلاؤ','گروہ')
-  OR subject_text_e in ('Spread')
+where subject_text_u in ('موسم')
+  OR subject_text_e in ('Spring','')
   or subject_text_u like '%x%';
-
-
 --
 INSERT INTO subject (subject_text_u, subject_text_e)
 VALUES ('قافلہ','Caravan');
@@ -98,57 +96,62 @@ VALUES ('قافلہ','Caravan');
 rollback;
 --
 UPDATE subject
-SET subject_text_u = 'پھیلاؤ',
-    subject_text_e = 'Spread'
-WHERE subject_text_u = 'پھیلانا';
+SET subject_text_u = 'موسم',
+    subject_text_e = 'Weather'
+WHERE subject_text_u = 'تمنا، خواہش';
+COMMIT;
 --
 DELETE FROM subject
-WHERE subject_text_u IN ('ترش رو');
+WHERE subject_text_u IN ('زنجیر');
 --Update root letter core meaning script
 COMMIT;
 rollback;
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, 1264
+SELECT kalimaat_id, 345
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ش ى ع'
-  AND k.kalimaat_id IN (6257)
+  AND r.root_letter_text = 'ص ى ف'
+  --AND k.kalimaat_id IN (6674)
   ;
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, 1391
+SELECT kalimaat_id, 400
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ش ى ع'
-  AND k.kalimaat_id NOT IN (6257)
+  AND r.root_letter_text = 'ص و ر'
+  AND k.kalimaat_id IN (6667)
   ;
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, 1401
+SELECT kalimaat_id, 55
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ش ه د'
-  AND k.kalimaat_id NOT IN (6179,6207,6208,6209)
+  AND r.root_letter_text = 'ص و ر'
+  AND k.kalimaat_id NOT IN (6674,6667)
   ;
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, 26
+SELECT kalimaat_id, 1273
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ش ع ر'
-  AND k.kalimaat_id IN (6074,6072,6073)
+  AND r.root_letter_text = 'ص و ب'
+  AND k.kalimaat_id NOT IN (6659,6660,6661)
   ;
   Update kalimaat_subject_xref
-  set subject_id = 248
+  set subject_id = 345
   where kalimaat_id IN (SELECT kalimaat_id
                           FROM kalimaat k,
                                root_letter r
                         WHERE k.root_letter_id = r.root_letter_id
-                        AND r.root_letter_text = 'ش م خ'
-                        --AND k.kalimaat_id IN (4422,4427)
+                        AND r.root_letter_text = 'ش ت و'
+                        --AND k.kalimaat_id IN (6540)
                       )
---and subject_id = 3514
+--and subject_id = 563
+;
+DELETE kalimaat_subject_xref
+WHERE kalimaat_id IN (SELECT kalimaat_id FROM kalimaat WHERE kalimah_text IN ('صَدَفَ'))
+AND subject_id IN (SELECT subject_id FROM subject WHERE subject_text_u IN ('پہاڑ'))
 ;
 ------------------------------------------KALIMAAT---------------------------------------------------
 select * from kalimaat where kalimah_text in ('أَخْلُقُ');
@@ -531,3 +534,5 @@ SELECT *
 from juz
 where 4070 between ayat_id_start AND ayat_id_end
 and ayat_id_end != 9999;
+
+COMMIT;
