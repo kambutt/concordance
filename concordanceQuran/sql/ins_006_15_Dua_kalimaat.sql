@@ -85,7 +85,7 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'ضَرِيعٍ', root_letter_id FROM root_letter WHERE root_letter_text ='ض ر ع';
 COMMIT;
 --ض ع ف
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'ضَعف', root_letter_id FROM root_letter WHERE root_letter_text ='ض ع ف';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'ضعف', root_letter_id FROM root_letter WHERE root_letter_text ='ض ع ف';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'ضَعُفُوا', root_letter_id FROM root_letter WHERE root_letter_text ='ض ع ف';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'يُضَاعف', root_letter_id FROM root_letter WHERE root_letter_text ='ض ع ف';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'يُضَاعِفهُ', root_letter_id FROM root_letter WHERE root_letter_text ='ض ع ف';

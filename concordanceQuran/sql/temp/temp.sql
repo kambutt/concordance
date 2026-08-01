@@ -70,7 +70,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */ 
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ص' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ض' ORDER BY root_letter_seq_no;
 
 SELECT root_letter_text, num_ayaat, ayatsize
 FROM vw_root_ayat_count_for_vol WHERE root_letter_text = 'ح' ORDER BY kalimah_seq_no;
@@ -101,7 +101,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'ص'
+AND a.alphabet_text = 'ض'
 --AND r.root_letter_text IN ('خ ر ج')
 GROUP BY r.root_letter_text
 ORDER BY 1;
@@ -281,8 +281,8 @@ SET kalimah_seq_no = 4
 WHERE kalimah_text = 'زَيْدٌ';
 --
 UPDATE kalimaat
-SET kalimah_text = 'صَالِحين'
-WHERE kalimah_text = 'صَالِحَيْنِ'
+SET kalimah_text = 'ضعف'
+WHERE kalimah_text = 'ضَعف'
 ;
 COMMIT;
 
