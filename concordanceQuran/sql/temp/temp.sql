@@ -70,7 +70,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */ 
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ض' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ط' ORDER BY root_letter_seq_no;
 
 SELECT root_letter_text, num_ayaat, ayatsize
 FROM vw_root_ayat_count_for_vol WHERE root_letter_text = 'ح' ORDER BY kalimah_seq_no;
@@ -101,7 +101,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'ض'
+AND a.alphabet_text = 'ط'
 --AND r.root_letter_text IN ('خ ر ج')
 GROUP BY r.root_letter_text
 ORDER BY 1;
@@ -281,8 +281,8 @@ SET kalimah_seq_no = 4
 WHERE kalimah_text = 'زَيْدٌ';
 --
 UPDATE kalimaat
-SET kalimah_text = 'ضعف'
-WHERE kalimah_text = 'ضَعف'
+SET kalimah_text = 'ٱنْطَلقُوا'
+WHERE kalimah_text = 'فَٱنْطَلَقُوا'
 ;
 COMMIT;
 
@@ -294,10 +294,10 @@ WHERE kalimah_text IN ('الصَّفَا');
 COMMIT;
 ---------------------------------------------------------
 DELETE kalimaat
-WHERE kalimah_text in ('الصَّالِحِينَ') ;
+WHERE kalimah_text in ('ٱنْطَلِقُوا') ;
 COMMIT;
 BEGIN
-  prc_fixseq('ص ل ح');
+  prc_fixseq('ط ل ق');
   COMMIT;
 END;
 /
@@ -310,30 +310,12 @@ select kalimaat_id from kalimaat where kalimah_text = 'أَتْلُ';
 select count(*) from kalimaat_ayat_xref where kalimaat_id = (select kalimaat_id 
 from kalimaat where kalimah_text = 'حُكْمًا');
 UPDATE kalimaat_ayat_xref
-SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'صَالِحين')
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'الصَّالِحِينَ' )
+SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'ٱنْطَلقُوا')
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'ٱنْطَلِقُوا' )
 AND AYAT_ID in (select a.ayat_id 
                 from ayat a, soorah s 
                 WHERE a.soorah_id = s.soorah_id 
-                AND (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (130))
-OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (39,46,114))
-OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (69))
-OR (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (84))
-OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (85))
-OR (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (196))
-OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (75))
-OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (9,101))
-OR (s.soorah_seq_no = 16 AND a.ayat_seq_no IN (122))
-OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (25))
-OR (s.soorah_seq_no = 21 AND a.ayat_seq_no IN (72,75,86))
-OR (s.soorah_seq_no = 24 AND a.ayat_seq_no IN (32))
-OR (s.soorah_seq_no = 26 AND a.ayat_seq_no IN (83))
-OR (s.soorah_seq_no = 27 AND a.ayat_seq_no IN (19))
-OR (s.soorah_seq_no = 28 AND a.ayat_seq_no IN (27))
-OR (s.soorah_seq_no = 29 AND a.ayat_seq_no IN (9,27))
-OR (s.soorah_seq_no = 37 AND a.ayat_seq_no IN (100,112))
-OR (s.soorah_seq_no = 63 AND a.ayat_seq_no IN (10))
-OR (s.soorah_seq_no = 68 AND a.ayat_seq_no IN (50))
+                AND (s.soorah_seq_no = 77 AND a.ayat_seq_no IN (29,30))
                 );
 COMMIT;
 --delete wrong association

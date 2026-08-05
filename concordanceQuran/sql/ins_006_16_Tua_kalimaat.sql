@@ -118,14 +118,13 @@ COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'طَلَعَتْ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'تَطلع', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'لِيُطْلِعَكُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'فَٱطَّلَعَ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'أَطَّلع', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'ٱطَّلَعْتَ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'طُلُوعِ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'مَطْلع', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'مُطَّلِعُونَ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'طَلْعٌ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'طَلْعهَا', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'اطَّلع', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'ٱطَّلَعْتَ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'طُلُوعِ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'مَطْلع', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'مُطَّلِعُونَ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'طَلْعٌ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'طَلْعهَا', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ع';
 COMMIT;
 --ط ل ق
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'طَلَّقْتُمُ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
@@ -136,11 +135,10 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'ٱنْطَلَقَ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'فَانْطَلَقَا', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'ٱنْطَلَقْتُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'فَٱنْطَلَقُوا', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'ٱنْطَلقُوا', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'يَنْطَلِقُ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'ٱنْطَلِقُوا', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'الطَّلَاق', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'الْمُطَلَّقَات', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'الطَّلَاق', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'الْمُطَلَّقَات', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ق';
 COMMIT;
 --ط ل ل
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'فَطَلُّ', root_letter_id FROM root_letter WHERE root_letter_text ='ط ل ل';
