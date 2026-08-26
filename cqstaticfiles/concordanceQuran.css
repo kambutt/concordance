@@ -105,21 +105,27 @@ body ,html {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100%;
+    height: 70%;
     width: 100%; 
     transition: .5s ease;
   }
   .cqadbrur-overlay-alphabet h1 {  
     color: white;
-    font-family: adobe-arabic, sans-serif;
-    
+    font-family: adobe-arabic, sans-serif;    
     padding: 0px;
     font-size: 100px;
     font-style:normal;
     font-weight: 100;
     text-align: center;
   }
-
+.cqadbrur-overlay-alphabet h3 {  
+    color: white;
+    font-family: adobe-arabic, sans-serif;    
+    padding: 0px;
+    font-size: 25px;
+    font-style:normal;
+    text-align: center;
+  }
   .cqadbrur-overlay-start {
   position: absolute;
   top: 725px;
@@ -485,12 +491,12 @@ divfrontcover.first-page {
     content: counter(page);
   }
   @top-left {
-    content: "شمارہ ١"; 
+    content: "شمارہ ٤"; 
     font-size: 12pt;
     color: black;
   }
   @bottom-center {
-    content:  "ظ";
+    content:  "م تا ی";    
   }  
 }
 /*    border-top: .25pt solid #666;*/
@@ -505,12 +511,12 @@ divfrontcover.first-page {
     content: counter(page);
   }
   @top-left {
-    content: "شمارہ ١"; 
+    content: "شمارہ ٤"; 
     font-size: 12pt;
     color: black;
   }
   @bottom-center {
-    content: "ظ";
+    content:  "م تا ی";
   }
 }
 
@@ -550,7 +556,7 @@ h3, h4, h5 {
 .rootmeantable {
   border-collapse: collapse;
   border-spacing: 0;  
-  border: 1px solid #ddd;
+  border: 1px solid #ddd;  
 }
 /*End root letter double table*/
 

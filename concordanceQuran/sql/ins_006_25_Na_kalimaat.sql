@@ -1,9 +1,8 @@
 --ن
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'نٓ', root_letter_id FROM root_letter WHERE root_letter_text ='ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'الْإِنْجِيل', root_letter_id FROM root_letter WHERE root_letter_text ='ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'نَمَارِقُ', root_letter_id FROM root_letter WHERE root_letter_text ='ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'نُوح', root_letter_id FROM root_letter WHERE root_letter_text ='ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'نُوحًا', root_letter_id FROM root_letter WHERE root_letter_text ='ن';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'نَمَارِقُ', root_letter_id FROM root_letter WHERE root_letter_text ='ن';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'نُوح', root_letter_id FROM root_letter WHERE root_letter_text ='ن';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'نُوحًا', root_letter_id FROM root_letter WHERE root_letter_text ='ن';
 COMMIT;
 --ن ا ى
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'نَأَى', root_letter_id FROM root_letter WHERE root_letter_text ='ن ا ى';

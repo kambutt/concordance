@@ -1,13 +1,11 @@
 --ب
 --
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'أبَارِيقَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'إِسْتَبْرَق', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'بَابِلَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'بَدْرٍ', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'بَرْزَخًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'بَرْزَخٌ', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'بَكَّةَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'بَلَى', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'بَابِلَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'بَدْرٍ', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'بَرْزَخًا', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'بَرْزَخٌ', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'بَكَّةَ', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'بَلَى', root_letter_id FROM root_letter WHERE root_letter_text = 'ب';
 COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'بِئْرٍ', root_letter_id FROM root_letter WHERE root_letter_text = 'ب ا ر';
 COMMIT;

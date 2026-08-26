@@ -1,6 +1,6 @@
 {% extends "cqur_master.html" %}
 {% block titleentry %}
-    فہرست کلمات قرآن&nbsp;-ظ-&nbsp;&nbsp;شمارہ ١   
+    فہرست کلمات قرآن&nbsp;-م تا ی-&nbsp;&nbsp;شمارہ ٤   
 {% endblock %}
 {% block frontcover %}
     <div class="cqadbrur-bg">       
@@ -16,11 +16,11 @@
                 {% if fr.root_letter_text|length == 1 and lr.root_letter_text|length == 1 %}  
                     {% if fr.root_letter_text == lr.root_letter_text %} 
                         <div class="cqadbrur-overlay-alphabet">
-                            <h1> {{fr.root_letter_text}} </h1>                                                                      
+                            <h1> {{fr.root_letter_text}} </h1>                                                                                                                            
                         </div>                         
                     {% else %}
                         <div class="cqadbrur-overlay-startnr">
-                            <h1>{{ fr.root_letter_text }}</h1>                                                                      
+                            <h1>{{ fr.root_letter_text }}</h1>                                                                                                 
                         </div>
                         <div class="cqadbrur-overlay-tanr">
                             <h1> تا </h1>                                                  
@@ -56,7 +56,7 @@
         </div> 
         
         <div class="cqadbrur-overlay-vol ">
-           <h1> شمارہ&nbsp;&nbsp;١</h1>
+           <h1> شمارہ&nbsp;&nbsp;٤</h1>
         </div>
        
         <div class="cqadbrur-overlay-year">
@@ -120,16 +120,18 @@
         <p>
             {% with al=ayaat|first %}                            
                 {% if al.alphabet_text != al.root_letter_text %}
-                    <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ مع مرکزی مفہوم درج ذیل ہیں</span><br>
-                    <span style="font-size: smaller;">حروف اصلیہ کا ترجمہ نہیں ہوتا۔ ان کا مرکزی مفہوم ان پر مبنی کلمات کے مفہوم کی اکثر و بیشتر آپس میں مشابہت کو واضح کرتا ہے۔ &nbsp;کلمات کے ترجمہ کے لیۓ لغت کا استعمال کریں۔</span><br>                    
-                    <span style="font-size: smaller;"> اشاعت دوم:&nbsp; چند کلمات کو یکجا کیا گیا ہے جہاں صرف حرکات کے فرق سے مفہوم میں زمین و آسمان کا فرق نہیں پڑتا ہے-کچھ حروف اصلیہ کے مفہوم لغت کے اعتیار سے تبدیل کۓ گۓ ہیں-</span>                    
+                    <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" سے شروع ہونے والے وہ کلمات قرآن ہیں جن کے حروف اصليہ درج ذیل ہیں</span><br>
+                    <span style="font-size: smaller;">حروف اصلیہ کا ترجمہ نہیں ہوتا۔حروف اصلیہ سے منسلک موضوعات کلمات کے مفہوم کو ایک عنوان کے تحت یکجا کرنے کی کوشش ہے۔ &nbsp;کلمات کے ترجمہ کے لیۓ لغت کا استعمال کریں۔</span><br>                    
+                    <span style="font-size: smaller;"> اشاعت دوم:&nbsp; چند کلمات کو یکجا کیا گیا ہے جہاں صرف حرکات کے فرق سے مفہوم میں زمین و آسمان کا فرق نہیں پڑتا ہے-کچھ حروف اصلیہ کے موضوعات لغت کے اعتیار سے تبدیل کۓ ہیں-</span>                    
                 {% else %}
                     {% for zl in ayaat %}
                         {% if forloop.last %}
                             {% if al.alphabet_text == zl.alphabet_text %}
                                 <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ نہیں ہوتے۔</span><br>                                    
+                                <span style="font-size: smaller;"> اشاعت دوم:&nbsp; حرف الف کو طوالت کے باعث دو حصوں میں تقسیم کیا ہے۔  چند کلمات کو درست حروف تہجی کے تحت منتقل کیا گیا ہے۔ </span>                    
                             {% elif al.alphabet_text != zl.alphabet_text %}
                                 <span>اس اشاعت میں حرف "{{ al.alphabet_text }}" تا "{{ zl.alphabet_text}}" سے شروع ہونے والے وہ کلمات قرآن شامل کۓ گۓ ہیں جن کے حروف اصليہ نہیں ہوتے۔</span><br>
+                                <span style="font-size: smaller;"> اشاعت دوم:&nbsp; حرف الف کو طوالت کے باعث دو حصوں میں تقسیم کیا ہے۔  چند کلمات کو درست حروف تہجی کے تحت منتقل کیا گیا ہے۔ </span>                    
                             {% else %}
                                 <span>Either Root letters or alphabet, not both</span><br>
                             {% endif %}
@@ -150,7 +152,7 @@
                         <tr>
                             <th class="tdurdu" style="border: 1px solid black;">نمبر</th>
                             <th class="tdurdu" style="border: 1px solid black;">حروف اصليہ</th>
-                            <th class="tdurdu" style="border: 1px solid black;" >مرکزی مفہوم</th>
+                            <th class="tdurdu" style="border: 1px solid black;" >موضوعات</th>
                         </tr>
                         {% for rmean in rootmean %}
                             {% if rmean.core_meaning %}
@@ -170,7 +172,7 @@
                         <tr>
                             <th class="tdurdu" style="border: 1px solid black;">نمبر</th>
                             <th class="tdurdu" style="border: 1px solid black;">حروف اصليہ</th>
-                            <th class="tdurdu" style="border: 1px solid black;" >مرکزی مفہوم</th>
+                            <th class="tdurdu" style="border: 1px solid black;" >موضوعات</th>
                         </tr>
                         {% for rmean in rootmean %}
                             {% if rmean.core_meaning %}
@@ -190,7 +192,7 @@
                         <tr>
                             <th class="tdurdu" style="border: 1px solid black;">نمبر</th>
                             <th class="tdurdu" style="border: 1px solid black;">حروف اصليہ</th>
-                            <th class="tdurdu" style="border: 1px solid black;" >مرکزی مفہوم</th>
+                            <th class="tdurdu" style="border: 1px solid black;" >موضوعات</th>
                         </tr>
                         {% for rmean in rootmean %}
                             {% if rmean.core_meaning %}

@@ -1,8 +1,6 @@
 --
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  1, 'أَحْمَدُ', root_letter_id FROM root_letter WHERE root_letter_text ='ح';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  2, 'حمٓ', root_letter_id FROM root_letter WHERE root_letter_text ='ح';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  3, 'حُنَيْنٍ', root_letter_id FROM root_letter WHERE root_letter_text ='ح';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  4, 'مُحَمَّدٌ', root_letter_id FROM root_letter WHERE root_letter_text ='ح';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  1, 'حمٓ', root_letter_id FROM root_letter WHERE root_letter_text ='ح';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT  2, 'حُنَيْنٍ', root_letter_id FROM root_letter WHERE root_letter_text ='ح';
 --
 COMMIT;
 --
