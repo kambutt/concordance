@@ -281,12 +281,12 @@ AND kalimah_seq_no >= 12
 COMMIT;
 
 UPDATE kalimaat
-SET kalimah_seq_no = .2
-WHERE kalimah_text = 'عَادًا';
+SET kalimah_seq_no = 7.5
+WHERE kalimah_text = 'عِمْرَانَ';
 --
 UPDATE kalimaat
-SET kalimah_text = 'اعْمَل'
-WHERE kalimah_text = 'أَعْمَل'
+SET kalimah_text = 'ٱلْعَزِيز'
+WHERE kalimah_text = 'العَزِيز'
 ;
 COMMIT;
 
@@ -294,14 +294,14 @@ COMMIT;
 ------------Kalimah root_letter fix ----------------------'
 UPDATE kalimaat
 SET root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ع')
-WHERE kalimah_text IN ('عَاد','عَادًا');
+WHERE kalimah_text IN ('عِمْرَانَ');
 COMMIT;
 ---------------------------------------------------------
 DELETE kalimaat
 WHERE kalimah_text in ('ٱعْمَلْ') ;
 COMMIT;
 BEGIN
-  prc_fixseq('م');
+  prc_fixseq('ع ز ز');
   COMMIT;
 END;
 /
@@ -314,14 +314,13 @@ select kalimaat_id from kalimaat where kalimah_text = 'أَتْلُ';
 select count(*) from kalimaat_ayat_xref where kalimaat_id = (select kalimaat_id 
 from kalimaat where kalimah_text = 'حُكْمًا');
 UPDATE kalimaat_ayat_xref
-SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'اعْمَل')
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'ٱعْمَلْ')
+SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'ٱلْعَزِيز')
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'الْعَزِيز')
 AND AYAT_ID in (select a.ayat_id 
                 from ayat a, soorah s 
                 WHERE a.soorah_id = s.soorah_id 
                 AND (
-                 (s.soorah_seq_no = 34 AND a.ayat_seq_no IN (11))
-OR (s.soorah_seq_no = 41 AND a.ayat_seq_no IN (5))
+                 (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (30,51,78,88))
 ));
 COMMIT;
 ROLLBACK;

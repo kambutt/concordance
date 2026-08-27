@@ -3076,7 +3076,6 @@ OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (96))
 OR (s.soorah_seq_no = 8 AND a.ayat_seq_no IN (10,49,63,67))
 OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (40,71,128))
 OR (s.soorah_seq_no = 11 AND a.ayat_seq_no IN (66,91))
-OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (30,51,78,88))
 OR (s.soorah_seq_no = 14 AND a.ayat_seq_no IN (1,4,20,47))
 OR (s.soorah_seq_no = 16 AND a.ayat_seq_no IN (60))
 OR (s.soorah_seq_no = 22 AND a.ayat_seq_no IN (40,74))
@@ -3108,6 +3107,14 @@ OR (s.soorah_seq_no = 62 AND a.ayat_seq_no IN (1,3))
 OR (s.soorah_seq_no = 64 AND a.ayat_seq_no IN (18))
 OR (s.soorah_seq_no = 67 AND a.ayat_seq_no IN (2))
 OR (s.soorah_seq_no = 85 AND a.ayat_seq_no IN (8))
+    );
+COMMIT;
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'ٱلْعَزِيز'   
+AND ( (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (30,51,78,88))
     );
 COMMIT;
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
