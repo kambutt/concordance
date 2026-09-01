@@ -225,7 +225,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'مَغَارِِبَهَا'      
+AND k.kalimah_text = 'مَغَارِبَهَا'
 AND ( (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (137))
     );
 COMMIT;
@@ -405,14 +405,20 @@ AND k.kalimah_text = 'ٱغْتَرَفَ'
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (249))
     );
 COMMIT;
-
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'ٱلْغُرْفَةً'    
+AND ( (s.soorah_seq_no = 25 AND a.ayat_seq_no IN (75))
+    );
+COMMIT;
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'غُرْفَةً'    
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (249))
-OR (s.soorah_seq_no = 25 AND a.ayat_seq_no IN (75))
     );
 COMMIT;
 
@@ -1151,10 +1157,17 @@ SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'اسْتَغْفر'     
-AND ( (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (64))
+AND ( (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (64, 106))
 OR (s.soorah_seq_no = 38 AND a.ayat_seq_no IN (24))
-OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (98))
+OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (98,97))
 OR (s.soorah_seq_no = 19 AND a.ayat_seq_no IN (47))
+OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (159))
+OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (80))
+OR (s.soorah_seq_no = 24 AND a.ayat_seq_no IN (62))
+OR (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (55))
+OR (s.soorah_seq_no = 47 AND a.ayat_seq_no IN (19))
+OR (s.soorah_seq_no = 48 AND a.ayat_seq_no IN (11))
+OR (s.soorah_seq_no = 60 AND a.ayat_seq_no IN (12))
     );
 COMMIT;
 
@@ -1249,24 +1262,7 @@ AND k.kalimah_text = 'يَسْتَغْفِرُونَهُ'
 AND ( (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (74))
     );
 COMMIT;
-
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
-SELECT k.kalimaat_id, a.ayat_id
-FROM soorah s, ayat a, kalimaat k
-WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'ٱسْتَغْفِر'    
-AND ( (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (159))
-OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (106))
-OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (80))
-OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (97))
-OR (s.soorah_seq_no = 24 AND a.ayat_seq_no IN (62))
-OR (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (55))
-OR (s.soorah_seq_no = 47 AND a.ayat_seq_no IN (19))
-OR (s.soorah_seq_no = 48 AND a.ayat_seq_no IN (11))
-OR (s.soorah_seq_no = 60 AND a.ayat_seq_no IN (12))
-    );
-COMMIT;
-
+-- 'ٱسْتَغْفِر'    
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2077,10 +2073,9 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'يغْنوْا'    
+AND k.kalimah_text = 'يَغْنَوْا'    
 AND ( (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (92))
 OR (s.soorah_seq_no = 11 AND a.ayat_seq_no IN (68,95))
-OR (s.soorah_seq_no = 45 AND a.ayat_seq_no IN (19))
     );
 COMMIT;
 
@@ -2151,7 +2146,14 @@ AND k.kalimah_text = 'يُغْنِهِمُ'
 AND ( (s.soorah_seq_no = 24 AND a.ayat_seq_no IN (32))
     );
 COMMIT;
-
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'يُغْنُوْا'   
+AND ( (s.soorah_seq_no = 45 AND a.ayat_seq_no IN (19))
+    );
+COMMIT;
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2271,7 +2273,7 @@ AND ( (s.soorah_seq_no = 14 AND a.ayat_seq_no IN (21))
 OR (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (47))
     );
 COMMIT;
---Kalimaah duplication for two root letters
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k, root_letter r
@@ -2309,7 +2311,7 @@ AND k.kalimah_text = 'تَسْتَغِيثُونَ'
 AND ( (s.soorah_seq_no = 8 AND a.ayat_seq_no IN (9))
     );
 COMMIT;
---Kalimaah duplication for two root letters
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k, root_letter r
@@ -2608,28 +2610,6 @@ FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'يُغَاثُ'   
 AND ( (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (49))
-    );
-COMMIT;
---duplicate kalimah for two root_letters
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
-SELECT k.kalimaat_id, a.ayat_id
-FROM soorah s, ayat a, kalimaat k, root_letter r
-WHERE s.soorah_id = a.soorah_id
-AND k.root_letter_id = r.root_letter_id
-AND r.root_letter_text = 'غ ى ث'
-AND k.kalimah_text = 'يُغَاثُوا'   
-AND ( (s.soorah_seq_no = 18 AND a.ayat_seq_no IN (29))
-    );
-COMMIT;
---duplicate kalimah for two root_letters
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
-SELECT k.kalimaat_id, a.ayat_id
-FROM soorah s, ayat a, kalimaat k, root_letter r
-WHERE s.soorah_id = a.soorah_id
-AND k.root_letter_id = r.root_letter_id
-AND r.root_letter_text = 'غ ى ث'
-AND k.kalimah_text = 'يَسْتَغِيثُوا'     
-AND ( (s.soorah_seq_no = 18 AND a.ayat_seq_no IN (29))
     );
 COMMIT;
 

@@ -70,7 +70,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */ 
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ح' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'غ' ORDER BY root_letter_seq_no;
 
 SELECT root_letter_text, num_ayaat, ayatsize
 FROM vw_root_ayat_count_for_vol 
@@ -103,8 +103,8 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
---AND a.alphabet_text = 'ع'
-AND r.root_letter_text IN ('ا','ب','ت','ث','ج','ح','د','ذ','ر','ز','س','ش','ص','ط','ع','ف','ق','ك','ل','م','ن','ه','و','ى')
+AND a.alphabet_text = 'غ'
+--AND r.root_letter_text IN ('ا','ب','ت','ث','ج','ح','د','ذ','ر','ز','س','ش','ص','ط','ع','ف','ق','ك','ل','م','ن','ه','و','ى')
 GROUP BY r.root_letter_text
 ORDER BY 1;
 
@@ -270,7 +270,7 @@ ORDER BY kalimah_seq_no;
 
 SET SERVEROUTPUT ON;
 
-select * from kalimaat where kalimah_text IN ('أُتُوا');
+select * from kalimaat where kalimah_text IN ('يَسْتَغِيثُوا');
 --'ك ت ب'
 UPDATE kalimaat
 SET kalimah_seq_no = kalimah_seq_no - 1
@@ -285,8 +285,8 @@ SET kalimah_seq_no = 7.5
 WHERE kalimah_text = 'عِمْرَانَ';
 --
 UPDATE kalimaat
-SET kalimah_text = 'ٱلْعَزِيز'
-WHERE kalimah_text = 'العَزِيز'
+SET kalimah_text = 'يَغْنَوْا'
+WHERE kalimah_text = 'يغْنوْا'
 ;
 COMMIT;
 
@@ -298,10 +298,11 @@ WHERE kalimah_text IN ('عِمْرَانَ');
 COMMIT;
 ---------------------------------------------------------
 DELETE kalimaat
-WHERE kalimah_text in ('ٱعْمَلْ') ;
+WHERE kalimah_text in ('يَسْتَغِيثُوا') 
+and root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'غ ى ث');
 COMMIT;
 BEGIN
-  prc_fixseq('ع ز ز');
+  prc_fixseq('غ ى ث');
   COMMIT;
 END;
 /
@@ -314,13 +315,13 @@ select kalimaat_id from kalimaat where kalimah_text = 'أَتْلُ';
 select count(*) from kalimaat_ayat_xref where kalimaat_id = (select kalimaat_id 
 from kalimaat where kalimah_text = 'حُكْمًا');
 UPDATE kalimaat_ayat_xref
-SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'ٱلْعَزِيز')
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'الْعَزِيز')
+SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'يُغْنُوْا')
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'يَغْنَوْا')
 AND AYAT_ID in (select a.ayat_id 
                 from ayat a, soorah s 
                 WHERE a.soorah_id = s.soorah_id 
                 AND (
-                 (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (30,51,78,88))
+                 (s.soorah_seq_no = 45 AND a.ayat_seq_no IN (19))
 ));
 COMMIT;
 ROLLBACK;
@@ -470,7 +471,7 @@ WHERE ayat_id = (select ayat_id
 
 
 DELETE kalimaat_ayat_xref
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'يُغَاثُوا'
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'يَسْتَغِيثُوا'
                     AND root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'غ ى ث'));
 COMMIT;
 --create missing asssociation

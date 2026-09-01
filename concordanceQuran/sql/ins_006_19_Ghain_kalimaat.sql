@@ -34,7 +34,7 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'ٱلْمَغْرِب', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'الْمَغْرِبَيْنِ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'ٱلْمَغَارِبِ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ب';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'مَغَارِِبَهَا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ب';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'مَغَارِبَهَا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'ٱلْغَرْبِىِّ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'غَرْبِيَّةٍ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ب';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'ٱلْغُرَابِ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ب';
@@ -57,10 +57,11 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 
 COMMIT;
 --غ ر ف
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'ٱغْتَرَفَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ف';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'غُرْفَةً', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ف';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'غُرَفٌ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ف';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'غُرَفًا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ف';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'الْغُرُفَات', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ف';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'ٱلْغُرْفَةً', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ف';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'غُرْفَةً', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ف';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'غُرَفٌ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ف';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'غُرَفًا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ف';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'الْغُرُفَات', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ف';
 COMMIT;
 --غ ر ق
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'أَغْرَقْنَا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ر ق';
@@ -171,20 +172,19 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'يَسْتَغْفِرُوا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'يَسْتَغْفِرُونَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'يَسْتَغْفِرُونَهُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 'ٱسْتَغْفِر', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 21, 'ٱسْتَغْفِرْهُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 'ٱسْتَغْفِرُوهُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 23, 'ٱسْتَغْفِرِى', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 24, 'غَافِرِ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 25, 'ٱلْغَافِرِينَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 26, 'غَفُور', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 27, 'غَفُورًا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 28, 'ٱلْغَفَّار', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 29, 'غَفَّارًا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 30, 'غُفْرَانَكَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 31, 'مَغْفِرَة', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 32, 'ٱسْتِغْفَارُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 33, 'ٱلْمُسْتَغْفِرِينَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 'ٱسْتَغْفِرْهُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 21, 'ٱسْتَغْفِرُوهُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 'ٱسْتَغْفِرِى', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 23, 'غَافِرِ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 24, 'ٱلْغَافِرِينَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 25, 'غَفُور', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 26, 'غَفُورًا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 27, 'ٱلْغَفَّار', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 28, 'غَفَّارًا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'غُفْرَانَكَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 30, 'مَغْفِرَة', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 31, 'ٱسْتِغْفَارُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 32, 'ٱلْمُسْتَغْفِرِينَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ر';
 COMMIT;
 --غ ف ل
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'تَغْفُلُونَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ف ل';
@@ -278,23 +278,24 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, '
 COMMIT;
 --غ ن ى
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'تغْن', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'يغْنوْا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2ف, 'يَغْنَوْا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'أغْنى', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'أَغْنَاهُمُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'أَغْنَتْ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'تُغْنِىَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'يُغْنِ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'يُغْنِهِمُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'يُغْنِى', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'يُغْنِيَا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'يُغْنِيكُمُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'يُغْنِيهِ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'يُغْنِيَهُمُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 'ٱسْتَغْنَى', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 'غَنِىُّ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'غَنِيَّا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'أَغْنِيَاء', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'مُغْنُونَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'يُغْنُوْا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'يُغْنِى', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'يُغْنِيَا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'يُغْنِيكُمُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'يُغْنِيهِ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 'يُغْنِيَهُمُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 'ٱسْتَغْنَى', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'غَنِىُّ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'غَنِيَّا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'أَغْنِيَاء', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'مُغْنُونَ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ن ى';
 
 COMMIT;
 --غ و ث
@@ -345,9 +346,7 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, '
 COMMIT;
 --غ ى ث
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'يُغَاثُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ى ث';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'يُغَاثُوا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ى ث';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'يَسْتَغِيثُوا', root_letter_id FROM root_letter WHERE root_letter_text ='غ ى ث';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'ٱلْغَيْث', root_letter_id FROM root_letter WHERE root_letter_text ='غ ى ث';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'ٱلْغَيْث', root_letter_id FROM root_letter WHERE root_letter_text ='غ ى ث';
 COMMIT;
 --غ ى ر
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'يُغَيِّرُ', root_letter_id FROM root_letter WHERE root_letter_text ='غ ى ر';
