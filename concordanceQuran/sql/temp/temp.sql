@@ -70,7 +70,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */ 
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'غ' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ف' ORDER BY root_letter_seq_no;
 
 SELECT root_letter_text, num_ayaat, ayatsize
 FROM vw_root_ayat_count_for_vol 
@@ -103,7 +103,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'غ'
+AND a.alphabet_text = 'ف'
 --AND r.root_letter_text IN ('ا','ب','ت','ث','ج','ح','د','ذ','ر','ز','س','ش','ص','ط','ع','ف','ق','ك','ل','م','ن','ه','و','ى')
 GROUP BY r.root_letter_text
 ORDER BY 1;
@@ -285,8 +285,8 @@ SET kalimah_seq_no = 7.5
 WHERE kalimah_text = 'عِمْرَانَ';
 --
 UPDATE kalimaat
-SET kalimah_text = 'يَغْنَوْا'
-WHERE kalimah_text = 'يغْنوْا'
+SET kalimah_text = 'افْتَرَى'
+WHERE kalimah_text = 'ٱفْتَرَى'
 ;
 COMMIT;
 
@@ -298,11 +298,12 @@ WHERE kalimah_text IN ('عِمْرَانَ');
 COMMIT;
 ---------------------------------------------------------
 DELETE kalimaat
-WHERE kalimah_text in ('يَسْتَغِيثُوا') 
-and root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'غ ى ث');
+WHERE kalimah_text in ('أَفْتَرَى') 
+--and root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'غ ى ث')
+;
 COMMIT;
 BEGIN
-  prc_fixseq('غ ى ث');
+  prc_fixseq('ف ر ى');
   COMMIT;
 END;
 /
@@ -315,13 +316,13 @@ select kalimaat_id from kalimaat where kalimah_text = 'أَتْلُ';
 select count(*) from kalimaat_ayat_xref where kalimaat_id = (select kalimaat_id 
 from kalimaat where kalimah_text = 'حُكْمًا');
 UPDATE kalimaat_ayat_xref
-SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'يُغْنُوْا')
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'يَغْنَوْا')
+SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'افْتَرَى')
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أَفْتَرَى')
 AND AYAT_ID in (select a.ayat_id 
                 from ayat a, soorah s 
                 WHERE a.soorah_id = s.soorah_id 
                 AND (
-                 (s.soorah_seq_no = 45 AND a.ayat_seq_no IN (19))
+                 (s.soorah_seq_no = 34 AND a.ayat_seq_no IN (8))
 ));
 COMMIT;
 ROLLBACK;

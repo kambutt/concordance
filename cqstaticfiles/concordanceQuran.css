@@ -491,12 +491,12 @@ divfrontcover.first-page {
     content: counter(page);
   }
   @top-left {
-    content: "شمارہ ٣"; 
+    content: "شمارہ ٤"; 
     font-size: 12pt;
     color: black;
   }
   @bottom-center {
-    content:  "غ";   
+    content:  "ف";   
   }  
 }
 /*    border-top: .25pt solid #666;*/
@@ -511,12 +511,12 @@ divfrontcover.first-page {
     content: counter(page);
   }
   @top-left {
-    content: "شمارہ ٣"; 
+    content: "شمارہ ٤"; 
     font-size: 12pt;
     color: black;
   }
   @bottom-center {
-    content:  "غ";
+    content:  "ف";
   }
 }
 

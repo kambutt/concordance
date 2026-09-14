@@ -1567,9 +1567,8 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'يفرقُونَ'     
+AND k.kalimah_text = 'يَفْرَقُونَ'    
 AND ( (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (56))
-OR (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (102))
     );
 COMMIT;
 
@@ -1628,7 +1627,16 @@ AND k.kalimah_text = 'يُفَرِّقُوا'
 AND ( (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (150,152))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'يُفَرِّقُونَ'  
+AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (102))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -1847,7 +1855,7 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'ٱفْتَرَى'   
+AND k.kalimah_text = 'افْتَرَى'   
 AND ( (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (94))
 OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (48))
 OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (21,93,144))
@@ -1860,18 +1868,10 @@ OR (s.soorah_seq_no = 23 AND a.ayat_seq_no IN (38))
 OR (s.soorah_seq_no = 29 AND a.ayat_seq_no IN (68))
 OR (s.soorah_seq_no = 42 AND a.ayat_seq_no IN (24))
 OR (s.soorah_seq_no = 61 AND a.ayat_seq_no IN (7))
+OR (s.soorah_seq_no = 34 AND a.ayat_seq_no IN (8))
     );
 COMMIT;
-
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
-SELECT k.kalimaat_id, a.ayat_id
-FROM soorah s, ayat a, kalimaat k
-WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'أَفْتَرَى'    
-AND ( (s.soorah_seq_no = 34 AND a.ayat_seq_no IN (8))
-    );
-COMMIT;
-
+--'أَفْتَرَى'    
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
