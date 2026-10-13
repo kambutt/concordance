@@ -68,7 +68,7 @@ CREATE TABLE root_letter
      root_letter_text VARCHAR2(15 CHAR) NOT NULL,
      confirmation_flag  NUMBER DEFAULT 0 NOT NULL,
      root_letter_notes  VARCHAR2(500),
-     core_meaning VARCHAR2(100),
+     core_meaning VARCHAR2(500),
      create_date DATE NOT NULL,
      create_user VARCHAR2(40) NOT NULL,
      update_date DATE,
