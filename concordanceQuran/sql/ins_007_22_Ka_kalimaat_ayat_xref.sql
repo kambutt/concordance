@@ -131,7 +131,6 @@ OR (s.soorah_seq_no = 10 AND a.ayat_seq_no IN (71))
 OR (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (35))
 OR (s.soorah_seq_no = 42 AND a.ayat_seq_no IN (13))
 OR (s.soorah_seq_no = 61 AND a.ayat_seq_no IN (3))
-OR (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (56))
     );
 COMMIT;
 
@@ -328,10 +327,18 @@ FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'مُتَكَبِّرٍ'      
 AND ( (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (27,35))
-OR (s.soorah_seq_no = 59 AND a.ayat_seq_no IN (23))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'مُتَكَبِّرُ'      
+AND ( (s.soorah_seq_no = 59 AND a.ayat_seq_no IN (23))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -382,19 +389,27 @@ AND ( (s.soorah_seq_no = 16 AND a.ayat_seq_no IN (23))
 OR (s.soorah_seq_no = 23 AND a.ayat_seq_no IN (67))
     );
 COMMIT;
-
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'ٱلْكبَر'
+AND k.kalimah_text = 'كِبْرٌ'  
+AND ( (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (56))
+    );
+COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'ٱلْكِبَر'
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (266))
 OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (40))
 OR (s.soorah_seq_no = 14 AND a.ayat_seq_no IN (39))
 OR (s.soorah_seq_no = 15 AND a.ayat_seq_no IN (54))
 OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (23))
 OR (s.soorah_seq_no = 19 AND a.ayat_seq_no IN (8))
-OR (s.soorah_seq_no = 74 AND a.ayat_seq_no IN (35))
     );
 COMMIT;
 
@@ -470,12 +485,21 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'كَبِيرَة'   
+AND k.kalimah_text = 'كَبِيرَةٌ'   
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (45,143))
-OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (121))
+    );
+COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كَبِيرَةَ'  
+AND ( (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (121))
 OR (s.soorah_seq_no = 18 AND a.ayat_seq_no IN (49))
     );
 COMMIT;
+--
 
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
@@ -543,12 +567,21 @@ OR (s.soorah_seq_no = 79 AND a.ayat_seq_no IN (20,34))
 OR (s.soorah_seq_no = 87 AND a.ayat_seq_no IN (12))
     );
 COMMIT;
-
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'ٱلْكِبْرِيَاهُ'      
+AND k.kalimah_text = 'ٱلْكُبَرِ'
+AND ( (s.soorah_seq_no = 74 AND a.ayat_seq_no IN (35))
+    );
+COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'ٱلْكِبْرِيَاءُ'     
 AND ( (s.soorah_seq_no = 10 AND a.ayat_seq_no IN (78))
 OR (s.soorah_seq_no = 45 AND a.ayat_seq_no IN (37))
     );
@@ -567,21 +600,16 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'كتب'
+AND k.kalimah_text = 'كَتَبَ'
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (187))
 OR (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (21))
-OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (12,54))
 OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (51))
-OR (s.soorah_seq_no = 58 AND a.ayat_seq_no IN (21,22))
+OR (s.soorah_seq_no = 58 AND a.ayat_seq_no IN (22,21))
 OR (s.soorah_seq_no = 59 AND a.ayat_seq_no IN (3))
-OR (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (178,180,183,216,246))
 OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (154))
-OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (77,127))
 OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (120,121))
 OR (s.soorah_seq_no = 22 AND a.ayat_seq_no IN (4))
-OR (s.soorah_seq_no = 21 AND a.ayat_seq_no IN (104))
-OR (s.soorah_seq_no = 34 AND a.ayat_seq_no IN (44))
-OR (s.soorah_seq_no = 98 AND a.ayat_seq_no IN (3))
+OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (12,54))
     );
 COMMIT;
 
@@ -704,7 +732,17 @@ AND k.kalimah_text = 'فَٱكْتُبُوهُ'
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (282))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كُتِبَ'
+AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (178,180,183,216,246))
+OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (77,127))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -773,71 +811,108 @@ SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'ٱلْكِتَاب'   
-AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (2,44,53,78,79,85,87,89,101,105,109,113,121,129,144,145,146,151,159,
-174,176,177,213,231,235))
+AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (2,44,53,78,85,87,89,101,105,109,113,121,129,144,145,146,151,159,
+174,176,177,213,231))
 OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (3,7,19,20,23,48,64,65,69,70,71,72,75,78,79,81,98,99,100,110,113,119,
 164,184,186,187,199))
 OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (24,44,47,51,54,105,113,123,127,131,136,140,153,159,171))
 OR (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (5,15,19,44,48,57,59,65,68,77,110))
-OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (20,38,59,89,91,92,114,154,155,156,157))
+OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (20,89,91,92,114,154,155,156,157))
 OR (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (2,37,52,169,170,196))
-OR (s.soorah_seq_no = 8 AND a.ayat_seq_no IN (68,75))
-OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (29,36))
+OR (s.soorah_seq_no = 8 AND a.ayat_seq_no IN (68))
+OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (29))
 OR (s.soorah_seq_no = 10 AND a.ayat_seq_no IN (1,37,61,94))
-OR (s.soorah_seq_no = 11 AND a.ayat_seq_no IN (1,6,17,110))
+OR (s.soorah_seq_no = 11 AND a.ayat_seq_no IN (1,17,110))
 OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (1))
-OR (s.soorah_seq_no = 13 AND a.ayat_seq_no IN (1,36,38,39,43))
+OR (s.soorah_seq_no = 13 AND a.ayat_seq_no IN (1,36,43))
 OR (s.soorah_seq_no = 14 AND a.ayat_seq_no IN (1))
-OR (s.soorah_seq_no = 15 AND a.ayat_seq_no IN (1,4))
+OR (s.soorah_seq_no = 15 AND a.ayat_seq_no IN (1))
 OR (s.soorah_seq_no = 16 AND a.ayat_seq_no IN (64,89))
-OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (2,4,58))
-OR (s.soorah_seq_no = 18 AND a.ayat_seq_no IN (1,27,49))
+OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (2,4))
+OR (s.soorah_seq_no = 18 AND a.ayat_seq_no IN (1,27))
 OR (s.soorah_seq_no = 19 AND a.ayat_seq_no IN (12,16,30,41,51,54,56))
-OR (s.soorah_seq_no = 20 AND a.ayat_seq_no IN (52))
-OR (s.soorah_seq_no = 22 AND a.ayat_seq_no IN (8,70))
+OR (s.soorah_seq_no = 22 AND a.ayat_seq_no IN (8))
 OR (s.soorah_seq_no = 23 AND a.ayat_seq_no IN (49,62))
 OR (s.soorah_seq_no = 24 AND a.ayat_seq_no IN (33))
 OR (s.soorah_seq_no = 25 AND a.ayat_seq_no IN (35))
 OR (s.soorah_seq_no = 26 AND a.ayat_seq_no IN (2))
-OR (s.soorah_seq_no = 27 AND a.ayat_seq_no IN (1,29,40,75))
-OR (s.soorah_seq_no = 28 AND a.ayat_seq_no IN (2,43,49,52,86))
-OR (s.soorah_seq_no = 29 AND a.ayat_seq_no IN (27,45,46,47,48,51))
+OR (s.soorah_seq_no = 27 AND a.ayat_seq_no IN (1,40))
+OR (s.soorah_seq_no = 28 AND a.ayat_seq_no IN (2,43,52,86))
+OR (s.soorah_seq_no = 29 AND a.ayat_seq_no IN (27,45,46,47,51))
 OR (s.soorah_seq_no = 30 AND a.ayat_seq_no IN (56))
 OR (s.soorah_seq_no = 31 AND a.ayat_seq_no IN (2,20))
 OR (s.soorah_seq_no = 32 AND a.ayat_seq_no IN (2,23))
 OR (s.soorah_seq_no = 33 AND a.ayat_seq_no IN (6,26))
-OR (s.soorah_seq_no = 34 AND a.ayat_seq_no IN (3))
-OR (s.soorah_seq_no = 35 AND a.ayat_seq_no IN (11,25,29,31,32))
+OR (s.soorah_seq_no = 35 AND a.ayat_seq_no IN (25,29,31,32))
 OR (s.soorah_seq_no = 37 AND a.ayat_seq_no IN (117))
 OR (s.soorah_seq_no = 38 AND a.ayat_seq_no IN (29))
-OR (s.soorah_seq_no = 39 AND a.ayat_seq_no IN (1,2,41,69))
+OR (s.soorah_seq_no = 39 AND a.ayat_seq_no IN (1,2,41))
 OR (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (2,53,70))
 OR (s.soorah_seq_no = 41 AND a.ayat_seq_no IN (3,41,45))
 OR (s.soorah_seq_no = 42 AND a.ayat_seq_no IN (14,15,17,52))
 OR (s.soorah_seq_no = 43 AND a.ayat_seq_no IN (3,4))
 OR (s.soorah_seq_no = 44 AND a.ayat_seq_no IN (2))
 OR (s.soorah_seq_no = 45 AND a.ayat_seq_no IN (2,16))
-OR (s.soorah_seq_no = 46 AND a.ayat_seq_no IN (2,4,12))
+OR (s.soorah_seq_no = 46 AND a.ayat_seq_no IN (2,12))
 OR (s.soorah_seq_no = 50 AND a.ayat_seq_no IN (4))
-OR (s.soorah_seq_no = 52 AND a.ayat_seq_no IN (2))
 OR (s.soorah_seq_no = 56 AND a.ayat_seq_no IN (78))
 OR (s.soorah_seq_no = 57 AND a.ayat_seq_no IN (16,22,25,26,29))
 OR (s.soorah_seq_no = 59 AND a.ayat_seq_no IN (2,11))
 OR (s.soorah_seq_no = 62 AND a.ayat_seq_no IN (2))
-OR (s.soorah_seq_no = 68 AND a.ayat_seq_no IN (37))
 OR (s.soorah_seq_no = 74 AND a.ayat_seq_no IN (31))
+OR (s.soorah_seq_no = 98 AND a.ayat_seq_no IN (1,4,6))
+    );
+COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'الْكِتَاب'
+AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (79))
+OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (38,59))
+OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (36))
+OR (s.soorah_seq_no = 11 AND a.ayat_seq_no IN (6))
+OR (s.soorah_seq_no = 13 AND a.ayat_seq_no IN (38,39))
+OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (58))
+OR (s.soorah_seq_no = 18 AND a.ayat_seq_no IN (49))
+OR (s.soorah_seq_no = 20 AND a.ayat_seq_no IN (52))
+OR (s.soorah_seq_no = 22 AND a.ayat_seq_no IN (70))
+OR (s.soorah_seq_no = 27 AND a.ayat_seq_no IN (29,75))
+OR (s.soorah_seq_no = 28 AND a.ayat_seq_no IN (49))
+OR (s.soorah_seq_no = 29 AND a.ayat_seq_no IN (48))
+OR (s.soorah_seq_no = 34 AND a.ayat_seq_no IN (3))
+OR (s.soorah_seq_no = 35 AND a.ayat_seq_no IN (11))
+OR (s.soorah_seq_no = 39 AND a.ayat_seq_no IN (69))
+OR (s.soorah_seq_no = 46 AND a.ayat_seq_no IN (4))
+OR (s.soorah_seq_no = 52 AND a.ayat_seq_no IN (2))
+OR (s.soorah_seq_no = 57 AND a.ayat_seq_no IN (22))
+OR (s.soorah_seq_no = 68 AND a.ayat_seq_no IN (37))
 OR (s.soorah_seq_no = 83 AND a.ayat_seq_no IN (7,9,18,20))
 OR (s.soorah_seq_no = 98 AND a.ayat_seq_no IN (1,4,6))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'الكِتَاب'   
+AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (235))
+OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (48))
+OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (24))
+OR (s.soorah_seq_no = 8 AND a.ayat_seq_no IN (75))
+OR (s.soorah_seq_no = 15 AND a.ayat_seq_no IN (4))
+OR (s.soorah_seq_no = 24 AND a.ayat_seq_no IN (33))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'كِتَابًا'   
-AND ( (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (145))
-OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (103,153))
+AND ( (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (153))
 OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (7))
 OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (13,93))
 OR (s.soorah_seq_no = 21 AND a.ayat_seq_no IN (10))
@@ -845,10 +920,20 @@ OR (s.soorah_seq_no = 35 AND a.ayat_seq_no IN (40))
 OR (s.soorah_seq_no = 39 AND a.ayat_seq_no IN (23))
 OR (s.soorah_seq_no = 43 AND a.ayat_seq_no IN (21))
 OR (s.soorah_seq_no = 46 AND a.ayat_seq_no IN (30))
+    );
+COMMIT;
+__
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كِتَابا'   
+AND ( (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (145))
+OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (103))
 OR (s.soorah_seq_no = 78 AND a.ayat_seq_no IN (29))
     );
 COMMIT;
-
+__
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -922,7 +1007,18 @@ AND k.kalimah_text = 'كِتَابِيَهْ'
 AND ( (s.soorah_seq_no = 69 AND a.ayat_seq_no IN (19,25))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كُتُب'
+AND ( (s.soorah_seq_no = 21 AND a.ayat_seq_no IN (104))
+OR (s.soorah_seq_no = 34 AND a.ayat_seq_no IN (44))
+OR (s.soorah_seq_no = 98 AND a.ayat_seq_no IN (3))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -1327,12 +1423,12 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'كذبَ'
+AND k.kalimah_text = 'كذب'
 AND ( (s.soorah_seq_no = 39 AND a.ayat_seq_no IN (32))
 OR (s.soorah_seq_no = 53 AND a.ayat_seq_no IN (11))
 OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (21,66,148,157))
 OR (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (37))
-OR (s.soorah_seq_no = 10 AND a.ayat_seq_no IN (17,39))
+OR (s.soorah_seq_no = 10 AND a.ayat_seq_no IN (17,39,60,69))
 OR (s.soorah_seq_no = 15 AND a.ayat_seq_no IN (80))
 OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (59))
 OR (s.soorah_seq_no = 20 AND a.ayat_seq_no IN (48,56))
@@ -1349,8 +1445,14 @@ OR (s.soorah_seq_no = 75 AND a.ayat_seq_no IN (32))
 OR (s.soorah_seq_no = 79 AND a.ayat_seq_no IN (21))
 OR (s.soorah_seq_no = 92 AND a.ayat_seq_no IN (9,16))
 OR (s.soorah_seq_no = 96 AND a.ayat_seq_no IN (13))
-OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (184))
+OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (184,75,78,94))
 OR (s.soorah_seq_no = 22 AND a.ayat_seq_no IN (44))
+OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (50))
+OR (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (41,42,103))
+OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (18))
+OR (s.soorah_seq_no = 16 AND a.ayat_seq_no IN (62,105,116))
+OR (s.soorah_seq_no = 58 AND a.ayat_seq_no IN (14))
+OR (s.soorah_seq_no = 61 AND a.ayat_seq_no IN (7))
     );
 COMMIT;
 
@@ -1595,23 +1697,7 @@ AND k.kalimah_text = 'يُكَذِّبُونَكَ'
 AND ( (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (33))
     );
 COMMIT;
-
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
-SELECT k.kalimaat_id, a.ayat_id
-FROM soorah s, ayat a, kalimaat k
-WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'الْكَذِب'   
-AND ( (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (75,78,94))
-OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (50))
-OR (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (41,42,103))
-OR (s.soorah_seq_no = 10 AND a.ayat_seq_no IN (60,69))
-OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (18))
-OR (s.soorah_seq_no = 16 AND a.ayat_seq_no IN (62,105,116))
-OR (s.soorah_seq_no = 58 AND a.ayat_seq_no IN (14))
-OR (s.soorah_seq_no = 61 AND a.ayat_seq_no IN (7))
-    );
-COMMIT;
-
+--'الْكَذِب'   
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -1790,13 +1876,21 @@ FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'كَرَّة'   
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (167))
-OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (6))
 OR (s.soorah_seq_no = 26 AND a.ayat_seq_no IN (102))
 OR (s.soorah_seq_no = 39 AND a.ayat_seq_no IN (58))
 OR (s.soorah_seq_no = 79 AND a.ayat_seq_no IN (12))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'ٱلْكَرَّة'
+AND ( (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (6))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2037,10 +2131,9 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'تكْرهُوا' 
+AND k.kalimah_text = 'تَكْرَهُوا'
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (216))
 OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (19))
-OR (s.soorah_seq_no = 24 AND a.ayat_seq_no IN (33))
     );
 COMMIT;
 
@@ -2070,7 +2163,16 @@ AND k.kalimah_text = 'تُكْرِهُ'
 AND ( (s.soorah_seq_no = 10 AND a.ayat_seq_no IN (99))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'تُكْرِهُوا'
+AND ( (s.soorah_seq_no = 24 AND a.ayat_seq_no IN (33))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2093,16 +2195,24 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'كرْهًا'   
+AND k.kalimah_text = 'كَرْهًا'   
 AND ( (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (83))
 OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (19))
 OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (53))
 OR (s.soorah_seq_no = 13 AND a.ayat_seq_no IN (15))
 OR (s.soorah_seq_no = 41 AND a.ayat_seq_no IN (11))
-OR (s.soorah_seq_no = 46 AND a.ayat_seq_no IN (15))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كُرْهًا'   
+AND ( (s.soorah_seq_no = 46 AND a.ayat_seq_no IN (15))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2177,7 +2287,7 @@ SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'كَسَبَتْ'    
-AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (134,141,225,281,286))
+AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (134,141,281,286))
 OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (25,161))
 OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (70,158))
 OR (s.soorah_seq_no = 13 AND a.ayat_seq_no IN (33))
@@ -2189,6 +2299,16 @@ OR (s.soorah_seq_no = 45 AND a.ayat_seq_no IN (22))
 OR (s.soorah_seq_no = 74 AND a.ayat_seq_no IN (38))
     );
 COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كَسَبَت'  
+AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (225))
+    );
+COMMIT;
+--
 
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
@@ -2572,24 +2692,32 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'كفر'
+AND k.kalimah_text = 'كفرَ'
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (102,126,253,258))
-OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (97,193))
+OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (97))
 OR (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (12,17,72,73))
 OR (s.soorah_seq_no = 16 AND a.ayat_seq_no IN (106))
 OR (s.soorah_seq_no = 19 AND a.ayat_seq_no IN (77))
 OR (s.soorah_seq_no = 24 AND a.ayat_seq_no IN (55))
-OR (s.soorah_seq_no = 27 AND a.ayat_seq_no IN (40))
 OR (s.soorah_seq_no = 30 AND a.ayat_seq_no IN (44))
-OR (s.soorah_seq_no = 31 AND a.ayat_seq_no IN (12,23))
+OR (s.soorah_seq_no = 31 AND a.ayat_seq_no IN (23))
 OR (s.soorah_seq_no = 35 AND a.ayat_seq_no IN (39))
 OR (s.soorah_seq_no = 59 AND a.ayat_seq_no IN (16))
 OR (s.soorah_seq_no = 88 AND a.ayat_seq_no IN (23))
-OR (s.soorah_seq_no = 47 AND a.ayat_seq_no IN (2))
 OR (s.soorah_seq_no = 54 AND a.ayat_seq_no IN (14))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كفر'
+AND ( (s.soorah_seq_no = 27 AND a.ayat_seq_no IN (40))
+OR (s.soorah_seq_no = 31 AND a.ayat_seq_no IN (12))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2608,7 +2736,6 @@ WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'كَفَرْتُمْ'     
 AND ( (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (106))
 OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (66))
-OR (s.soorah_seq_no = 14 AND a.ayat_seq_no IN (7))
 OR (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (69))
 OR (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (12))
 OR (s.soorah_seq_no = 41 AND a.ayat_seq_no IN (52))
@@ -2616,19 +2743,27 @@ OR (s.soorah_seq_no = 46 AND a.ayat_seq_no IN (10))
 OR (s.soorah_seq_no = 73 AND a.ayat_seq_no IN (17))
     );
 COMMIT;
-
+__
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'كَفرْنَا'  
+AND k.kalimah_text = 'كَفَرْتُم'    
+AND ( (s.soorah_seq_no = 14 AND a.ayat_seq_no IN (7))
+    );
+COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كَفَرْنَا'
 AND ( (s.soorah_seq_no = 14 AND a.ayat_seq_no IN (9))
 OR (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (84))
 OR (s.soorah_seq_no = 60 AND a.ayat_seq_no IN (4))
-OR (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (65))
     );
 COMMIT;
-
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2697,12 +2832,21 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'أَكْفُر'   
+AND k.kalimah_text = 'أَكْفُرُ'   
 AND ( (s.soorah_seq_no = 27 AND a.ayat_seq_no IN (40))
-OR (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (42))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'اكْفُر'  
+AND ( (s.soorah_seq_no = 40 AND a.ayat_seq_no IN (42))
+OR (s.soorah_seq_no = 59 AND a.ayat_seq_no IN (16))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2727,8 +2871,8 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'تَكْفُرُون'    
-AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (28,85,152))
+AND k.kalimah_text = 'تَكْفُرُونَ'
+AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (28,85))
 OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (70,98,101,106))
 OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (89))
 OR (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (30))
@@ -2740,13 +2884,22 @@ OR (s.soorah_seq_no = 46 AND a.ayat_seq_no IN (34))
 OR (s.soorah_seq_no = 60 AND a.ayat_seq_no IN (2))
     );
 COMMIT;
-
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'نكفر'   
-AND ( (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (150,31))
+AND k.kalimah_text = 'تَكْفُرُونِ'  
+AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (152))
+    );
+COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'نَكْفُر'   
+AND ( (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (150))
 OR (s.soorah_seq_no = 34 AND a.ayat_seq_no IN (33))
     );
 COMMIT;
@@ -2756,7 +2909,7 @@ SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'يكْفر'   
-AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (99,121,256,271))
+AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (99,121,256))
 OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (19))
 OR (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (136,140))
 OR (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (5,115))
@@ -2765,12 +2918,6 @@ OR (s.soorah_seq_no = 11 AND a.ayat_seq_no IN (17))
 OR (s.soorah_seq_no = 18 AND a.ayat_seq_no IN (29))
 OR (s.soorah_seq_no = 29 AND a.ayat_seq_no IN (25))
 OR (s.soorah_seq_no = 43 AND a.ayat_seq_no IN (33))
-OR (s.soorah_seq_no = 8 AND a.ayat_seq_no IN (29))
-OR (s.soorah_seq_no = 39 AND a.ayat_seq_no IN (35))
-OR (s.soorah_seq_no = 48 AND a.ayat_seq_no IN (5))
-OR (s.soorah_seq_no = 64 AND a.ayat_seq_no IN (9))
-OR (s.soorah_seq_no = 65 AND a.ayat_seq_no IN (5))
-OR (s.soorah_seq_no = 66 AND a.ayat_seq_no IN (8))
     );
 COMMIT;
 
@@ -2806,16 +2953,7 @@ OR (s.soorah_seq_no = 30 AND a.ayat_seq_no IN (51))
 OR (s.soorah_seq_no = 35 AND a.ayat_seq_no IN (14))
     );
 COMMIT;
-
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
-SELECT k.kalimaat_id, a.ayat_id
-FROM soorah s, ayat a, kalimaat k
-WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'ٱكْفُرْ'   
-AND ( (s.soorah_seq_no = 59 AND a.ayat_seq_no IN (16))
-    );
-COMMIT;
-
+-- 'ٱكْفُرْ'   
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2833,7 +2971,26 @@ AND k.kalimah_text = 'يُكْفَرُوهُ'
 AND ( (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (115))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كَفّر'
+AND ( (s.soorah_seq_no = 47 AND a.ayat_seq_no IN (2))
+OR (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (193))
+    );
+COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كَفَّرْنَا'
+AND ( (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (65))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2843,7 +3000,16 @@ AND ( (s.soorah_seq_no = 3 AND a.ayat_seq_no IN (195))
 OR (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (12))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'نُكَفِّرْ'  
+AND ( (s.soorah_seq_no = 4 AND a.ayat_seq_no IN (31))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -2852,7 +3018,22 @@ AND k.kalimah_text = 'لَنُكَفِّرَنَّ'
 AND ( (s.soorah_seq_no = 29 AND a.ayat_seq_no IN (7))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'يُكَفِّر'  
+AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (271))
+OR (s.soorah_seq_no = 8 AND a.ayat_seq_no IN (29))
+OR (s.soorah_seq_no = 39 AND a.ayat_seq_no IN (35))
+OR (s.soorah_seq_no = 48 AND a.ayat_seq_no IN (5))
+OR (s.soorah_seq_no = 64 AND a.ayat_seq_no IN (9))
+OR (s.soorah_seq_no = 65 AND a.ayat_seq_no IN (5))
+OR (s.soorah_seq_no = 66 AND a.ayat_seq_no IN (8))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -3039,13 +3220,21 @@ OR (s.soorah_seq_no = 9 AND a.ayat_seq_no IN (68,73,120,123))
 OR (s.soorah_seq_no = 13 AND a.ayat_seq_no IN (42))
 OR (s.soorah_seq_no = 47 AND a.ayat_seq_no IN (34))
 OR (s.soorah_seq_no = 48 AND a.ayat_seq_no IN (29))
-OR (s.soorah_seq_no = 57 AND a.ayat_seq_no IN (20))
 OR (s.soorah_seq_no = 60 AND a.ayat_seq_no IN (10,11,13))
 OR (s.soorah_seq_no = 66 AND a.ayat_seq_no IN (9))
 OR (s.soorah_seq_no = 83 AND a.ayat_seq_no IN (34,36))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'الكُفَّار'    
+AND ( (s.soorah_seq_no = 57 AND a.ayat_seq_no IN (20))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -3087,10 +3276,9 @@ INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'كفُورًا'  
-AND ( (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (89,99,27,67))
+AND k.kalimah_text = 'كُفُورًا'  
+AND ( (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (89,99))
 OR (s.soorah_seq_no = 25 AND a.ayat_seq_no IN (50))
-OR (s.soorah_seq_no = 76 AND a.ayat_seq_no IN (3,24))
     );
 COMMIT;
 
@@ -3108,7 +3296,17 @@ OR (s.soorah_seq_no = 42 AND a.ayat_seq_no IN (48))
 OR (s.soorah_seq_no = 43 AND a.ayat_seq_no IN (15))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كَفُورًا' 
+AND ( (s.soorah_seq_no = 17 AND a.ayat_seq_no IN (27,67))
+OR (s.soorah_seq_no = 76 AND a.ayat_seq_no IN (3,24))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -3116,11 +3314,19 @@ WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'كَفَّار'   
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (276))
 OR (s.soorah_seq_no = 14 AND a.ayat_seq_no IN (34))
-OR (s.soorah_seq_no = 39 AND a.ayat_seq_no IN (3))
+    );
+COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كَفّار'
+AND ( (s.soorah_seq_no = 39 AND a.ayat_seq_no IN (3))
 OR (s.soorah_seq_no = 50 AND a.ayat_seq_no IN (24))
     );
 COMMIT;
-
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -3667,20 +3873,28 @@ OR (s.soorah_seq_no = 23 AND a.ayat_seq_no IN (100))
 OR (s.soorah_seq_no = 26 AND a.ayat_seq_no IN (15,62))
 OR (s.soorah_seq_no = 34 AND a.ayat_seq_no IN (27))
 OR (s.soorah_seq_no = 70 AND a.ayat_seq_no IN (15,39))
-OR (s.soorah_seq_no = 74 AND a.ayat_seq_no IN (16,32,53,54))
+OR (s.soorah_seq_no = 74 AND a.ayat_seq_no IN (16,53))
+    );
+COMMIT;
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'كَلّا'    
+AND ( (s.soorah_seq_no = 74 AND a.ayat_seq_no IN (32,54))
 OR (s.soorah_seq_no = 75 AND a.ayat_seq_no IN (11,20,26))
 OR (s.soorah_seq_no = 78 AND a.ayat_seq_no IN (4,5))
-OR (s.soorah_seq_no = 80 AND a.ayat_seq_no IN (11))
-OR (s.soorah_seq_no = 80 AND a.ayat_seq_no IN (23))
+OR (s.soorah_seq_no = 80 AND a.ayat_seq_no IN (11,23))
 OR (s.soorah_seq_no = 82 AND a.ayat_seq_no IN (9))
 OR (s.soorah_seq_no = 83 AND a.ayat_seq_no IN (7,14,15,18))
 OR (s.soorah_seq_no = 89 AND a.ayat_seq_no IN (17,21))
 OR (s.soorah_seq_no = 96 AND a.ayat_seq_no IN (6,15,19))
 OR (s.soorah_seq_no = 102 AND a.ayat_seq_no IN (3,4,5))
-OR (s.soorah_seq_no = 104 AND a.ayat_seq_no IN (1))
+OR (s.soorah_seq_no = 104 AND a.ayat_seq_no IN (4))
     );
 COMMIT;
-
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -5117,13 +5331,23 @@ FROM soorah s, ayat a, kalimaat k
 WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'مَكَانًا'   
 AND ( (s.soorah_seq_no = 5 AND a.ayat_seq_no IN (60))
-OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (77))
-OR (s.soorah_seq_no = 19 AND a.ayat_seq_no IN (16,22,57,75))
+OR (s.soorah_seq_no = 19 AND a.ayat_seq_no IN (16,22))
 OR (s.soorah_seq_no = 20 AND a.ayat_seq_no IN (58))
-OR (s.soorah_seq_no = 25 AND a.ayat_seq_no IN (13,34))
+OR (s.soorah_seq_no = 25 AND a.ayat_seq_no IN (13))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'مَكَانَا'  
+AND ( (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (77))
+OR (s.soorah_seq_no = 19 AND a.ayat_seq_no IN (57,75))
+OR (s.soorah_seq_no = 25 AND a.ayat_seq_no IN (34))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -5140,10 +5364,18 @@ WHERE s.soorah_id = a.soorah_id
 AND k.kalimah_text = 'مَكَانَهُ'    
 AND ( (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (143))
 OR (s.soorah_seq_no = 12 AND a.ayat_seq_no IN (78))
-OR (s.soorah_seq_no = 28 AND a.ayat_seq_no IN (82))
     );
 COMMIT;
-
+--
+INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
+SELECT k.kalimaat_id, a.ayat_id
+FROM soorah s, ayat a, kalimaat k
+WHERE s.soorah_id = a.soorah_id
+AND k.kalimah_text = 'مَكَانَه'  
+AND ( (s.soorah_seq_no = 28 AND a.ayat_seq_no IN (82))
+    );
+COMMIT;
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
