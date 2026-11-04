@@ -70,7 +70,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */ 
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ك' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ل' ORDER BY root_letter_seq_no;
 
 SELECT root_letter_text, num_ayaat, ayatsize
 FROM vw_root_ayat_count_for_vol 
@@ -103,7 +103,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'ك'
+AND a.alphabet_text = 'ل'
 --AND r.root_letter_text IN ('ا','ب','ت','ث','ج','ح','د','ذ','ر','ز','س','ش','ص','ط','ع','ف','ق','ك','ل','م','ن','ه','و','ى')
 GROUP BY r.root_letter_text
 ORDER BY 1;
@@ -161,8 +161,8 @@ AND a.alphabet_text = 'ش'
 AND r.root_letter_text = 'ش';
 
 
-select * from arabic_alphabet where alphabet_text = 'ت';
-select * from root_letter where arabic_alphabet_id = 3 order by root_letter_seq_no;
+select * from arabic_alphabet where alphabet_text = 'ل';
+select * from root_letter where arabic_alphabet_id = 23 order by root_letter_seq_no;
 
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k
@@ -260,12 +260,12 @@ where kalimaat_id = 1190
  order by root_letter_seq_no,kalimah_seq_no, soorah_seq_no, ayat_seq_no;
 
 SELECT * FROM kalimaat 
-WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ك ف ر')
+WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ل م م')
 order by kalimah_seq_no;
 SELECT * FROM root_letter WHERE arabic_alphabet_id = 2 ORDER BY root_letter_seq_no;
 SELECT * FROM root_letter WHERE root_letter_text = 'ح';--
 SELECT * FROM kalimaat 
-WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ق ب ل')
+WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ل')
 --ORDER BY kalimah_text;
 ORDER BY kalimah_seq_no;
 
@@ -275,19 +275,23 @@ select * from kalimaat where kalimah_text IN ('يَسْتَغِيثُوا');
 --'ك ت ب'
 UPDATE kalimaat
 SET kalimah_seq_no = kalimah_seq_no - 1
-WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ش')
+WHERE root_letter_id IN (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ل')
 AND kalimah_seq_no >= 12
 --and kalimah_text <> 'أَيْدٍ'
 ;
 COMMIT;
 
 UPDATE kalimaat
-SET kalimah_seq_no = 16.6
-WHERE kalimah_text = 'يُقْضَى';
+SET kalimah_seq_no = 18
+WHERE kalimah_text = 'لَيْتَنَا';
 --
 UPDATE kalimaat
-SET kalimah_text = 'نَكْفُر'
-WHERE kalimah_text = 'نكفر'
+SET root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ل')
+WHERE kalimah_text IN ('لَيْتَ','لَيْتَنَا','لَيْتَنِى','لَيْتَهَا');
+--
+UPDATE kalimaat
+SET kalimah_text = 'أَلْقَى'
+WHERE kalimah_text = 'ألْقى'
 ;
 COMMIT;
 
@@ -299,12 +303,12 @@ WHERE kalimah_text IN ('قَارُون');
 COMMIT;
 ---------------------------------------------------------
 DELETE kalimaat
-WHERE kalimah_text in ('نُكَفِّرْ') 
+WHERE kalimah_text in ('لِسَانِ') 
 --and root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'غ ى ث')
 ;
 COMMIT;
 BEGIN
-  prc_fixseq('ك و ن');
+  prc_fixseq('ل و ت');
   COMMIT;
 END;
 /
@@ -317,13 +321,14 @@ select kalimaat_id from kalimaat where kalimah_text = 'كَفرْنَا';
 select count(*) from kalimaat_ayat_xref where kalimaat_id = (select kalimaat_id 
 from kalimaat where kalimah_text = 'حُكْمًا');
 UPDATE kalimaat_ayat_xref
-SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'مَكَانَه'  )
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'مَكَانَهُ')
+SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أُلْقِى')
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أُلْقِىَ')
 AND AYAT_ID in (select a.ayat_id 
                 from ayat a, soorah s 
                 WHERE a.soorah_id = s.soorah_id 
                 AND (
-                 (s.soorah_seq_no = 28 AND a.ayat_seq_no IN (82))
+                 (s.soorah_seq_no = 43 AND a.ayat_seq_no IN (53))
+OR (s.soorah_seq_no = 54 AND a.ayat_seq_no IN (25))
 ));
 COMMIT;
 --

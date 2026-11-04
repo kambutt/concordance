@@ -201,7 +201,6 @@ COMMIT;
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'أُهِلَّ', root_letter_id FROM root_letter WHERE root_letter_text ='ه ل ل';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'الْأَهِلَّة', root_letter_id FROM root_letter WHERE root_letter_text ='ه ل ل';
 COMMIT;
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'هَلُمَّ', root_letter_id FROM root_letter WHERE root_letter_text ='ه ل م';
 --ه م د
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'هَامِدَةً', root_letter_id FROM root_letter WHERE root_letter_text ='ه م د';
 COMMIT;

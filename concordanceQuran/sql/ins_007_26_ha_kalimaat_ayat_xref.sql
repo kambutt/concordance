@@ -1650,17 +1650,7 @@ AND k.kalimah_text = 'الْأَهِلَّة'
 AND ( (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (189))
     );
 COMMIT;
-
-INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
-SELECT k.kalimaat_id, a.ayat_id
-FROM soorah s, ayat a, kalimaat k
-WHERE s.soorah_id = a.soorah_id
-AND k.kalimah_text = 'هَلُمَّ'    
-AND ( (s.soorah_seq_no = 6 AND a.ayat_seq_no IN (150))
-OR (s.soorah_seq_no = 33 AND a.ayat_seq_no IN (18))
-    );
-COMMIT;
-
+--
 INSERT INTO kalimaat_ayat_xref (kalimaat_id, ayat_id)
 SELECT k.kalimaat_id, a.ayat_id
 FROM soorah s, ayat a, kalimaat k

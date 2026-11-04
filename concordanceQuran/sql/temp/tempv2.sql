@@ -45,8 +45,9 @@ select r.root_letter_text,
 from kalimaat k,
      root_letter r
 where k.root_letter_id = r.root_letter_id
-  and r.root_letter_text = 'ك ى ن'
+  and r.root_letter_text = 'ل ى ن'
 order by 5;
+
 --
 select r.root_letter_text,
       r.core_meaning,
@@ -62,7 +63,7 @@ from kalimaat k,
 where k.root_letter_id = r.root_letter_id
   and k.kalimaat_id(+) = ksx.kalimaat_id
   and s.subject_id(+) = ksx.subject_id
-  and r.root_letter_text = 'ك ى ن'
+  and r.root_letter_text = 'ل ى ن'
   --and s.subject_text_u = 'بات'
 --order by 4,3;
 order by 3,4;
@@ -70,8 +71,8 @@ order by 3,4;
 
 --'بنانا'
 UPDATE root_letter
-SET core_meaning = 'عاجزی'
-WHERE root_letter_text = 'ك ى ن'
+SET core_meaning = 'نرم'
+WHERE root_letter_text = 'ل ى ن'
 ;
 --
 COMMIT;
@@ -103,8 +104,8 @@ order by 1, length(subject_id) desc
 select *
 from subject
 where 1!=1
-  or subject_text_u in ('عاجزی','انکسار')
-  OR subject_text_e in ('Humility')
+  or subject_text_u in ('نرم')
+  OR subject_text_e in ('Aversion')
   or subject_text_u like '%x%'
 order by 1;
 
@@ -116,9 +117,9 @@ VALUES ('قافلہ','Caravan');
 rollback;
 --
 UPDATE subject
-SET subject_text_u = 'عاجزی',
-    subject_text_e = 'Humility'
-WHERE subject_text_u = 'عاجزی';
+SET subject_text_u = 'ملامت',
+    subject_text_e = 'Reproach'
+WHERE subject_text_u = 'اسم: ذوالنون';
 COMMIT;
 --
 DELETE FROM subject
@@ -127,59 +128,60 @@ WHERE subject_text_u IN ('معاہدہ');
 COMMIT;
 rollback;
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, (SELECT subject_id FROM subject WHERE subject_text_u = 'عاجزی')
+SELECT kalimaat_id, (SELECT subject_id FROM subject WHERE subject_text_u = 'نرم')
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ك ى ن'
-  --AND k.kalimaat_id IN (SELECT kalimaat_id FROM kalimaat WHERE kalimah_text IN ('مَكَان','مَكَانًا','مَكَانَتِهِمْ','مَكَانَكُمْ','مَكَانَهُ'))
+  AND r.root_letter_text = 'ل ى ن'
+  --AND k.kalimaat_id IN (SELECT kalimaat_id FROM kalimaat WHERE kalimah_text IN ('لَوَّوْا'))
   ;
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, (SELECT subject_id FROM subject WHERE subject_text_u = 'درجہ')
+SELECT kalimaat_id, (SELECT subject_id FROM subject WHERE subject_text_u = 'مڑنا')
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ك و ن'
-  AND k.kalimaat_id IN (SELECT kalimaat_id FROM kalimaat WHERE kalimah_text IN ('مَكَانَتِكُمْ','مَكَانَا','مَكَانَه'))
+  AND r.root_letter_text = 'ل و ى'
+  AND k.kalimaat_id IN (SELECT kalimaat_id FROM kalimaat WHERE kalimah_text IN ('تَلْوُونَ'))
   ;
 --
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, (SELECT subject_id FROM subject WHERE subject_text_u = 'ہو')
+SELECT kalimaat_id, (SELECT subject_id FROM subject WHERE subject_text_u = 'بگاڑ')
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ك و ن'
-  AND k.kalimaat_id NOT IN (SELECT kalimaat_id FROM kalimaat WHERE kalimah_text IN ('مَكَان','مَكَانًا','مَكَانَتِهِمْ','مَكَانَكُمْ','مَكَانَهُ','مَكَانَتِكُمْ','مَكَانَا','مَكَانَه'))
+  AND r.root_letter_text = 'ل و ى'
+  AND k.kalimaat_id NOT IN (SELECT kalimaat_id FROM kalimaat WHERE kalimah_text IN ('لَوَّوْا','تَلْوُونَ'))
   ;
 --  
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, (SELECT subject_id FROM subject WHERE subject_text_u = 'پناہ گاہ')
+SELECT kalimaat_id, (SELECT subject_id FROM subject WHERE subject_text_u = 'ملنا')
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ك ن ن'
-  AND k.kalimaat_id IN (SELECT kalimaat_id FROM kalimaat WHERE kalimah_text IN ('أَكْنَانًا'))
+  AND r.root_letter_text = 'ل ق ى'
+  AND k.kalimaat_id IN (SELECT kalimaat_id FROM kalimaat WHERE kalimah_text IN ('تَتَلَقَّاهُمُ','تَلَقَّوْنَهُ','فَتلقى','لَاقِيهِ','لَتُلَقَّى','لَقِينَا','يَتَلَقَّى','يَلْقَ','يُلَقَّاهَا','يَلْقَوْنَ'))
   ;
 --
 INSERT INTO kalimaat_subject_XREF (kalimaat_id, subject_id)
-SELECT kalimaat_id, (SELECT subject_id FROM subject WHERE subject_text_u = 'ناشکری')
+SELECT kalimaat_id, (SELECT subject_id FROM subject WHERE subject_text_u = 'ملاقات')
 FROM kalimaat k,
      root_letter r
 WHERE k.root_letter_id = r.root_letter_id
-  AND r.root_letter_text = 'ك ف ر'
-  AND k.kalimaat_id IN (SELECT kalimaat_id FROM kalimaat WHERE kalimah_text IN ('أَكْفَرَهُ','أَكْفُرُ','كَفُور','كَفَّار','تَكْفُرُونِ','كَفَرْتُم','كَفُورًا','كفر'))
+  AND r.root_letter_text = 'ل ق ى'
+  AND k.kalimaat_id IN (SELECT kalimaat_id FROM kalimaat WHERE kalimah_text IN ('ٱلْتَقَتَا','ٱلْتَقَى','ٱلْتَقَيْتُمْ','التَّلَاقِ','تَلْقَوْهُ','لَقُوا','لَقُوكُمْ','لَقِيَا','لَقِيتُم',
+  'لِقَاء','لِقَاءَنَا','لِقَائِهِ','مُلَاقٍ','مُلَاقُوا','مُلَاقُوهُ','مُلَاقِيكُمْ','مُلَاقِيهِ','يَلْتَقِيَانِ','يَلْقَاهُ','يَلْقَوْنَهُ','يُلَاقُوا','يُلَقَّوْنَ'))
   ;
 --
   Update kalimaat_subject_xref
-  set subject_id = (SELECT subject_id FROM subject WHERE subject_text_u = 'تقریباً')
+  set subject_id = (SELECT subject_id FROM subject WHERE subject_text_u = 'ملاقات')
   where kalimaat_id IN (SELECT kalimaat_id
                           FROM kalimaat k,
                                root_letter r
                         WHERE k.root_letter_id = r.root_letter_id
-                        AND r.root_letter_text = 'ك و د'
+                        AND r.root_letter_text = 'ب ش ر'
                         --AND k.kalimaat_id IN (13283)
                       )
-and subject_id = (SELECT subject_id FROM subject WHERE subject_text_u = 'عنقریب')
+and subject_id = (SELECT subject_id FROM subject WHERE subject_text_u = 'ملنا')
 ;
 DELETE kalimaat_subject_xref
 WHERE kalimaat_id IN (SELECT kalimaat_id FROM kalimaat 
