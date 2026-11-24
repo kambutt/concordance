@@ -2,22 +2,27 @@
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'مَأْجُوج', root_letter_id FROM root_letter WHERE root_letter_text ='م';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'مَارُوتَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'مَتَى', root_letter_id FROM root_letter WHERE root_letter_text ='م'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'مُحَمَّدٌ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'الْمَرْوَةَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'مَرْيَم', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'مَعَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'مَعَكَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'مَعَكُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'مَعَكُمَا', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'مَعَنَا', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'مَعَهُ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'مَعَهَا', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 'مَعَهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 'مَعِىَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'مَكَّةَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'مِيكَالَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'مَهْمَا', root_letter_id FROM root_letter WHERE root_letter_text ='م';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'مُوسَى', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'مَدْيَنَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'مُحَمَّدٌ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'الْمَرْوَةَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'مَرْيَم', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'الْمَسِيح', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'مَعَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'مَعَكَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'مَعَكُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'مَعَكُمَا', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'مَعَنَا', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 'مَعَهُ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 'مَعَهَا', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'مَعَهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'مَعِىَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'مَكَّةَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'مَنَاةَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 'مُوسَى', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 21, 'مَهْمَا', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 'مِيكَالَ', root_letter_id FROM root_letter WHERE root_letter_text ='م';
+
+
 COMMIT; 
 --م ا ى
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'مِائَة', root_letter_id FROM root_letter WHERE root_letter_text ='م ا ى'; 
@@ -58,20 +63,27 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'مثل', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'مِثْلكُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'مِثْلنَا', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'مثله', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'مِثْله', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'مِثْلهَا', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'مثلهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'مِثْلهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'مِثْلَهُنَّ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'مِثْلَيْهَا', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'مِثْلَيْهِمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'مَثَلًا', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'الْأَمْثَال', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 'أَمْثَالُكُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 'أَمْثَالهَا', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'أَمْثَالَهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'الْمَثُلَاتِ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'الْمُثْلَى', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'التَّمَاثِيل', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'مَثَل', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 'مَثلُ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 'مَثَلٍ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 'مثَلُ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'مَثَلًا', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'مَثَلا', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'مَثَلُهُ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'مَثَلُهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 'الْأَمْثَال', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 21, 'أَمْثَالُكُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 'أَمْثَالهَا', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 23, 'أَمْثَالَهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 24, 'الْمَثُلَاتِ', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 25, 'الْمُثْلَى', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 26, 'التَّمَاثِيل', root_letter_id FROM root_letter WHERE root_letter_text ='م ث ل'; 
 COMMIT;
 --م ج د
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'الْمَجِيد', root_letter_id FROM root_letter WHERE root_letter_text ='م ج د'; 
@@ -131,8 +143,8 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 24, 
 COMMIT;
 --م د ن
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'الْمَدِينَة', root_letter_id FROM root_letter WHERE root_letter_text ='م د ن'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'الْمَدَائِنِ', root_letter_id FROM root_letter WHERE root_letter_text ='م د ن';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'مَدْيَنَ', root_letter_id FROM root_letter WHERE root_letter_text ='م د ن';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'الْمَدِينَةِ', root_letter_id FROM root_letter WHERE root_letter_text ='م د ن'; 
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'الْمَدَائِنِ', root_letter_id FROM root_letter WHERE root_letter_text ='م د ن';
 COMMIT;
 --م ر ا
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'مَرِيئًا', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا'; 
@@ -141,11 +153,12 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, '
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 4, 'ٱمْرُؤٌ', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا'; 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 5, 'ٱمْرِىٍٔ', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 6, 'ٱمْرَأَة', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'ٱمْرَأَتَكَ', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'ٱمْرَأَته', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'ٱمْرَأَتِى', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'ٱمْرَأَتَانِ', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'ٱمْرَأَتَيْنِ', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 7, 'ٱمْرأَة', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 8, 'ٱمْرَأَتَكَ', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا'; 
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 9, 'ٱمْرَأَته', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 10, 'ٱمْرَأَتِى', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 11, 'ٱمْرَأَتَانِ', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا'; 
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 12, 'ٱمْرَأَتَيْنِ', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ا';
 COMMIT;
 --م ر ج
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'مَرَجَ', root_letter_id FROM root_letter WHERE root_letter_text ='م ر ج'; 
@@ -214,7 +227,6 @@ COMMIT;
 --م س ح
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'ٱمْسَحُوا', root_letter_id FROM root_letter WHERE root_letter_text ='م س ح'; 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'مَسْحًا', root_letter_id FROM root_letter WHERE root_letter_text ='م س ح';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 3, 'الْمَسِيح', root_letter_id FROM root_letter WHERE root_letter_text ='م س ح';
 COMMIT;
 --م س خ
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'لَمَسَخْنَاهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م س خ'; 
@@ -248,7 +260,7 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 23, 'يَمَسُّهُ', root_letter_id FROM root_letter WHERE root_letter_text ='م س س';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 24, 'يَمَسُّهُم', root_letter_id FROM root_letter WHERE root_letter_text ='م س س'; 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 25, 'يَتَمَاسًا', root_letter_id FROM root_letter WHERE root_letter_text ='م س س';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 26, 'الْمَسّ', root_letter_id FROM root_letter WHERE root_letter_text ='م س س';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 26, 'مَسِّ', root_letter_id FROM root_letter WHERE root_letter_text ='م س س'; 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 27, 'مِسَاسَ', root_letter_id FROM root_letter WHERE root_letter_text ='م س س';
 COMMIT;
 --م س ك
@@ -318,7 +330,6 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, '
 COMMIT;
 --م ع ن
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'الْمَاعُونَ', root_letter_id FROM root_letter WHERE root_letter_text ='م ع ن'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 2, 'مَعِينِ', root_letter_id FROM root_letter WHERE root_letter_text ='م ع ن';
 COMMIT;
 --م ع ى
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'أمْعَاءَهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ع ى';
@@ -396,15 +407,16 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 13, 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 'الْمُلُوكَ', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 'مُلُوكًا', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك'; 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'مَالِك', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'مَالِكُونَ', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'مَلِيكٍ', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'مَمْلُوكًا', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 'مَلَكُوت', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 21, 'مَلَك', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 'مَلَكًا', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 23, 'الْمَلَكَيْنِ', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 24, 'الْمَلَائِكَة', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك'; 
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 25, 'مَلَائِكَته', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'مَالِكُ', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'مَالِكُونَ', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 19, 'مَلِيكٍ', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك'; 
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 20, 'مَمْلُوكًا', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 21, 'مَلَكُوت', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 22, 'مَلَك', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك'; 
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 23, 'مَلَكًا', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 24, 'الْمَلَكَيْنِ', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 25, 'الْمَلَائِكَة', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك'; 
+INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 26, 'مَلَائِكَته', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ك';
 COMMIT;
 --م ل ل
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'يُمِلَ', root_letter_id FROM root_letter WHERE root_letter_text ='م ل ل'; 
@@ -467,7 +479,6 @@ INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 14, 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 15, 'أَمَانِيِّكُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ن ى';
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 16, 'أَمَانِيُّهُمْ', root_letter_id FROM root_letter WHERE root_letter_text ='م ن ى'; 
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 17, 'مَنِىٍّ', root_letter_id FROM root_letter WHERE root_letter_text ='م ن ى';
-INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 18, 'مَنَاةَ', root_letter_id FROM root_letter WHERE root_letter_text ='م ن ى';
 COMMIT;
 --م ه د
 INSERT INTO kalimaat (kalimah_seq_no, kalimah_text, root_letter_id ) SELECT 1, 'يَمْهَدُونَ', root_letter_id FROM root_letter WHERE root_letter_text ='م ه د'; 

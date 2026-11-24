@@ -70,7 +70,7 @@ GROUP BY
     root_letter_text, kalimah_text,prev_value;
 /*  Get volume count */ 
 SELECT root_letter_text, num_ayaat, ayatsize
-FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'ل' ORDER BY root_letter_seq_no;
+FROM vw_root_ayat_count_for_vol WHERE alphabet_text = 'م' ORDER BY root_letter_seq_no;
 
 SELECT root_letter_text, num_ayaat, ayatsize
 FROM vw_root_ayat_count_for_vol 
@@ -103,7 +103,7 @@ FROM kalimaat k,
      arabic_alphabet a
 WHERE k.root_letter_id = r.root_letter_id
 AND a.arabic_alphabet_id = r.arabic_alphabet_id
-AND a.alphabet_text = 'ل'
+AND a.alphabet_text = 'م'
 --AND r.root_letter_text IN ('ا','ب','ت','ث','ج','ح','د','ذ','ر','ز','س','ش','ص','ط','ع','ف','ق','ك','ل','م','ن','ه','و','ى')
 GROUP BY r.root_letter_text
 ORDER BY 1;
@@ -282,16 +282,16 @@ AND kalimah_seq_no >= 12
 COMMIT;
 
 UPDATE kalimaat
-SET kalimah_seq_no = 18
-WHERE kalimah_text = 'لَيْتَنَا';
+SET kalimah_seq_no = 19.7
+WHERE kalimah_text = 'مَهْمَا';
 --
 UPDATE kalimaat
-SET root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'ل')
-WHERE kalimah_text IN ('لَيْتَ','لَيْتَنَا','لَيْتَنِى','لَيْتَهَا');
+SET root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'م')
+WHERE kalimah_text IN ('مَنَاةَ');
 --
 UPDATE kalimaat
-SET kalimah_text = 'أَلْقَى'
-WHERE kalimah_text = 'ألْقى'
+SET kalimah_text = 'مِثْلهُمْ'
+WHERE kalimah_text = 'مثلهُمْ'
 ;
 COMMIT;
 
@@ -303,12 +303,12 @@ WHERE kalimah_text IN ('قَارُون');
 COMMIT;
 ---------------------------------------------------------
 DELETE kalimaat
-WHERE kalimah_text in ('لِسَانِ') 
+WHERE kalimah_text in ('مَالِكُ') 
 --and root_letter_id = (SELECT root_letter_id FROM root_letter WHERE root_letter_text = 'غ ى ث')
 ;
 COMMIT;
 BEGIN
-  prc_fixseq('ل و ت');
+  prc_fixseq('م');
   COMMIT;
 END;
 /
@@ -321,14 +321,13 @@ select kalimaat_id from kalimaat where kalimah_text = 'كَفرْنَا';
 select count(*) from kalimaat_ayat_xref where kalimaat_id = (select kalimaat_id 
 from kalimaat where kalimah_text = 'حُكْمًا');
 UPDATE kalimaat_ayat_xref
-SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أُلْقِى')
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'أُلْقِىَ')
+SET  kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'مَنَّ')
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'الْمَن')
 AND AYAT_ID in (select a.ayat_id 
                 from ayat a, soorah s 
                 WHERE a.soorah_id = s.soorah_id 
                 AND (
-                 (s.soorah_seq_no = 43 AND a.ayat_seq_no IN (53))
-OR (s.soorah_seq_no = 54 AND a.ayat_seq_no IN (25))
+                 (s.soorah_seq_no = 2 AND a.ayat_seq_no IN (264))
 ));
 COMMIT;
 --
@@ -347,14 +346,15 @@ ROLLBACK;
 
 --delete wrong association
 DELETE kalimaat_ayat_xref
-WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'ٱلْقَوْم') 
+WHERE kalimaat_id = (select kalimaat_id from kalimaat where kalimah_text = 'مَعِينِ') 
 and ayat_id IN (select a.ayat_id 
                 from ayat a, soorah s 
                 WHERE a.soorah_id = s.soorah_id 
                 AND (
-                  (s.soorah_seq_no = 7 AND a.ayat_seq_no IN (93))
-                  or (s.soorah_seq_no = 11 AND a.ayat_seq_no IN (89))
-                  or (s.soorah_seq_no = 61 AND a.ayat_seq_no IN (5))
+                  (s.soorah_seq_no = 23 AND a.ayat_seq_no IN (50))
+OR (s.soorah_seq_no = 37 AND a.ayat_seq_no IN (45))
+OR (s.soorah_seq_no = 56 AND a.ayat_seq_no IN (18))
+OR (s.soorah_seq_no = 67 AND a.ayat_seq_no IN (30))
                 ))
 ;
 COMMIT;
